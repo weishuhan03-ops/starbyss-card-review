@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow"><meta name="theme-color" content="#15181b">
+<title>方块试战台｜星渊逃逸</title>
+<style>
+:root{color-scheme:dark;--bg:#15181b;--ink:#f6f4ed;--mut:#b0b6b7;--panel:#20252a;--edge:#424950;--accent:#eed59c;--ice:#92d2f3;--spark:#f1d679;--fire:#ffaf97;--poison:#b2de9f}
+*{box-sizing:border-box}body{background:var(--bg);color:var(--ink);margin:0;font-family:system-ui,-apple-system,"Microsoft YaHei",sans-serif;line-height:1.55}main,header>div{max-width:1120px;margin:auto;padding:0 22px}header{border-bottom:1px solid var(--edge)}header>div{min-height:61px;display:flex;justify-content:space-between;align-items:center;gap:.7rem;flex-wrap:wrap;padding-top:8px;padding-bottom:8px}a{color:var(--accent)}header span,.eyebrow{font-size:.73rem;letter-spacing:.12em;color:var(--mut)}header nav{display:flex;gap:14px;flex-wrap:wrap;font-size:.85rem}
+h1,h2,p{margin:0}h1{font-size:clamp(2rem,6.5vw,3.45rem);line-height:1.12;margin:.22em 0;letter-spacing:.04em}h2{font-size:.82rem;color:var(--mut);letter-spacing:.11em;margin:0 0 .65rem}button{border:1px solid var(--edge);background:#252b31;color:var(--ink);font:inherit;border-radius:6px;padding:.42rem .62rem;cursor:pointer}button:hover:not(:disabled),button.active{border-color:var(--accent);color:var(--accent);background:#353127}button:disabled{cursor:default;color:var(--mut)}button:focus-visible,a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.roomline{display:flex;justify-content:space-between;gap:20px;align-items:end;margin:23px 0 14px}.roomline p,.mute,.unit small,.echo small,.log p{color:var(--mut);font-size:.84rem}.roomchoices>div,.workbar,.seg,.echo,.actionline>div{display:flex;gap:6px;align-items:center;flex-wrap:wrap}.roomchoices button,.seg button,.reset,.mini,.echo button{font-size:.79rem}.workbar{border-top:1px solid var(--edge);padding:10px 0;gap:14px}.workbar .reset{margin-left:auto}
+.arena{display:flex;justify-content:space-between;gap:13px;align-items:start;padding:16px;background:var(--panel);border:1px solid var(--edge);border-radius:8px}.team,.enemies{display:flex;gap:8px;flex-wrap:wrap}.unit{background:#171b1f;border:1px solid var(--edge);border-radius:7px;min-height:138px;min-width:118px;padding:9px;display:flex;flex-direction:column;align-items:flex-start;text-align:left;gap:4px;line-height:1.35}.unit b{font-size:.94rem}.unit.foe{min-width:134px}.unit.select{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent)}.unit.empty{border-style:dashed}.unit.empty .shape{opacity:.28}.shape{height:28px;width:28px;display:block;margin:1px 0;background:#8fbbb6;border-radius:3px}.shadow .shape{background:#a2a1e6}.lantern .shape{background:var(--accent);width:22px;height:31px}.lantern.ice .shape{background:var(--ice)}.lantern.spark .shape{background:var(--spark)}.lantern.fire .shape{background:var(--fire)}.foe .shape{background:#c28677;width:35px;height:25px}.foe .shape.boss{width:56px;height:31px}.foe:disabled:not(.select){opacity:.62}.hp{font-size:.94rem;font-weight:730;font-variant-numeric:tabular-nums}.bar{height:4px;background:#394248;width:100%;border-radius:2px;overflow:hidden}.bar i{height:100%;display:block;background:#8fbbb6}.shadow .bar i{background:#a2a1e6}.foe .bar i{background:#e19a87}.intent{font-size:.8rem;color:#ffb9a4;padding:.1rem 0}.badges{display:flex;gap:3px;flex-wrap:wrap;max-width:180px}.badge{font-size:.69rem;padding:1px 4px;border-radius:3px;background:#2c343c;color:var(--ink)}.badge.ice{color:var(--ice)}.badge.fire{color:var(--fire)}.badge.spark{color:var(--spark)}.badge.poison{color:var(--poison)}.badge.ghost{color:#c6b2ff}.badge.tether{color:#e4c3a1}.mini{margin-top:3px}.echo{margin-top:9px;font-size:.79rem;color:var(--mut)}
+.actionline{display:flex;justify-content:space-between;align-items:center;gap:6px;padding:10px 0;border-bottom:1px solid var(--edge)}.actionline span{font-size:.82rem;color:var(--mut)}.actionline>div{gap:9px}.ap{font-variant-numeric:tabular-nums;color:var(--accent);white-space:nowrap}.primary{background:var(--accent);color:#212124;font-weight:760;border-color:var(--accent)}.hand,.log,details{margin:17px 0}.hand h2,.log h2{margin-bottom:3px}.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(152px,1fr));gap:8px;margin-top:10px}.card{display:flex;flex-direction:column;align-items:stretch;text-align:left;gap:5px;min-height:98px;border-top:3px solid #8fbbb6}.card span{display:flex;align-items:baseline;justify-content:space-between;gap:3px}.card b{font-size:.9rem}.card strong,.card small,.card em{font-size:.73rem}.card strong{white-space:nowrap;color:var(--accent)}.card em{font-style:normal;color:var(--mut)}.card.ice{border-top-color:var(--ice)}.card.spark{border-top-color:var(--spark)}.card.fire{border-top-color:var(--fire)}.card.poison{border-top-color:var(--poison)}.card[disabled]{opacity:.67}.log ol{padding-left:1.4rem;font-size:.84rem;max-height:175px;overflow:auto;color:var(--mut)}details{border-top:1px solid var(--edge);padding:12px 0 28px;font-size:.83rem;color:var(--mut)}summary{cursor:pointer;color:var(--ink)}details li{margin:5px 0}
+@media(max-width:730px){main,header>div{padding-left:14px;padding-right:14px}.roomline{align-items:start;flex-direction:column;gap:10px}.arena{flex-wrap:wrap;padding:10px}.arena>.side:last-child{flex-basis:100%;border-top:1px solid var(--edge);padding-top:8px}.unit,.unit.foe{min-width:99px;min-height:111px;padding:6px}.unit b{font-size:.84rem}.hp{font-size:.86rem}.shape{height:21px;width:21px}.foe .shape,.lantern .shape{height:20px}.team,.enemies{gap:5px}.arena{gap:7px}.echo{max-width:224px}.actionline{align-items:start}.cards{grid-template-columns:repeat(2,minmax(0,1fr))}.workbar{gap:6px}.roomchoices button{padding:.3rem .4rem}.actionline>div:last-child{justify-content:end}.card{min-height:90px}}
+</style></head>
+<body><header><div><div><b>星渊逃逸</b> <span>PLAYTEST 01</span></div><nav aria-label="同站页面"><a href="index.html">卡牌核对册</a><a href="card-library.html">卡面工作台</a></nav></div></header>
+<main><div id="lab" aria-label="方块试战台"></div><noscript>本试战台需要启用 JavaScript。</noscript>
+<details><summary>这是机制原型 · 数值和参考</summary><ul>
+<li>所有 HP、伤害和牌序都是试验值，不是正式 Godot 数据。三个房间可单独重开；按「下一关」才会带着剩余 HP 继续。</li>
+<li>冰、电、火共用一个敌方元素位；毒、绊索和剑士鬼火各自独立。已成的冻结等下一次攻击才移除。</li>
+<li><a href="https://store.steampowered.com/news/posts/?appids=646570&amp;enddate=1542327142&amp;feed=steam_community_announcements">《杀戮尖塔》开发更新</a>：借敌人出招前的意图提示，冻结或减伤时更新数字。</li>
+<li><a href="https://store.steampowered.com/app/1811990/Wildfrost/">《Wildfrost》官方页</a>：借独立单位和自动行动提示。这里不引入站位挡线。</li>
+<li><a href="https://store.steampowered.com/app/2742830/Monster_Train_2/">《Monster Train 2》官方页</a>：借增益挂在单位上的可读性。瞄准显示在本体或影子块上，不再二次选人。</li>
+<li><a href="https://www.youtube.com/watch?v=YwxWqmvc7Dk">《流放之路 2》弓手官方演示</a>：借「先铺、后兑现」的技能联动，用灯铺冰、下一支箭补冻结；也能先挂电标，再用箭兑现。</li>
+</ul></details></main>
+<script>
+
+const C={
+ ice:['冰箭',1,'4 伤害，叠 1 层寒霜。','冰','arrow'],
+ spark:['电箭',1,'4 伤害，留电标；下张箭命中 +2。','电','arrow'],
+ fire:['火箭',1,'4 伤害，下一／再下次敌回合烧 2／1。','火','arrow'],
+ dual:['二连射',1,'3 × 2，射灯时第一发点冰灯，第二发打选中的怪。','冰','arrow'],
+ poison:['毒刺箭',1,'3 伤害，叠 2 毒。','毒','arrow'],
+ tether:['绊索箭',1,'4 伤害；该怪下次攻击前给你 3 格挡。','','arrow'],
+ tug:['回扯',1,'得 3 格挡，若选中有绊索的怪，收索再得 3。','','skill'],
+ thorn:['生棘',1,'得 5 格挡；下次被攻击时给攻击者 1 毒。','','skill'],
+ guard:['格挡',1,'得 6 格挡。','','skill'],
+ lantern:['抛灯',1,'把灯抛到空中，再点灯块用元素箭射它。','','skill'],
+ mist:['拨雾',1,'提前触发剩下的一次灯域，无额外收益。','','skill'],
+ glow:['余晖',1,'得 4 格挡，提前触发剩下的一次灯域。','','skill'],
+ widen:['扩灯',1,'让剩余一次灯域影响所有活怪，仍照常结算。','','skill'],
+ shadow:['唤影',1,'召出 3 HP 影子，最多撑过本轮和下轮。','','skill'],
+ fortify:['固影',1,'影子最大及当前 HP 各 +2；最多到 7 HP。','','skill'],
+ intercept:['掩身',1,'得 4 格挡；下次攻击由影子按剩余 HP 先扛。','','skill'],
+ light:['轻影',1,'本回合接下来两次轻射免加费，每次少 3 直伤。','','skill'],
+ steel:['大剑平斩',1,'打 7。基础剑术，不依赖元素。','','sword'],
+ frostCut:['霜刃',1,'打 5，叠 1 层寒霜。','冰','sword'],
+ emberCut:['烬刃',1,'打 5，附加两跳燃烧。','火','sword'],
+ heavy:['重斩',2,'打 13，直接消耗目标最多 4 点格挡。','','sword'],
+ parry:['剑脊格挡',1,'得 7 格挡。','','skill'],
+ feed:['引鬼火',1,'得 5 格挡，自己加 2 层鬼火。','','skill'],
+ zeal:['抱火重斩',2,'打 10，上回合烧掉每 1 自己血时再加 2，最多 +6。','','sword'],
+ brand:['烙痕斩',1,'打 5，给敌人加 2 层鬼火。','','sword'],
+ reap:['收焰',2,'打 8，可收掉敌人体内全部鬼火，每层加 2。','','sword']
+};
+const SET={
+ archer:['lantern','ice','dual','shadow','fire','guard','spark','light','mist','guard','ice','tether','fire','glow','fortify','thorn','poison','intercept','tug','widen','spark','guard','dual','poison'],
+ sword:['steel','frostCut','emberCut','parry','feed','zeal','brand','heavy','parry','reap','steel','guard','frostCut','emberCut','brand','parry','heavy','guard']
+};
+const ROOMS=[
+ {name:'倾倒石层',kind:'普通房',hint:'单怪：试点灯、瞄准和基础出牌。',e:[['巡壳甲虫',24,[['攻',6],['守',4],['攻',8]]]]},
+ {name:'蜕壳地',kind:'双怪房',hint:'双怪：试随机铺状态、绊索和影子挡伤。',e:[['背风甲虫',24,[['攻',5],['守',4],['攻',7]]],['活石守卫',32,[['蓄',0],['攻',12],['攻',7]]]]},
+ {name:'合脊',kind:'Boss 房',hint:'Boss：霜免跳过行动，改为下一次攻击总伤害 -4。',e:[['合脊巨岩',78,[['攻',10],['守',7],['攻',17],['蓄',0],['连',7]]]]}
+];
+let s;
+function log(t){s.log.unshift('R'+s.round+' · '+t);s.log=s.log.slice(0,18)}
+function alive(){return s.enemies.filter(e=>e.hp>0)}
+function target(){return alive().find(e=>e.id===s.target)}
+function draw(){
+  s.hand=s.deck.splice(0,6);
+  if(s.hand.length<6){s.deck.push(...s.discard.splice(0));s.hand.push(...s.deck.splice(0,6-s.hand.length))}
+}
+function reset(role='archer',room=0,lab=false,hp=null){
+  const max=role==='archer'?56:62;
+  s={role,room,lab,hp:hp==null?max:Math.min(max,hp),max,phase:'fight',round:1,ap:3,block:0,aim:0,shadow:null,intercept:false,thorn:false,echo:'off',light:0,uses:0,lamp:null,target:'e0',lastEnemy:'e0',deck:SET[role].slice(),hand:[],discard:[],log:[],seq:0,roll:1907,ownGhost:0,paidGhost:0,peakShadow:0,dealt:0,
+    enemies:ROOMS[room].e.map((r,i)=>({id:'e'+i,name:r[0],hp:r[1],max:r[1],moves:r[2],cursor:0,block:0,frost:0,frozen:false,spark:0,burn:0,poison:0,tether:false,ghost:0,boss:room===2}))
+  };draw();log('进入 '+ROOMS[room].name);
+}
+function finish(){
+ if(s.hp<=0){s.phase='lost';log('试战失败');return true}
+ if(!alive().length){s.phase=s.room===2?'won':'clear';log(s.room===2?'Boss 已击败':'房间已清理');return true}
+ if(s.target!=='lamp'&&!target())s.target=alive()[0].id;
+ return false
+}
+function phaseMsg(){return s.phase==='won'?'通关：Boss 已击败':s.phase==='clear'?'房间清理完成':s.phase==='lost'?'试战失败':'你的回合'}
+function advance(){if(s.phase==='clear')reset(s.role,s.room+1,s.lab,s.hp+8)}
+function intent(e){return e.moves[e.cursor%e.moves.length]}
+function hit(e,n,src,dot=false){
+  if(!e||e.hp<=0)return;
+  const b=dot?0:Math.min(e.block,n);e.block-=b;const loss=Math.min(e.hp,Math.max(0,n-b));e.hp-=loss;s.dealt+=loss;log(src+' → '+e.name+'：'+loss+' HP'+(b?' · 挡 '+b:''));
+  if(!e.hp)log(e.name+'倒下');
+}
+function applyEl(e,type,tag){
+ if(!e||!e.hp)return;
+ if(type==='冰'){
+   e.spark=0;e.burn=0;
+   if(!e.frozen&&++e.frost===3){e.frost=0;e.frozen=true;log(e.name+(e.boss?' · 霜裂（下次攻击 -4）':' · 冻结（跳过下次攻击）'))}
+ } else if(type==='电'){e.frost=0;e.burn=0;e.spark=tag;}
+ else if(type==='火'){e.frost=0;e.spark=0;e.burn=2;}
+}
+function pulse(){
+ if(!s.lamp||s.lamp.mode!=='lit'||!s.lamp.left || !alive().length)return false;
+ const l=s.lamp, a=alive();
+ s.roll=(s.roll*48271)%2147483647;
+ const picks=l.wide?a:[a[s.roll%a.length]];
+ const id=++s.seq; for(const e of picks)applyEl(e,l.type,id);
+ log(l.type+'域 → '+picks.map(e=>e.name).join('、'));
+ l.wide=false;
+ if(--l.left===0){s.lamp=null;if(s.target==='lamp')s.target=alive().some(e=>e.id===s.lastEnemy)?s.lastEnemy:a[0].id;log('灯自动收回')}
+ return true
+}
+function aim(unit){
+ if(s.phase!=='fight'||!s.ap)return false;
+ const obj=unit==='shadow'?s.shadow:s;
+ if(!obj||obj.aim)return false;
+ s.ap--;obj.aim=1;log((unit==='shadow'?'影子':'本体')+'挂上瞄准 +2（1 AP）');return true
+}
+function arrow(e,id,base,tag,unit=s,proc={used:false}){
+ const p=C[id], type=p[3];
+ if(!e||!e.hp)return;
+ let n=base;
+ if(unit.aim){n+=2;unit.aim=0}
+ if(e.spark && e.spark!==tag&&!proc.used){e.spark=0;n+=2;proc.used=true;log('兑现电标 +2')}
+ hit(e,n,(unit===s?'':'影 · ')+p[0]);
+ if(['冰','电','火'].includes(type))applyEl(e,type,tag);
+ if(e.hp>0&&id==='poison')e.poison=Math.min(4,e.poison+2);
+ if(e.hp>0&&id==='tether')e.tether=true;
+}
+function details(id){
+ const p=C[id];if(!SET[s.role].includes(id))return {why:'非该角色牌'};
+ const targeting=['arrow','sword'].includes(p[4]);
+ const lamp=!!(targeting&&s.target==='lamp'&&s.lamp&&p[4]==='arrow');
+ const foe=lamp?(alive().find(e=>e.id===s.lastEnemy)||alive()[0]):target();
+ const mirror=p[4]==='arrow'&&s.shadow&&s.echo!=='off'&&s.uses<2&&(!lamp||id==='dual');
+ const mode=mirror?s.echo:'off';
+ const extra=mirror?((mode==='light'&&s.light>0)?0:1):0;
+ const cost=p[1]+extra;
+ let why='';
+ if(s.phase!=='fight')why='房间已结束';
+ else if(lamp&&!['冰','电','火'].includes(p[3]))why='灯只接冰、电、火箭';
+ else if(targeting&&!foe)why='请先点敌人';
+ else if(['mist','glow','widen'].includes(id)&&!(s.lamp&&s.lamp.mode==='lit'&&s.lamp.left))why='先点亮灯';
+ else if(id==='widen'&&s.lamp.wide)why='已扩灯';
+ else if(id==='lantern'&&s.lamp)why='场上已有灯';
+ else if(id==='shadow'&&s.shadow)why='场上已有影子';
+ else if(['fortify','intercept','light'].includes(id)&&!s.shadow)why='需要影子在场';
+ else if(id==='fortify'&&s.shadow.max>=7)why='已达到 7 HP';
+ else if(id==='intercept'&&s.intercept)why='已经设置分伤';
+ else if(id==='light'&&(s.light>0||s.uses>=2))why='轻影已启用或复射达到上限';
+ else if(s.ap<cost)why='AP 不足';
+ return {why,cost,foe,lamp,mode}
+}
+function play(id){
+ const d=details(id);
+ if(d.why||(!s.lab&&!s.hand.includes(id)))return false;
+ const p=C[id], e=d.foe, tag=++s.seq; s.ap-=d.cost;
+ if(!s.lab){s.hand.splice(s.hand.indexOf(id),1);s.discard.push(id)}
+ log(p[0]+'（'+d.cost+' AP）');
+ if(p[4]==='arrow'){
+   const pro={used:false};const direct=id==='dual'?3:id==='poison'?3:4;
+   if(d.lamp){
+     if(s.lamp.mode==='air'){s.lamp={mode:'lit',type:p[3],left:2,wide:false};pulse()}
+     else {s.lamp.type=p[3];log('灯切换到'+p[3]+'域，次数不变')}
+   }
+   const shots=id==='dual'?(d.lamp?1:2):(d.lamp?0:1);
+   for(let i=0;i<shots;i++)arrow(e,id,direct,tag,s,pro);
+   if(d.mode!=='off'&&shots){
+     s.uses++;
+     const lite=d.mode==='light'&&s.light>0;
+     if(lite)s.light--;
+     for(let i=0;i<shots;i++)arrow(e,id,Math.max(0,direct-(lite&&i===0?3:0)),tag,s.shadow,pro);
+   }
+ } else if(p[4]==='sword'){
+   let n=({steel:7,frostCut:5,emberCut:5,heavy:13,zeal:10,brand:5,reap:8})[id];
+   if(s.aim){n+=2;s.aim=0}
+   if(id==='heavy')e.block=Math.max(0,e.block-4);
+   if(id==='zeal')n+=Math.min(6,2*s.paidGhost);
+   if(id==='reap'){n+=2*e.ghost;e.ghost=0}
+   hit(e,n,p[0]);
+   if(p[3])applyEl(e,p[3],tag);
+   if(id==='brand'&&e.hp)e.ghost=Math.min(3,e.ghost+2);
+ } else switch(id){
+  case 'guard':s.block+=6;break;
+  case 'parry':s.block+=7;break;
+  case 'feed':s.block+=5;s.ownGhost=Math.min(3,s.ownGhost+2);break;
+  case 'tug':s.block+=3;if(e&&e.tether){e.tether=false;s.block+=3}break;
+  case 'thorn':s.block+=5;s.thorn=true;break;
+  case 'lantern':s.lamp={mode:'air',left:0};break;
+  case 'mist':pulse();break;
+  case 'glow':s.block+=4;pulse();break;
+  case 'widen':s.lamp.wide=true;break;
+  case 'shadow':s.shadow={hp:3,max:3,aim:0,until:s.round+1};s.peakShadow=Math.max(3,s.peakShadow);break;
+  case 'fortify':{const n=Math.min(2,7-s.shadow.max);s.shadow.max+=n;s.shadow.hp+=n;s.peakShadow=Math.max(s.peakShadow,s.shadow.max);break}
+  case 'intercept':s.block+=4;s.intercept=true;break;
+  case 'light':s.light=2;s.echo='light';break;
+ }
+ finish();return true
+}
+function receive(raw){
+ let n=raw;
+ if(s.intercept&&s.shadow&&n){
+   s.intercept=false;
+   const taken=Math.min(n,s.shadow.hp);s.shadow.hp-=taken;n-=taken;log('影子分伤 '+taken+'，剩 '+s.shadow.hp+' HP');
+   if(s.shadow.hp<=0){s.shadow=null;s.echo='off';log('影子消散')}
+ }
+ const b=Math.min(n,s.block);s.block-=b;
+ s.hp=Math.max(0,s.hp-(n-b));log('本体受击：'+(n-b)+' HP'+(b?' · 格挡 '+b:''));
+}
+function endTurn(){
+ if(s.phase!=='fight')return false;
+ if(s.lamp&&s.lamp.mode==='air'){s.lamp=null;log('未点亮，灯落回');if(s.target==='lamp')s.target=s.lastEnemy}
+ for(const e of alive()){
+  e.block=0;
+  if(e.burn)hit(e,e.burn--,'燃烧',true);
+  if(e.poison&&e.hp)hit(e,e.poison--,'毒',true);
+  if(e.ghost&&e.hp)hit(e,e.ghost--,'鬼火',true);
+  if(!e.hp)continue;
+  const [k,n]=intent(e);e.cursor++;
+  if(k==='守'){e.block=n;log(e.name+' · 格挡 '+n);continue}
+  if(k==='蓄'){log(e.name+' · 蓄势');continue}
+  if(e.frozen&&!e.boss){e.frozen=false;log(e.name+' · 冻结，跳过攻击');continue}
+  const weak=e.frozen&&e.boss?4:0;e.frozen=false;
+  if(e.tether){e.tether=false;s.block+=3;log('绊索触发 +3 格挡')}
+  receive(Math.max(0,n-weak));if(s.hp<=0)break;
+  if(k==='连')receive(n);
+  if(s.thorn){s.thorn=false;e.poison=Math.min(4,e.poison+1);log('生棘 → '+e.name+' · 毒 +1')}
+  if(s.hp<=0)break
+ }
+ if(finish())return true;
+ if(s.shadow&&s.shadow.until<=s.round){s.shadow=null;s.echo='off';log('影子到期消散')}
+ s.round++;s.ap=3;s.block=0;s.uses=0;s.light=0;s.intercept=false;s.thorn=false;if(s.echo==='light')s.echo='off';
+ s.paidGhost=s.ownGhost;
+ if(s.ownGhost){s.hp=Math.max(0,s.hp-s.ownGhost);log('自身鬼火 −'+s.ownGhost+' HP');s.ownGhost--}
+ s.discard.push(...s.hand.splice(0));draw();
+ if(!finish()&&s.lamp&&s.lamp.mode==='lit')pulse();
+ finish();return true
+}
+
+const $=q=>document.querySelector(q),root=$('#lab');
+const ra=(a,b)=>Math.round(a*100/b);
+const live=()=>s.phase==='fight';
+const bar=(cur,max)=>'<div class="bar" aria-hidden="true"><i style="width:'+ra(cur,max)+'%"></i></div>';
+const mk=(label,act,off=false,cls='')=>'<button class="'+cls+'" type="button" data-act="'+act+'" '+(off?'disabled':'')+'>'+label+'</button>';
+function badge(t,c=''){return '<span class="badge '+c+'">'+t+'</span>'}
+function enemyMarkup(e){
+ const [k,n]=intent(e),acts=e.hp?(k==='攻' || k==='连')?(e.frozen&&!e.boss?'冻结 · 本次不攻击':k==='连'?(e.frozen?(n-4)+' + '+n:n+' × 2')+' 伤害':'攻击 '+Math.max(0,n-(e.frozen?4:0))+' 伤害'):k==='守'?'格挡 +'+n:'蓄势 · 本回合无伤害':'已倒下';
+ const st=[e.block?badge('护甲 '+e.block):'',e.frozen?badge(e.boss?'霜裂':'冻结','ice'):e.frost?badge('寒霜 '+e.frost+'/3','ice'):'',e.spark?badge('电标 +2','spark'):'',e.burn?badge('燃烧 '+e.burn,'fire'):'',e.poison?badge('中毒 '+e.poison,'poison'):'',e.tether?badge('绊索','tether'):'',e.ghost?badge('鬼火 '+e.ghost,'ghost'):''].join('');
+ return '<button type="button" data-act="target:'+e.id+'" class="unit foe '+(s.target===e.id?'select':'')+'" '+(!e.hp||!live()?'disabled':'')+'><span class="shape '+(e.boss?'boss':'')+'"></span><b>'+e.name+'</b><span class="hp">'+e.hp+' / '+e.max+' HP</span>'+bar(e.hp,e.max)+'<span class="intent" title="敌方意图">'+acts+'</span><span class="badges">'+st+'</span></button>';
+}
+function aimButton(unit, obj){
+  return mk(obj.aim?'已挂瞄准 · 下次 +2':'瞄准 +2 · 1 AP','aim:'+unit,!live()||!s.ap||!!obj.aim,'mini');
+}
+function cardMarkup(id){
+ const p=C[id],d=details(id);
+ const col=({'冰':'ice','电':'spark','火':'fire','毒':'poison'})[p[3]]||'';
+ return '<button type="button" class="card '+col+'" data-act="play:'+id+'" '+(d.why?'disabled':'')+'><span><b>'+p[0]+'</b><strong>'+d.cost+' AP</strong></span><small>'+p[2]+'</small>'+(d.why?'<em>'+d.why+'</em>':d.mode!=='off'?'<em>'+(d.mode==='light'&&s.light>0?'轻射随行':'多打一发 · +1 AP')+'</em>':'')+'</button>';
+}
+function render(){
+ const r=ROOMS[s.room];
+ const focus=s.target==='lamp'&&s.lamp?'引路灯':target()?.name||'无';
+ const l=s.lamp;
+ const num=(n)=>String(n).padStart(2,'0');
+ let cards=(s.lab?[...new Set(SET[s.role])]:s.hand).map(cardMarkup).join('');
+ if(!cards)cards='<p class="mute">手牌已用完，结束回合即可抽牌。</p>';
+ root.innerHTML=
+ '<section class="roomline"><div><span class="eyebrow">ROOM '+num(s.room+1)+' ／ '+r.kind+'</span><h1>'+r.name+'</h1><p>'+r.hint+'</p></div><div class="roomchoices"><span class="eyebrow">换关练习 · 满血重开</span><div>'+ROOMS.map((q,i)=>mk(num(i+1)+' '+q.name,'room:'+i,false,i===s.room?'active':'')).join('')+'</div></div></section>'+
+ '<section class="workbar"><div class="seg">'+mk('弓手','role:archer',false,s.role==='archer'?'active':'')+mk('剑士','role:sword',false,s.role==='sword'?'active':'')+'</div><div class="seg">'+mk('实战手牌','mode:0',false,!s.lab?'active':'')+mk('全牌试验','mode:1',false,s.lab?'active':'')+'</div>'+mk('重开本关','reset',false,'reset')+'</section>'+
+ '<section class="arena" aria-label="战斗区"><div class="side"><h2>我方单位</h2><div class="team"><div class="unit self">'+ '<span class="shape"></span><b>'+(s.role==='archer'?'弓手本体':'剑士本体')+'</b><span class="hp">'+s.hp+' / '+s.max+' HP</span>'+bar(s.hp,s.max)+'<span class="badges">'+badge('格挡 '+s.block)+(s.ownGhost?badge('鬼火 '+s.ownGhost,'ghost'):'')+'</span>'+aimButton('self',s)+'</div>'+
+ (s.role==='archer'?'<div class="unit shadow '+(!s.shadow?'empty':'')+'"><span class="shape"></span><b>影子</b>'+(s.shadow?'<span class="hp">'+s.shadow.hp+' / '+s.shadow.max+' HP</span>'+bar(s.shadow.hp,s.shadow.max)+'<span class="badges">'+badge('剩 '+(s.shadow.until-s.round+1)+' 轮')+(s.intercept?badge('待分伤'):'')+'</span>'+aimButton('shadow',s.shadow):'<small>未召唤</small>')+'</div>':'')+'</div>'+
+ (s.role==='archer'&&s.shadow?'<div class="echo"><span>复射</span>'+mk('不跟','echo:off',!live(),s.echo==='off'?'active':'')+mk('全力 +1 AP','echo:full',!live(),s.echo==='full'?'active':'')+mk('轻影 ×'+s.light,'echo:light',!live()||!s.light,s.echo==='light'?'active':'')+'<small>本轮 '+s.uses+'/2</small></div>':'')+'</div>'+
+ (s.role==='archer'?'<div class="mid"><h2>场上道具</h2><button type="button" data-act="target:lamp" class="unit lantern '+(s.target==='lamp'?'select ':'')+(!l?'empty':l.mode==='lit'?({'冰':'ice','电':'spark','火':'fire'})[l.type]:'')+'" '+(!l||!live()?'disabled':'')+'><span class="shape"></span><b>引路灯</b><small>'+(l?(l.mode==='air'?'悬空 · 待点亮':l.type+'域 · 剩 '+l.left+' 次'+(l.wide?' · 全体':'')):'未抛灯')+'</small></button></div>':'')+
+ '<div class="side"><h2>敌方意图</h2><div class="enemies">'+s.enemies.map(enemyMarkup).join('')+'</div></div></section>'+
+ '<section class="actionline"><div><b>'+phaseMsg()+'</b><span>第 '+s.round+' 回合</span><span>目标：'+focus+'</span></div><div><b class="ap">'+s.ap+' / 3 AP</b>'+(s.phase==='clear'?mk('下一关 · 回 8 HP','next',false,'primary'):!live()?mk('再试一次','reset',false,'primary'):mk('结束回合','end',false,'primary'))+'</div></section>'+
+ '<section class="hand"><h2>'+(s.lab?'全牌试验 · 无抽弃限制':'本回合手牌 · '+s.hand.length+' 张')+'</h2><p class="mute">'+(s.lab?'所有试验卡常驻，同一张可重复出，但照常花 AP。':'固定测试牌序，每回合抽 6 张，结算后余牌弃置；牌库不足时循环弃牌。')+' 点单位换目标，瞄准直接在本体或影子上开启。</p><div class="cards">'+cards+'</div></section>'+
+ '<section class="log" aria-live="polite"><h2>结算记录</h2><p>本关已打 '+s.dealt+' 伤害'+(s.role==='archer'?' · 影子最高 '+s.peakShadow+' HP':'')+'</p><ol>'+s.log.map(x=>'<li>'+x+'</li>').join('')+'</ol></section>';
+}
+function dispatch(act){
+ const [kind,value]=act.split(':');
+ if(kind==='role')reset(value,s.room,s.lab);
+ else if(kind==='mode')reset(s.role,s.room,value==='1');
+ else if(kind==='room')reset(s.role,Number(value),s.lab);
+ else if(kind==='reset')reset(s.role,s.room,s.lab);
+ else if(kind==='target'&&live()){s.target=value;if(value!=='lamp')s.lastEnemy=value}
+ else if(kind==='echo'&&live())s.echo=value;
+ else if(kind==='aim')aim(value);
+ else if(kind==='play')play(value);
+ else if(kind==='next')advance();
+ else if(kind==='end')endTurn();
+ render();
+ if(kind==='aim'||kind==='echo'||kind==='target'){let b=root.querySelector('[data-act="'+act+'"]:not(:disabled)');if(b)b.focus({preventScroll:true})}
+}
+root.addEventListener('click',e=>{const b=e.target.closest('button[data-act]');if(b&&!b.disabled)dispatch(b.dataset.act)});
+reset();render();
+
+</script></body></html>
