@@ -1,9 +1,13 @@
-<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>方格试战台｜星渊逃逸</title>
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>弓手试战｜星渊逃逸</title>
 <style>
-:root{color-scheme:dark;--bg:#161615;--ink:#ece8d7;--mut:#b4b0a1;--edge:#4d4b42;--gold:#e7ce8f;--cyan:#a9d6d5;--red:#e9aaa2}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 system-ui,sans-serif}main{max-width:1080px;margin:0 auto;padding:22px 18px 40px}header,.row,.tools,.actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap}header{justify-content:space-between}a{color:var(--mut)}h1{font-size:clamp(24px,4vw,36px);margin:8px 0 4px}.kicker{color:var(--gold);font-size:12px;letter-spacing:.15em}.hint,small,summary{color:var(--mut)}button,select{font:inherit;color:var(--ink);background:#252520;border:1px solid var(--edge);border-radius:5px;padding:7px 11px;cursor:pointer}button:hover:not(:disabled),select:hover{border-color:var(--gold)}button:focus-visible,select:focus-visible{outline:2px solid var(--cyan);outline-offset:2px}button:disabled{opacity:.58;cursor:default}[aria-pressed=true],.primary{border-color:var(--gold);color:var(--gold)}.stages{padding:14px 0}.stages .tail{margin-left:auto}.board{position:relative;isolation:isolate;display:grid;grid-template-columns:repeat(7,1fr);grid-template-rows:repeat(3,1fr);width:100%;height:clamp(240px,34vw,340px);border:1px solid var(--edge);background-color:#20201c;background-image:linear-gradient(to right,#48463b 1px,transparent 1px),linear-gradient(to bottom,#48463b 1px,transparent 1px);background-size:calc(100% / 7) calc(100% / 3)}.board.lit{background-color:#253331}.tile{position:relative;align-self:center;justify-self:center;display:grid;place-items:center;width:min(66px,72%);height:auto;aspect-ratio:1;border:1px solid #fff4;box-shadow:0 4px 0 #0008;font-size:clamp(10px,1.45vw,14px);font-weight:650;line-height:1.25;text-align:center;padding:2px;border-radius:2px;color:#171715}.tile.hero{background:#d2be8e}.tile.shadow{background:#aa9bb3}.tile.lamp{background:#9cccc7}.tile.foe{background:#d2a097;opacity:1}.tile.foe.target{outline:2px solid var(--gold);outline-offset:4px}.tile.foe.dead{visibility:hidden}.tile.extra{outline:2px dashed var(--cyan);outline-offset:4px}.tag{position:absolute;left:50%;top:calc(100% + 7px);transform:translateX(-50%);width:max-content;max-width:150px;color:var(--ink);font:11px system-ui;text-shadow:0 1px 3px black;pointer-events:none}.tag.note{top:auto;bottom:calc(100% + 8px);color:var(--red)}.actions{margin:15px 0 10px}.actions .stretch{flex:1}.status{min-height:26px}.hand{display:grid;grid-template-columns:repeat(auto-fit,minmax(132px,1fr));gap:8px;margin-top:8px}.card{box-shadow:0 3px 0 #0007;min-height:103px;text-align:left;display:flex;flex-direction:column;padding:8px 10px}.card[aria-pressed=true]{transform:translateY(-3px);background:#383325}.card b{margin:2px 0 4px}.card .fee{color:var(--gold);font-size:12px}.card .desc{color:#d3cebd;font-size:12px}.pool{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px}.pool div{border:1px solid var(--edge);padding:8px}details{margin-top:16px}summary{cursor:pointer}li{margin:3px 0}#message{margin:.6em 0;color:var(--cyan)}#help{max-width:70ch}.seed{font-size:12px}.badge{color:var(--cyan)}@media(max-width:600px){main{padding:14px 10px 28px}.stages .tail{margin-left:0}.board{height:222px}.tag{font-size:9px}.hand{grid-template-columns:repeat(2,1fr)}.actions .stretch{min-width:90px}.tile{width:74%}.tile.foe{font-size:9px}.card{min-height:93px}}
-</style></head><body><main><header><span class="kicker">星渊逃逸 · PLAYTEST 04</span><a href="index.html">卡牌核对册</a></header><h1>方格试战台</h1><div id="app"></div><details><summary>查看全部 45 张牌</summary><div class="pool" id="pool"></div></details><details><summary>结算记录</summary><ol id="log"></ol></details></main>
+:root{color-scheme:dark;--bg:#17151d;--ink:#f0e8d9;--mut:#bcb3be;--edge:#504655;--gold:#e7c38d;--cyan:#a9d6d5;--red:#efaba0;--paper:#e9ddc0;--print:#291f27}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 50% 3%,#292330 0,var(--bg) 64%);color:var(--ink);font:15px/1.44 system-ui,sans-serif;min-height:100vh}main{max-width:1120px;margin:auto;padding:17px 24px 36px}header,.row,.tools,.actions,.steps{display:flex;gap:9px;align-items:center;flex-wrap:wrap}header{justify-content:space-between}a{color:var(--mut)}h1{font:700 clamp(24px,4vw,36px)/1.1 Georgia,serif;letter-spacing:.03em;margin:7px 0}.kicker{color:var(--gold);font:600 11px system-ui,sans-serif;letter-spacing:.18em}.hint,small,summary{color:var(--mut)}button,select{font:inherit;color:var(--ink);background:#2c2631;border:1px solid var(--edge);border-radius:5px;padding:7px 11px;cursor:pointer}button:hover:not(:disabled),select:hover{border-color:var(--gold)}button:focus-visible,select:focus-visible{outline:3px solid #bde8da;outline-offset:3px}button:disabled{opacity:.56;cursor:default}.stages [aria-pressed=true],.primary{border-color:var(--gold);color:var(--gold)}.stages{padding:10px 0}.stages .tail{margin-left:auto}.action-slim{font-size:12px}.status{min-height:29px;margin:0 0 7px}.status b{color:var(--gold)}.status select{padding:3px 6px}.badge{color:var(--cyan)}
+.arena{position:relative;isolation:isolate;display:grid;grid-template-columns:1fr .36fr 1.35fr;width:100%;height:clamp(292px,32vw,365px);padding:51px 27px 49px;overflow:hidden;border:1px solid #776673;background:#211d2a;box-shadow:inset 0 0 0 4px #16131b,0 9px 30px #09080d4f}.terrain{position:absolute;z-index:-2;inset:0;width:100%;height:100%;object-fit:cover}.field-glow{position:absolute;z-index:-1;inset:18% 1% 3%;background:radial-gradient(ellipse at 52% 67%,#aecfba62,transparent 66%);opacity:0;transition:opacity .25s}.lit .field-glow{opacity:1}.zone-zone{display:flex;align-items:end;justify-content:center;min-width:0;gap:1px}.foe-zone{align-items:end}.hero-zone{padding-left:10%}.unit{position:relative;display:flex;align-items:center;justify-content:center;flex-direction:column;width:min(100%,176px);min-width:0;height:100%;background:transparent;border:0;border-radius:0;color:var(--ink);padding:0;margin:0;transition:opacity .2s}.unit.foe{border:0}.unit.foe:disabled{opacity:1}.unit.foe.dead{opacity:.30;pointer-events:none}.unit .figure{width:100%;height:100%;max-height:205px;overflow:visible;filter:drop-shadow(2px 5px 2px #100d16);pointer-events:none}.lamp-unit .figure{width:84px}.shadow-unit .figure{filter:brightness(.65) saturate(.55) hue-rotate(38deg) drop-shadow(0 0 5px #c7a9e5);opacity:.74}.hero-zone:has(.shadow-unit) .unit{width:52%}.foe-zone .unit.boss{width:min(100%,224px)}.unit .name{font-weight:680;display:block;color:#f2e8dc;letter-spacing:.04em;white-space:nowrap;text-shadow:0 2px 4px #140f17}.unit .under{position:absolute;bottom:-31px;width:90%;min-width:58px;max-width:132px;text-align:center;line-height:1.15}.meter{display:block;width:100%;height:4px;border-radius:999px;background:#131018a0;margin:6px 0 4px;overflow:hidden}.meter i{display:block;height:100%;background:#f0b9a5;box-shadow:0 0 8px #e49d915c}.hero .meter i{background:#c9dbb7}.unit .numbers{font:11px system-ui,sans-serif;color:#eee4df;white-space:nowrap;text-shadow:0 1px 3px #120e16}.unit .intent{position:absolute;top:-29px;font-size:11px;font-weight:600;padding:4px 7px;border:1px solid #795f68;border-radius:4px;background:#291f2a;color:#f4d8cd;white-space:nowrap}.unit.target .figure{filter:drop-shadow(0 0 4px #e0b67c) drop-shadow(0 0 10px #c99d63a0)}.unit.target:hover .figure{transform:translateY(-3px)}.unit.target .under .name{color:#ffd89c}.target:after{content:"可攻击";position:absolute;bottom:-47px;padding:2px 5px;font-size:10px;color:#2a1c20;background:#e9c993;border-radius:2px;white-space:nowrap}.unit.first:after{content:"已选第一发";background:#a8d5d3}.arena.picking .unit.foe:not(.target){opacity:.45}.unit .float{position:absolute;top:40%;z-index:3;color:#ffead8;font:bold 25px Georgia,serif;text-shadow:0 2px 2px #190c13, 0 0 12px #c04436;animation:up .65s ease-out both;pointer-events:none}.arena .unit.dead .float{color:#fff}.unit .neutral{color:#d5e1d9}.steps{margin-top:10px;gap:6px;color:#e5ccac;min-height:32px}.step{font-size:12px}.steps .arrowhint{color:#b29b94}.steps .signal{color:#e9e6d8;font-size:13px}.actions{margin:9px 0 7px}.actions .stretch{flex:1;font-size:16px}.actions .end-action{background:#dfbf8b;color:#2d2228;font-weight:750}.ap-dots{color:var(--gold);letter-spacing:2px;margin-right:7px}.hand-title{margin-top:12px;justify-content:space-between}.hand{display:grid;grid-template-columns:repeat(auto-fit,minmax(125px,1fr));gap:8px;margin-top:8px}.card{position:relative;min-width:0;min-height:150px;text-align:left;display:flex;flex-direction:column;padding:0;border-radius:4px;background:var(--paper);color:var(--print);border:1px solid #9b806c;overflow:hidden;box-shadow:0 3px 0 #09080d}.card:disabled{opacity:.55}.card[aria-pressed=true]{transform:translateY(-5px);outline:2px solid var(--gold);border-color:#eed7a2;box-shadow:0 7px 12px #0c0814}.card .card-art{width:100%;display:flex;align-items:center;justify-content:center;height:50px;position:relative;color:#f4ddd1;background:repeating-linear-gradient(145deg,#f7ddd21d 0 1px,transparent 1px 6px),linear-gradient(115deg,#593940,#7b5054);border-bottom:1px solid #3a2934}.card.def .card-art{color:#e5f2da;background:repeating-linear-gradient(145deg,#e9ffdf1a 0 1px,transparent 1px 6px),linear-gradient(115deg,#324c4d,#557571)}.card.util .card-art{color:#f1e2be;background:repeating-linear-gradient(145deg,#fff9d21c 0 1px,transparent 1px 6px),linear-gradient(115deg,#514063,#6e587a)}.card .mark{width:39px;height:39px;filter:drop-shadow(0 2px 1px #1c1623)}.card .fee{position:absolute;left:7px;top:7px;display:grid;place-items:center;width:25px;height:25px;border-radius:50%;background:#1f1b26;color:#f5dfae;border:1px solid #dbc2a2;font-size:13px;font-weight:800}.card .type{position:absolute;right:6px;top:7px;color:#fff5dc;background:#251f29b0;padding:1px 4px;font-size:10px}.card .card-copy{padding:6px 8px 8px}.card b{display:block;margin-bottom:3px;font-size:14px}.card .desc{color:#3c2c34;font-size:11px;line-height:1.35;display:block}.card .desc strong{font-size:13px;color:#332028}.choices{background:#2b2633;border:1px solid var(--edge);padding:8px 10px}.pool{display:grid;grid-template-columns:repeat(auto-fit,minmax(205px,1fr));gap:8px;margin-top:9px}.pool div{border:1px solid var(--edge);padding:8px}details{margin-top:14px}summary{cursor:pointer}li{margin:3px 0}.seed{font-size:12px}.caption{font-size:12px;margin-top:9px}@keyframes up{from{opacity:1;transform:translateY(9px)}85%{opacity:1}to{opacity:.74;transform:translateY(-19px)}}@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+@media(max-width:700px){main{padding:12px 10px 28px}.stages .tail{margin-left:0}.arena{height:253px;padding:40px 8px 53px;grid-template-columns:1fr .3fr 1.33fr}.hero-zone{padding-left:0}.unit .name{font-size:11px}.unit .numbers{font-size:9px}.unit .intent{font-size:9px;padding:3px 4px}.lamp-unit .figure{width:58px}.hand{grid-template-columns:repeat(3,minmax(0,1fr))}.card{min-height:134px}.card .card-copy{padding:5px}.card b{font-size:12px}.card .desc{font-size:10px}.card .card-art{height:41px}.card .mark{width:30px;height:30px}.card .fee{width:19px;height:19px;left:3px;top:4px}.card .type{right:3px;top:3px}.card .desc strong{font-size:11px}.actions .stretch{min-width:85px}.actions button{padding:7px 7px;font-size:12px}}
+</style></head><body><main><header><span class="kicker">星渊逃逸 · PLAYTEST 05</span><a href="index.html">卡牌核对册</a></header><h1>弓手试战</h1><div id="app"></div><details><summary>查看 45 张牌与联动试验牌</summary><div class="pool" id="pool"></div></details><details><summary>结算记录</summary><ol id="log"></ol></details></main>
 <script>
 const CARDS = [{"id":1,"name":"直射","cost":1,"desc":"打 8。","kind":"攻","arrow":true,"el":"","once":false,"stage":0,"common":false},{"id":2,"name":"探路箭","cost":1,"desc":"打 6，抽 1。","kind":"攻","arrow":true,"el":"","once":false,"stage":0,"common":false},{"id":3,"name":"掩步","cost":1,"desc":"格挡 5，抽 1。","kind":"防","arrow":false,"el":"","once":false,"stage":0,"common":true},{"id":4,"name":"霜钉箭","cost":1,"desc":"打 7，叠 1 霜。","kind":"攻","arrow":true,"el":"冰","once":false,"stage":0,"common":false},{"id":5,"name":"穿壳击","cost":1,"desc":"先削最多 2 格挡，再打 7。","kind":"攻","arrow":false,"el":"电","once":false,"stage":0,"common":true},{"id":6,"name":"火星箭","cost":1,"desc":"打 6，挂 2 灼伤。","kind":"攻","arrow":true,"el":"火","once":false,"stage":0,"common":false},{"id":7,"name":"冷光术","cost":1,"desc":"打 8；打完手里没其他攻击牌，抽 1。","kind":"攻","arrow":false,"el":"","once":false,"stage":0,"common":true},{"id":8,"name":"整备","cost":0,"desc":"看牌库顶两张，选一张入手，另一张放底。每场一次。","kind":"功能","arrow":false,"el":"","once":true,"stage":0,"common":true},{"id":9,"name":"绊脚箭","cost":1,"desc":"打 7，目标下一次攻击少打 3。","kind":"攻","arrow":true,"el":"","once":false,"stage":0,"common":false},{"id":10,"name":"猎首箭","cost":1,"desc":"打 8；目标出牌前半血或以下，改打 12。","kind":"攻","arrow":true,"el":"","once":false,"stage":0,"common":false},{"id":11,"name":"碎霜箭","cost":1,"desc":"打 8；若目标至少 2 霜，消耗 2 霜再打 6。不叠霜、不染波。","kind":"攻","arrow":true,"el":"","once":false,"stage":1,"common":false},{"id":12,"name":"破壳符","cost":1,"desc":"先削最多 6 格挡，再打 6；削光原有格挡，抽 1。","kind":"攻","arrow":false,"el":"电","once":false,"stage":1,"common":true},{"id":13,"name":"取烬术","cost":1,"desc":"打 7，再立刻结算目标已有灼伤；灼伤击杀，抽 1。不自己挂灼伤。","kind":"攻","arrow":false,"el":"火","once":false,"stage":1,"common":true},{"id":14,"name":"追裂箭","cost":1,"desc":"打 8，击杀抽 1。","kind":"攻","arrow":true,"el":"","once":false,"stage":1,"common":false},{"id":15,"name":"回光","cost":1,"desc":"格挡 6；若灯还有波，立即打下一波并消耗这一次。","kind":"防","arrow":false,"el":"","once":false,"stage":1,"common":false},{"id":16,"name":"唤影","cost":1,"desc":"格挡 5，召 3 血影子；跟射按第 3 节。","kind":"防","arrow":false,"el":"","once":false,"stage":1,"common":false},{"id":17,"name":"回身步","cost":1,"desc":"格挡 6，留一张手牌到下回合。","kind":"功能","arrow":false,"el":"","once":false,"stage":1,"common":true},{"id":18,"name":"穿群射","cost":2,"desc":"两发各 9，可分别点怪，也可同打一个。算一张牌。","kind":"攻","arrow":true,"el":"","once":false,"stage":1,"common":false},{"id":19,"name":"蓄势箭","cost":1,"desc":"打 8；若用完本回合最后一费，抽 1 并把那张牌留到下回合。","kind":"攻","arrow":true,"el":"","once":false,"stage":1,"common":false},{"id":20,"name":"溢箭","cost":1,"desc":"打 8；击杀后把超出的伤害转给剩余血最低的敌人，只转一次。","kind":"攻","arrow":true,"el":"","once":false,"stage":1,"common":false},{"id":21,"name":"同鸣","cost":1,"desc":"打 8，立刻打完灯余下的波；终阶才会随最后一波显出真正的月光。每场一次。","kind":"攻","arrow":true,"el":"","once":true,"stage":2,"common":false},{"id":22,"name":"白昼断层","cost":2,"desc":"打 14；目标已冻结或带 Boss 霜裂，再全体打 6。每场一次。","kind":"攻","arrow":false,"el":"","once":true,"stage":2,"common":true},{"id":23,"name":"影返","cost":1,"desc":"格挡 7；有影子时，下次攻击先由它用自己的血挡，再还击 6；挡完消散也还击。","kind":"防","arrow":false,"el":"","once":false,"stage":2,"common":false},{"id":24,"name":"终猎","cost":2,"desc":"打 16，击杀返 1 费。每场一次。","kind":"攻","arrow":false,"el":"","once":true,"stage":2,"common":true},{"id":25,"name":"复弦","cost":1,"desc":"打 8；影子若本回合已经补射过，再射一次 8。不再触发任何补射。每场一次。","kind":"攻","arrow":true,"el":"","once":true,"stage":2,"common":false},{"id":26,"name":"返灯","cost":1,"desc":"格挡 6；上一波若击杀，下回合多一次开灯机会，照付 1 费。每场一次。高强度候选，首测不放。","kind":"功能","arrow":false,"el":"","once":true,"stage":2,"common":false},{"id":27,"name":"影迹箭","cost":1,"desc":"先打 7；没影子才召一个 1 血影子，这一箭本身不触发它。","kind":"攻","arrow":true,"el":"","once":false,"stage":0,"common":false},{"id":28,"name":"借光箭","cost":1,"desc":"打 6，抽 1；目标有霜或灼伤，改成顶两张选一张，另一张放底。","kind":"攻","arrow":true,"el":"","once":false,"stage":0,"common":false},{"id":29,"name":"遮身","cost":1,"desc":"格挡 6；有影子则再加 2 当前及最大生命，上限 7。","kind":"功能","arrow":false,"el":"","once":false,"stage":0,"common":true},{"id":30,"name":"退步射","cost":1,"desc":"打 6，格挡 3。","kind":"攻","arrow":true,"el":"","once":false,"stage":0,"common":false},{"id":31,"name":"夹缝箭","cost":1,"desc":"打 8；目标已有至少 2 霜，或本回合被打光过格挡，加 4。条件不叠加，不消耗霜。","kind":"攻","arrow":true,"el":"","once":false,"stage":1,"common":false},{"id":32,"name":"追响","cost":1,"desc":"打 7；若目标在这张牌以前已于本回合吃过至少两段伤害，抽 1。","kind":"攻","arrow":true,"el":"","once":false,"stage":1,"common":false},{"id":33,"name":"断尾","cost":1,"desc":"打 8；目标已冻结，或这一击击杀，得 4 格挡。只奖励一次。","kind":"攻","arrow":false,"el":"","once":false,"stage":1,"common":true},{"id":34,"name":"余温符","cost":1,"desc":"格挡 6；场上有带霜或灼伤的怪，再抽 1。","kind":"防","arrow":false,"el":"","once":false,"stage":1,"common":true},{"id":35,"name":"交叉火力","cost":2,"desc":"打 16；若主目标此前已在本回合受伤，再对另一只血最多的怪打 6。每场一次。","kind":"攻","arrow":true,"el":"","once":true,"stage":2,"common":false},{"id":36,"name":"收场","cost":1,"desc":"打 8；若出牌前已有两只怪在本回合倒下，返 1 费。每场一次。","kind":"攻","arrow":false,"el":"","once":true,"stage":2,"common":true},{"id":37,"name":"分裂箭","cost":1,"desc":"主箭打 5，副箭打另一只血最低的活怪 3；单怪则两段同打。只带出一次影子跟射。","kind":"攻","arrow":true,"el":"","once":false,"stage":0,"common":false},{"id":38,"name":"基础格挡","cost":1,"desc":"格挡 6。没有条件。","kind":"防","arrow":false,"el":"","once":false,"stage":0,"common":true},{"id":39,"name":"架弓","cost":1,"desc":"格挡 5。本轮第一次被攻击后再获得 3 格挡。额外格挡来不及挡第一下，专接后续攻击。","kind":"防","arrow":false,"el":"","once":false,"stage":0,"common":false},{"id":40,"name":"压阵","cost":1,"desc":"格挡 4；每个意图是攻击的敌人再给 2，最多共 8。","kind":"防","arrow":false,"el":"","once":false,"stage":0,"common":true},{"id":41,"name":"霜幕","cost":1,"desc":"格挡 5，给一只本轮准备攻击的敌人叠 1 霜；没攻击意图的目标也可单独打出拿格挡。","kind":"防","arrow":false,"el":"冰","once":false,"stage":1,"common":true},{"id":42,"name":"续守","cost":1,"desc":"格挡 6；下个玩家回合开始，再得 3 格挡。","kind":"防","arrow":false,"el":"","once":false,"stage":1,"common":true},{"id":43,"name":"反手箭","cost":1,"desc":"格挡 6；本轮第一次用格挡吸收伤害时，对攻击者还一箭 4。反击不算主动出牌，不触发跟射。","kind":"防","arrow":false,"el":"","once":false,"stage":1,"common":false},{"id":44,"name":"重防","cost":2,"desc":"格挡 14。专门挡重击，不要求手里还有别的防牌。","kind":"防","arrow":false,"el":"","once":false,"stage":1,"common":true},{"id":45,"name":"避锋","cost":1,"desc":"格挡 6；本轮第一次透过格挡的单段攻击伤害最多扣 5 血。每场一次，只限制那一段。","kind":"防","arrow":false,"el":"","once":true,"stage":2,"common":true}];
+CARDS.push({id:46,name:'裂光术',cost:1,desc:'打 8。下次武器攻击后，炸出 3 道各 4 伤的碎光，随机打活怪。若影子跟射，再多炸 1 道。至下回合结束，本场一次。',kind:'攻',arrow:false,el:'',once:true,stage:0,common:true,experimental:true});
 
  const Engine=(()=>{
 const byId=Object.fromEntries(CARDS.map(c=>[c.id,c]));
@@ -40,7 +44,7 @@ function offer(s){const m=clone(s);return [peak(m),peak(m)].filter(x=>x!==undefi
 function makeDeck(s){
  let out=[];
  for(const [kind,n] of [['攻',10],['防',6],['功能',2]]){
-  const available=CARDS.filter(c=>c.kind===kind&&c.stage<=s.stage);
+  const available=CARDS.filter(c=>!c.experimental&&c.kind===kind&&c.stage<=s.stage);
   const higher=available.filter(c=>c.stage===s.stage);
   const base=available.filter(c=>c.stage<s.stage);
   shuffle(s,higher);shuffle(s,base);
@@ -52,13 +56,29 @@ function makeDeck(s){
  }
  return shuffle(s,out)
 }
-function room(stage,seed,core='冰'){
- let s={stage,seed,rng:seed>>>0,hp:56,max:56,turn:1,ap:3,guard:0,deck:[],bin:[],hand:[],gone:[],used:[],enemies:STAGES[stage].spawns.map(enemy),lines:[],lamp:null,charges:1,core:stage?core:'无',shadow:null,last:-1,kills:0,waveKill:false,retain:[],afterGuard:0,counter:0,cap:false,carry:0,returnLamp:0,result:'',actions:0};
- s.deck=makeDeck(s);draw(s,6);log(s,'新开局：'+STAGES[stage].name);return s
+function room(stage,seed,core='冰',mode='lamp'){
+ let s={stage,seed,rng:seed>>>0,mode,burstRng:(seed^0x9e3779b9)>>>0,burst:0,hp:56,max:56,turn:1,ap:3,guard:0,deck:[],bin:[],hand:[],gone:[],used:[],enemies:STAGES[stage].spawns.map(enemy),lines:[],lamp:null,charges:1,core:stage?core:'无',shadow:null,last:-1,kills:0,waveKill:false,retain:[],afterGuard:0,counter:0,cap:false,carry:0,returnLamp:0,result:'',actions:0};
+ s.deck=makeDeck(s);draw(s,6);
+ if(mode!=='lamp'){
+  let i=s.hand.findIndex(id=>byId[id].kind==='攻'&&!byId[id].arrow);
+  if(i<0)i=s.hand.findIndex(id=>byId[id].kind==='攻');
+  if(i<0){const j=s.deck.findIndex(id=>byId[id].kind==='攻');if(j>=0){s.deck[j]=s.hand[0];i=0}}
+  s.hand[i<0?0:i]=46;
+  if(!s.hand.some(id=>id===16||id===27)){
+   const j=s.deck.findIndex(id=>id===16||id===27),id=j>=0?s.deck[j]:27;
+   let k=s.hand.findIndex(x=>x!==46&&byId[x].kind===byId[id].kind);
+   if(k<0){k=s.hand.findIndex(x=>x!==46);const t=s.deck.findIndex(x=>byId[x].kind===byId[id].kind);if(t>=0)[s.hand[k],s.deck[t]]=[s.deck[t],s.hand[k]]}
+   if(j>=0&&s.deck[j]===id)s.deck[j]=s.hand[k];
+   s.hand[k]=id;
+  }
+  if(!s.hand.some(id=>id!==27&&byId[id].arrow)){const j=s.deck.findIndex(id=>id!==27&&byId[id].arrow);if(j>=0){const k=s.hand.findIndex(id=>![16,27,46].includes(id));[s.hand[k],s.deck[j]]=[s.deck[j],s.hand[k]]}}
+ }
+ log(s,'新开局：'+STAGES[stage].name);return s
 }
 function lamp(s){
- if(s.result||s.ap<1||s.charges<1||s.lamp)return false;
- s.ap--;s.actions++;s.charges--;s.lamp={waves:2,el:''};
+ const cost=s.mode==='combo'?0:1;
+ if(s.mode==='burst'||s.result||s.ap<cost||s.charges<1||s.lamp)return false;
+ s.ap-=cost;s.actions++;s.charges--;s.lamp={waves:2,el:''};
  for(const e of live(s))dealt(s,e,8,'开灯');
  done(s);return true
 }
@@ -74,6 +94,7 @@ function wave(s){
 }
 function valid(s,c){return c&&!s.result&&s.hand.includes(c.id)&&s.ap>=c.cost&&(!c.once||!s.used.includes(c.id))}
 const needs=c=>c.kind==='攻'||c.id===41;
+const weapon=c=>c.arrow||[5,24,33,36].includes(c.id);
 function play(s,id,who=-1,arg={}){
  const c=byId[id];if(!valid(s,c))return false;
  let e=get(s,who);
@@ -131,9 +152,16 @@ function play(s,id,who=-1,arg={}){
  case 43:B(6);s.counter+=4;break;
  case 44:B(14);break;
  case 45:B(6);s.cap=true;break;
+ case 46:H(8);s.burst=s.turn+1;log(s,'裂光已附着 · 下一张武器牌会引爆');break;
  default:throw Error('Unimplemented card '+id)
  }
  if(echo&&s.shadow){s.shadow.shot=true;dealt(s,get(s,who)||low(live(s)),3,'影子跟射')}
+ if(weapon(c)&&s.burst>=s.turn){s.burst=0;
+  for(let j=0;j<(echo?4:3);j++){const living=live(s);if(!living.length)break;
+   s.burstRng=(Math.imul(s.burstRng,1664525)+1013904223)>>>0;
+   dealt(s,living[Math.floor(s.burstRng/4294967296*living.length)],4,'裂光爆裂');
+  }
+ }
  if(c.once)s.gone.push(id);else s.bin.push(id);
  done(s);return true
 }
@@ -160,7 +188,7 @@ function end(s){
  }
  if(done(s))return true;
  if(s.shadow?.until<=s.turn)s.shadow=null;
- s.turn++;s.ap=3;s.guard=s.carry;s.carry=0;s.cap=false;s.afterGuard=0;s.counter=0;s.kills=0;s.waveKill=false;
+ s.turn++;if(s.burst<s.turn)s.burst=0;s.ap=3;s.guard=s.carry;s.carry=0;s.cap=false;s.afterGuard=0;s.counter=0;s.kills=0;s.waveKill=false;
  if(s.shadow){s.shadow.shot=false;s.shadow.intercept=false}
  if(s.returnLamp){s.charges+=s.returnLamp;s.returnLamp=0}
  for(const e of live(s)){e.hits=0;e.broke=false}
@@ -168,65 +196,101 @@ function end(s){
  s.bin.push(...s.hand.splice(0));s.hand=s.retain.splice(0);draw(s,6);
  wave(s);done(s);return true
 }
-return {STAGES,byId,room,clone,live,move,play,end,lamp,offer,valid,needs,log}
+return {STAGES,byId,room,clone,live,move,play,end,lamp,offer,valid,needs,weapon,log}
 })();
 
- const A=document.querySelector('#app');
-const POOL=document.querySelector('#pool');
-const LOG=document.querySelector('#log');
+ const ART=(()=>{
+ const frame=(a)=>'<svg class="figure" viewBox="0 0 180 175" aria-hidden="true"><ellipse cx="93" cy="161" rx="64" ry="9" fill="#100e14" opacity=".72"/><g stroke="#211d28" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">'+a+'</g></svg>';
+ const archer=frame('<path d="M68 57Q52 71 50 116L29 153 75 146 87 123 125 151 105 101 109 76Z" fill="#655a70"/><path d="M62 77L49 121 35 146 61 139 80 111 76 74ZM101 87L111 128 124 147 104 140 92 117Z" fill="#3e354b"/><path d="M75 96L86 100 92 104 105 140 118 153 103 157 90 148 79 126 73 151 61 159 47 157 51 149 61 144 67 111Z" fill="#38313e"/><path d="M56 148L72 147M98 146L108 142" stroke="#b19a76" stroke-width="3"/><path d="M66 59Q82 52 101 59L109 83 92 100 70 111 62 97 65 77Z" fill="#e4ddcb"/><path d="M74 61L88 69 97 59 106 76 94 91 73 100 68 90Z" fill="#b9a78d"/><path d="M67 87L77 101 97 90 96 98 71 110Z" fill="#7b514b"/><path d="M74 62Q65 54 63 42L63 27 76 15 90 15 102 27 100 46 94 59 87 67Z" fill="#292333"/><path d="M66 32L64 52 78 70 96 59 104 39 95 27 84 28Z" fill="#42394c"/><path d="M65 28L63 16 74 22 77 8 84 16 94 5 94 21 106 16 100 33 87 27 75 31Z" fill="#d3b175"/><path d="M71 36L76 59 84 65M96 36L94 51 90 58" stroke="#71677d" stroke-width="2" fill="none"/><path d="M67 65L53 69 45 88 55 103 64 95 57 85 66 78M93 63L108 65 117 74 133 68 138 76 118 87 102 81Z" fill="#b89c77"/><path d="M48 85L55 84 62 92 58 99 52 100" stroke="#e4d5bb" stroke-width="2" fill="none"/><path d="M138 74L149 70 151 78 140 80" fill="#34303b"/><path d="M141 40Q165 52 163 77 160 103 140 112L150 95 153 67Z" fill="#9eafae"/><path d="M142 40L139 71 140 112M128 75L170 73" stroke="#d9e2d2" stroke-width="1.65" fill="none"/><path d="M168 70L175 73 168 76" stroke="#d9e2d2" stroke-width="1.7" fill="none"/><path d="M48 117L61 105M44 125L58 115M39 134L55 124M98 101L110 122M100 111L110 132" fill="none" stroke="#211d28" stroke-width="1.3"/>');
+ const beetle=frame('<path d="M43 119L26 133 18 149M62 128L51 144 52 154M87 135L78 151 82 158M115 130L128 148 143 153M131 121L147 132 154 149" fill="none" stroke="#2d2731" stroke-width="7"/><path d="M31 120L25 131 18 144M49 137L44 149M115 138L127 146M143 132L151 143" fill="none" stroke="#95847c" stroke-width="2"/><path d="M43 114Q42 91 61 75 82 59 110 61 146 63 156 91L153 111 133 129 91 139 61 131Z" fill="#76646c"/><path d="M62 78L85 69 100 89 99 108 85 129 64 124 52 110 55 92Z" fill="#b08b7b"/><path d="M88 68L109 64 133 73 143 82 128 96 109 90Z" fill="#c09983"/><path d="M105 94L127 99 142 88 155 92 151 111 132 123 94 133 105 113Z" fill="#574b57"/><path d="M63 93L45 91 34 98 31 115 42 129 61 129 72 112Z" fill="#453e4a"/><path d="M37 104L22 99 15 87 17 104 32 116 23 122 15 137 31 129 42 117" fill="#c09a76"/><path d="M43 106L50 103 54 108 49 113Z" fill="#c6e1c7"/><path d="M66 83L71 95 68 108M81 77L88 90 86 111M95 69L108 78M112 70L123 77M122 102L110 119M131 106L119 120M140 105L129 119" fill="none" stroke="#4f4249" stroke-width="1.5"/><path d="M102 76L111 80 117 86M71 76L62 83 57 91" fill="none" stroke="#e1ae96" stroke-width="2"/>');
+ const guard=frame('<path d="M53 94L66 88 87 91 96 113 87 142 69 159 45 158 42 150 50 140Z" fill="#534d5a"/><path d="M102 95L124 93 139 112 136 141 150 152 144 158 118 158 101 140 95 115Z" fill="#655c68"/><path d="M64 53L76 45 112 43 130 58 125 90 113 113 84 119 61 99Z" fill="#897d86"/><path d="M79 53L108 50 123 61 119 75 90 78 66 69Z" fill="#b0a08f"/><path d="M62 72L91 83 95 112 84 117 64 100Z" fill="#6e6472"/><path d="M92 82L120 75 124 89 109 111 98 112Z" fill="#483e50"/><path d="M67 51L36 55 25 71 30 99 50 111 67 99 65 78Z" fill="#6f6674"/><path d="M35 56L53 54 64 67 52 83 30 80 26 70Z" fill="#a29484"/><path d="M33 94L46 99 57 114 50 137 30 136 22 121Z" fill="#857481"/><path d="M129 53L148 57 158 77 149 101 132 105 121 79Z" fill="#766a75"/><path d="M139 94L157 95 164 122 152 138 136 136 129 117Z" fill="#9c8a83"/><path d="M78 26L90 15 112 19 125 34 114 53 92 56 72 45Z" fill="#aea091"/><path d="M78 36L94 28 118 33 115 43 94 47 77 43Z" fill="#4e4456"/><path d="M86 39L95 36 109 38" fill="none" stroke="#b2d3c3" stroke-width="2.5"/><path d="M88 78L99 84 96 95 104 99 101 110M48 61L43 72 49 79M108 131L118 138 122 151M36 109L29 119" fill="none" stroke="#b0bcac" stroke-width="1.7"/><path d="M57 117L68 112M55 125L67 120M111 92L119 87M109 100L117 94" fill="none" stroke="#403848" stroke-width="1.5"/>');
+ const boss=frame('<path d="M50 108L75 95 91 113 84 144 65 160 38 158 29 150 44 131ZM105 110L129 95 147 114 137 141 157 149 149 160 116 159 101 139Z" fill="#6c5d73"/><path d="M54 48L81 30 122 38 141 59 139 104 119 125 73 126 44 99Z" fill="#807286"/><path d="M54 49L81 35 118 40 131 58 110 79 61 73Z" fill="#ae9d99"/><path d="M49 75L66 79 82 96 77 122 57 111 47 96ZM117 80L139 63 137 103 119 125 102 120 104 98Z" fill="#4e435e"/><path d="M72 74L106 74 121 93 110 117 85 122 66 102Z" fill="#292434"/><path d="M79 92L95 81 110 91 104 106 86 110Z" fill="#bed3c3"/><path d="M81 93L94 89 103 94 97 104 89 103Z" fill="#6c9b94"/><path d="M23 63L51 51 61 71 52 104 38 119 13 113 7 95ZM131 54L156 57 170 86 168 104 147 118 128 102 135 83Z" fill="#9c8989"/><path d="M18 72L30 65 35 82 19 102 12 94ZM151 69L159 82 155 103 146 108 143 89Z" fill="#c2998a"/><path d="M41 51L42 30 53 35 64 13 75 29 81 5 96 23 114 13 119 39 129 29 140 55 119 45 79 41 57 56Z" fill="#59516b"/><path d="M44 43L53 40 64 23 71 37 82 17 92 29 111 22 115 39 128 39 132 46" fill="none" stroke="#a4a5a9" stroke-width="2"/><path d="M28 85L41 77 49 79M22 102L35 95 42 98M138 76L153 84M143 94L161 99M73 112L61 101M114 114L127 103" fill="none" stroke="#473c52" stroke-width="1.7"/>');
+ const lantern=frame('<path d="M75 53Q75 37 90 34 107 37 107 53" fill="none" stroke="#cbbd93" stroke-width="5"/><path d="M63 65L76 52H105L118 65 111 126 92 145 70 124Z" fill="#566a67"/><path d="M74 69L85 62 100 62 109 69 103 120 92 132 80 119Z" fill="#c5dbbf"/><path d="M85 65L83 118M101 65L100 118M65 68H117M67 126H113" stroke="#454139" fill="none" stroke-width="4"/><path d="M91 71L99 92 92 110 86 91Z" fill="#edf2d2" stroke="#9dbbac" stroke-width="1"/>');
+ return {archer,shadow:archer,beetle,guard,boss,lantern};
+})();
+const ICONS={
+ arrow:'<path d="M10 42 41 11M30 11h11v11M10 34v8h8"/><path d="m18 40-8-8M23 35l-8-8"/>',
+ split:'<path d="M9 41 27 24M26 24l13-13M27 24l15 2M31 10h10v10M36 23l6 3-5 5"/><path d="m16 42-8-8M22 36l-8-8"/>',
+ block:'<path d="M26 6 42 13v13c0 9-7 15-16 21-9-6-16-12-16-21V13z"/><path d="M26 13v26M16 21h20"/>',
+ cards:'<path d="M16 9h24v32H16zM10 16H6v31h24v-5"/><path d="M21 20h14m-14 6h10m-10 6h14"/>',
+ ice:'<path d="M26 6v40M9 16l34 20M9 36l34-20m-23-5 6 6 6-6m-12 30 6-6 6 6M12 22l8 2-2-8m16 20-2-8 8 2"/>',
+ fire:'<path d="M26 5c0 13 12 17 12 28 0 8-5 13-13 13-10 0-15-5-15-14 0-9 7-10 8-18 4 4 5 8 4 12 6-5 7-11 4-21Z"/><path d="M23 42c-4-5-2-8 3-13 0 6 5 8 2 13"/>',
+ bolt:'<path d="M32 5 12 29h13l-5 18 20-25H27z"/>',
+ shadow:'<path d="M10 43c2-9 8-10 10-16-3-3-5-6-5-10 0-6 5-11 11-11s11 5 11 11c0 4-2 7-5 10 2 6 8 7 10 16Z"/><path d="m12 40 7-5m16-1 6 6M19 15l7-4 7 4"/>',
+ light:'<path d="M20 10a6 6 0 1 1 12 0v3m-17 1h22l-2 26H17zM22 17v20m8-20v20M11 26H5m42 0h-6M26 46v4"/>',
+ magic:'<path d="m26 5 4 14 14 6-14 5-4 15-4-15-14-5 14-6z"/><path d="M39 7v10m-5-5h10M13 34v10m-5-5h10"/>'
+};
+const mark=(k)=>'<svg class="mark" viewBox="0 0 52 52" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">'+ICONS[k]+'</g></svg>';
+const pictogram=q=>[16,23,25,27,29].includes(q.id)?'shadow':[15,21,26].includes(q.id)?'light':[2,3,7,8,17,28,32,34].includes(q.id)?'cards':q.el==='冰'?'ice':q.el==='火'?'fire':q.el==='电'?'bolt':[18,20,35,37].includes(q.id)?'split':q.kind==='防'?'block':q.arrow?'arrow':'magic';
+
+ const A=document.querySelector('#app'),POOL=document.querySelector('#pool'),LOG=document.querySelector('#log');
 const newSeed=()=>crypto.getRandomValues(new Uint32Array(1))[0]||1;
-let seed=newSeed(),stage=0,core='冰',s=Engine.room(stage,seed,core),snapshot=Engine.clone(s),sel=null,first=null,dialog=null,notice='';
+let seed=newSeed(),stage=0,core='冰',mode='combo',s=Engine.room(stage,seed,core,mode),snapshot=Engine.clone(s),sel=null,first=null,dialog=null,notice='',fx={};
 const card=x=>Engine.byId[x];
-function init(st=stage,n=seed){stage=st;seed=n;s=Engine.room(stage,seed,core);snap();clear();notice='';render()}
+function init(st=stage,n=seed){stage=st;seed=n;s=Engine.room(stage,seed,core,mode);snap();clear();notice='';fx={};render()}
 function snap(){snapshot=Engine.clone(s)}
 function clear(){sel=null;first=null;dialog=null}
 const elName=x=>x&&x!=='无'?x+'波':'余光';
 function btn(t,a,opts=''){return '<button type="button" data-a="'+a+'" '+opts+'>'+t+'</button>'}
 function selectAttr(x){return 'aria-pressed="'+x+'"'}
 function active(){return sel!==null?s.hand[sel]:undefined}
+function delta(fn){const h=s.hp, prior=Object.fromEntries(s.enemies.map(e=>[e.id,e.hp]));const ok=fn();if(ok){fx={hero:h-s.hp};for(const e of s.enemies)fx[e.id]=(prior[e.id]??e.max)-e.hp}return ok}
+const pop=n=>n>0?'<span class="float" aria-hidden="true">−'+n+'</span>':'';
+const meter=(hp,max)=>'<span class="meter" aria-hidden="true"><i style="width:'+Math.round(100*hp/max)+'%"></i></span>';
+const unitUnder=(name,hp,max,extra='')=>'<span class="under"><span class="name">'+name+'</span>'+meter(hp,max)+'<span class="numbers">'+hp+'/'+max+' HP'+extra+'</span></span>';
+const terrain='<svg class="terrain" viewBox="0 0 1100 345" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><path fill="#272131" d="M0 0h1100v345H0z"/><path fill="#493949" d="m0 165 106-72 61 18 67-41 108 63 48 8 99-66 105 78L721 87l60 20 83-63 98 45 138-11v171H0z"/><path fill="#342939" d="m0 169 98-25 35 13 87-51 95 61 59-14 119 31 118-52 126 40 82-39 70-47 54 51 157 19v153H0z"/><path fill="#4a3d4e" d="m0 226 174-13 99-17 204 6 95-10 256 10 272 19v124H0z"/><path fill="#594b5a" d="m0 238 258-31 219-5 234 2 191 11 198 20v48l-209-30-228-14-222 4-266 21L0 284z"/><path fill="#302635" d="M0 307l299-53 87 5 144-18 86 17 132 6 181 24 171 13v44H0z"/><path d="M27 207l92-30m20 13 60-42m95 30 43 12m91-32 64-34m123 77 62-24m64-13 104-40m39 8 70 14M25 254l141-19m75 26 91-9m482 3 111 14m32-49 51 7M229 312l128-28m407-4 155 28" fill="none" stroke="#8d747e" stroke-opacity=".53" stroke-width="2"/><path d="M45 229q115-14 221-23m542 29q102 1 187 19M100 299q230-50 399-51m66 35q207-4 451 37" fill="none" stroke="#b79a87" stroke-opacity=".3" stroke-width="3"/></svg>';
 function render(){
- const room=Engine.STAGES[stage],ready=sel!==null;
- const cols=[[6,2],[7,1],[7,3]],party=[];
- party.push('<div class="tile hero" style="grid-area:2 / 2">弓手<span class="tag">'+s.hp+'/'+s.max+' HP'+(s.guard?' · 挡 '+s.guard:'')+'</span></div>');
- if(s.shadow)party.push('<div class="tile shadow" style="grid-area:3 / 2">影子<span class="tag">'+s.shadow.hp+'/'+s.shadow.max+' HP'+(s.shadow.shot?' · 已跟射':'')+'</span></div>');
- if(s.lamp)party.push('<div class="tile lamp" style="grid-area:2 / 4">灯<span class="tag">'+elName(s.lamp.el||s.core)+' · '+('●'.repeat(s.lamp.waves))+('○'.repeat(2-s.lamp.waves))+'</span></div>');
- for(const e of s.enemies){
+ const room=Engine.STAGES[stage],ready=sel!==null&&Engine.needs(card(active()))&&!dialog,arming=s.burst>=s.turn;
+ const allies='<div class="unit hero" aria-label="弓手">'+ART.archer+unitUnder('弓手',s.hp,s.max,s.guard?' · 挡 '+s.guard:'')+pop(fx.hero)+'</div>'+
+ (s.shadow?'<div class="unit shadow-unit">'+ART.shadow+unitUnder('影子',s.shadow.hp,s.shadow.max,s.shadow.shot?' · 已跟射':' · 可跟射')+'</div>':'');
+ const lamp=s.lamp?'<div class="unit lamp-unit">'+ART.lantern+'<span class="under"><span class="name">灯</span><span class="numbers">'+elName(s.lamp.el||s.core)+' · '+('●'.repeat(s.lamp.waves))+('○'.repeat(2-s.lamp.waves))+'</span></span></div>':'';
+ const foes=s.enemies.filter(e=>e.hp||fx[e.id]).map(e=>{
   const m=Engine.move(s,e),intent=Array.isArray(m)?m.join('＋')+' 连击':m>0?'攻击 '+m:m<0?'架盾 '+(-m):'蓄势';
-  const [x,y]=cols[e.id],info=(e.guard?' · 挡'+e.guard:'')+(e.locked?(e.boss?' · 霜裂':' · 冻结'):(e.frost?' · 霜'+e.frost:''))+(e.burn?' · 灼'+e.burn:'');
-  party.push('<button class="tile foe '+(ready?'target ':'')+(first===e.id?'extra ':'')+(!e.hp?'dead':'')+'" style="grid-area:'+y+' / '+x+'" data-a="foe:'+e.id+'" '+(!e.hp||s.result?'disabled':'')+'><span>'+e.name+'</span><span class="tag">'+e.hp+'/'+e.max+' HP'+info+'</span><span class="tag note">'+intent+'</span></button>');
- }
- let hint=notice||'点攻击牌再点怪。防御直接出。';
- if(dialog?.type==='pick')hint='从顶牌选一张入手，另一张放底。';
+  const info=(e.guard?' · 挡'+e.guard:'')+(e.locked?(e.boss?' · 霜裂':' · 冻结'):(e.frost?' · 霜'+e.frost:''))+(e.burn?' · 灼'+e.burn:'');
+  const art=e.boss?ART.boss:/甲虫|猎虫/.test(e.name)?ART.beetle:/精英/.test(e.name)?ART.boss:ART.guard;
+  return '<button class="unit foe '+(ready&&e.hp?'target ':'')+(first===e.id?'first ':'')+(e.boss?'boss ':'')+(!e.hp?'dead':'')+'" data-a="foe:'+e.id+'" '+(!e.hp||s.result?'disabled':'')+'>'+art+unitUnder(e.name,e.hp,e.max,info)+'<span class="intent">'+(e.hp?intent:'已击倒')+'</span>'+pop(fx[e.id])+'</button>'
+ }).join('');
+ let hint=notice||'攻击牌 → 点怪；格挡直接用。';
+ if(dialog?.type==='pick')hint='选一张入手，另一张放牌库底。';
  else if(dialog?.type==='hold')hint='选一张牌留到下回合。';
- else if(active()===18&&first!==null)hint='再点第二发目标，可点同一只。';
- else if(ready)hint='已选「'+card(active()).name+'」，点目标结算。';
+ else if(active()===18&&first!==null)hint='再点第二发目标，可以是同一只。';
+ else if(ready)hint='已选「'+card(active()).name+'」，点击发亮的怪。';
+ else if(arming)hint='裂光已附着。现在打一张武器牌，碎光就会炸开。';
  else if(stage===1&&s.turn===1&&!s.result)hint+=(notice?' · ':' ')+'下一回合有两只增援。';
- const choices=dialog?'<div class="row">'+dialog.items.map((q,i)=>btn(card(q).name,'choice:'+i)).join('')+btn('取消','cancel')+'</div>':'';
- const coreUI=stage>0?'<label>灯芯 <select id="core" '+(s.actions||s.turn>1||s.result?'disabled':'')+'>'+['冰','电','火','无'].map(v=>'<option '+(v===s.core?'selected':'')+'>'+v+'</option>').join('')+'</select></label>':'';
- A.innerHTML='<div class="row stages">'+Engine.STAGES.map((q,i)=>btn(q.name,'stage:'+i,selectAttr(stage===i))).join('')+'<span class="tail seed hint">牌序 '+seed+'</span>'+btn('换一套随机牌','reroll')+btn('重开本关','restart')+'</div>'+
- '<div class="row status"><b>'+room.subtitle+'</b><span class="hint">第 '+s.turn+' 回合</span>'+coreUI+(stage===2?'<span class="badge">猎月已解锁</span>':'')+'</div>'+
- '<div class="board '+(s.lamp?'lit':'')+'" aria-label="方格战斗区">'+party.join('')+'</div>'+
- '<div class="actions"><b class="stretch">'+(s.result?(s.result==='赢'?'本关通过':'本关失败'):(s.ap+' / 3 AP'))+'</b>'+
- (s.result?(s.result==='赢'&&stage<2?btn('下一阶段','next','class="primary"'):btn('再开一把','reroll','class="primary"')):btn('开灯 · 1 AP','lamp',(!s.charges||s.lamp||!s.ap?'disabled ':'')+'class="primary"')+btn('重试本回合','retry')+btn('结束回合','end','class="primary"'))+'</div>'+
- '<div id="message" aria-live="polite">'+hint+'</div>'+choices+
- '<div class="row"><b>手牌 '+s.hand.length+'</b><small>牌库 '+s.deck.length+' · 弃牌 '+s.bin.length+' · 本场已消耗 '+s.gone.length+'</small></div>'+
- '<div class="hand">'+s.hand.map((id,i)=>{const q=card(id);return btn('<span class="fee">'+q.cost+' AP · '+q.kind+(q.el?' · '+q.el:'')+'</span><b>'+q.name+'</b><span class="desc">'+q.desc+'</span>','card:'+i,'class="card" '+selectAttr(sel===i)+(Engine.valid(s,q)?'':' disabled'))}).join('')+'</div>';
+ const choices=dialog?'<div class="row choices">'+dialog.items.map((q,i)=>btn(card(q).name,'choice:'+i)).join('')+btn('取消','cancel')+'</div>':'';
+ const coreUI=stage>0&&mode!=='burst'?'<label class="action-slim">灯芯 <select id="core" '+(s.actions||s.turn>1||s.result?'disabled':'')+'>'+['冰','电','火','无'].map(v=>'<option '+(v===s.core?'selected':'')+'>'+v+'</option>').join('')+'</select></label>':'';
+ const label=mode==='burst'?'开灯对照：关闭':'开灯对照：开启';
+ A.innerHTML='<div class="row stages">'+Engine.STAGES.map((q,i)=>btn(q.name,'stage:'+i,selectAttr(stage===i))).join('')+'<span class="tail seed hint">牌序 '+seed+'</span>'+btn(label,'mode','class="action-slim" title="切换后用同一牌序重开"')+btn('换随机手牌','reroll','class="action-slim"')+'</div>'+
+ '<div class="row status"><b>'+room.subtitle.replace(' · 猎月终击',' · 首领战')+'</b><span class="hint">第 '+s.turn+' 回合</span>'+coreUI+(stage===2&&mode!=='burst'?'<span class="badge">猎月已解锁</span>':'')+'</div>'+
+ '<div class="arena '+(s.lamp?'lit ':'')+(ready?'picking':'')+'" aria-label="战斗场景">'+terrain+'<div class="field-glow"></div><div class="hero-zone zone-zone">'+allies+'</div><div class="zone-zone">'+lamp+'</div><div class="foe-zone zone-zone">'+foes+'</div></div>'+
+ '<div class="steps" aria-live="polite"><b class="step">出牌提示</b><span class="arrowhint">›</span><span class="signal">'+hint+'</span></div>'+choices+
+ '<div class="actions"><b class="stretch">'+(s.result?(s.result==='赢'?'本关通过':'本关失败'):'<span class="ap-dots" aria-hidden="true">'+('●'.repeat(Math.max(0,s.ap)))+('○'.repeat(Math.max(0,3-s.ap)))+'</span>'+s.ap+' / 3 AP')+'</b>'+
+ (s.result?(s.result==='赢'&&stage<2?btn('下一阶段','next','class="end-action"'):btn('再开一把','reroll','class="end-action"')):(mode!=='burst'?btn('开灯 · 0 AP','lamp',(!s.charges||s.lamp?'disabled ':'')+'class="primary"'):'')+btn('重试本回合','retry','class="action-slim"')+btn('结束回合','end','class="end-action"'))+'</div>'+
+ '<div class="row hand-title"><b>手牌 '+s.hand.length+'</b><small>牌库 '+s.deck.length+' · 弃牌 '+s.bin.length+'</small></div>'+
+ '<div class="hand">'+s.hand.map((id,i)=>{
+  const q=card(id),type=q.kind==='防'?'格挡':q.kind==='功能'?'技巧':q.id===46?'法术':Engine.weapon(q)?'武器':'法术';
+  const cls=q.kind==='防'?'def':q.kind==='功能'||q.id===46?'util':'atk';
+  const description=q.desc.replace(/(\d+(?:\s*AP)?)/g,'<strong>$1</strong>');
+  return btn('<span class="card-art">'+mark(q.id===46?'magic':pictogram(q))+'<span class="fee" title="AP 费用">'+q.cost+'</span><span class="type">'+type+'</span></span><span class="card-copy"><b>'+q.name+'</b><span class="desc">'+description+'</span></span>','card:'+i,'class="card '+cls+'" '+selectAttr(sel===i)+(Engine.valid(s,q)?'':' disabled'))
+ }).join('')+'</div>'+
+ '<p class="caption hint">试连招：影子上场 → 裂光术 → 任意弓箭。没有影子，武器照样能引爆。</p>'+btn('用同样的牌重开','restart','class="action-slim"');
  LOG.innerHTML=s.lines.map(x=>'<li>'+x+'</li>').join('');
 }
 function checkResult(ok){if(ok){notice=s.lines[0]||'';clear()}render()}
+function play(id,w=-1,arg={}){checkResult(delta(()=>Engine.play(s,id,w,arg)))}
 function chooseCard(i){
  const id=s.hand[i],q=card(id);
  if(!Engine.valid(s,q))return;
  if(sel===i){clear();render();return}
- clear();sel=i;
+ clear();sel=i;fx={};
  if(id===8||id===17){
   const items=id===8?Engine.offer(s):s.hand.filter((_,k)=>k!==i);
   if(items.length>1){dialog={type:id===8?'pick':'hold',items,id};render();return}
-  checkResult(Engine.play(s,id,-1,{choice:0,hold:items.length?0:undefined}));return
+  play(id,-1,{choice:0,hold:items.length?0:undefined});return
  }
- if(id===41){const options=Engine.live(s).filter(e=>{const v=Engine.move(s,e);return v>0||Array.isArray(v)}); if(!options.length){checkResult(Engine.play(s,id));return}if(options.length===1){checkResult(Engine.play(s,id,options[0].id));return}}
+ if(id===41){const options=Engine.live(s).filter(e=>{const v=Engine.move(s,e);return v>0||Array.isArray(v)});if(!options.length){play(id);return}if(options.length===1){play(id,options[0].id);return}}
  if(Engine.needs(q)){render();return}
- checkResult(Engine.play(s,id));
+ play(id)
 }
 A.addEventListener('click',ev=>{
  const button=ev.target.closest('button[data-a]');if(!button||button.disabled)return;
@@ -234,26 +298,27 @@ A.addEventListener('click',ev=>{
  if(act==='stage'){init(n,newSeed());return}
  if(act==='reroll'){init(stage,newSeed());return}
  if(act==='restart'){init();return}
+ if(act==='mode'){mode=mode==='combo'?'burst':'combo';init();return}
  if(act==='next'){init(Math.min(2,stage+1),newSeed());return}
  if(act==='cancel'){clear();notice='';render();return}
- if(act==='retry'){s=Engine.clone(snapshot);clear();notice='已回到本回合开始';render();return}
- if(act==='lamp'){checkResult(Engine.lamp(s));return}
- if(act==='end'){if(Engine.end(s)){snap();clear();notice=s.lines[0]||'';render()}return}
+ if(act==='retry'){s=Engine.clone(snapshot);clear();fx={};notice='已回到本回合开始';render();return}
+ if(act==='lamp'){checkResult(delta(()=>Engine.lamp(s)));return}
+ if(act==='end'){if(delta(()=>Engine.end(s))){snap();clear();notice=s.lines[0]||'';render()}return}
  if(act==='card'){chooseCard(n);return}
  if(act==='choice'&&dialog){
   const old=dialog;
-  if(old.type==='hold'){checkResult(Engine.play(s,old.id,-1,{hold:n}));return}
-  checkResult(Engine.play(s,old.id,old.who??-1,{choice:n}));return
+  if(old.type==='hold'){play(old.id,-1,{hold:n});return}
+  play(old.id,old.who??-1,{choice:n});return
  }
  if(act==='foe'){
   const id=active();if(id===undefined||dialog)return;
   if(id===18&&first===null){first=n;render();return}
   if(id===28){const e=Engine.live(s).find(x=>x.id===n),items=Engine.offer(s);if(e&&(e.frost||e.locked||e.burn)&&items.length>1){dialog={type:'pick',items,id,who:n};render();return}}
-  checkResult(Engine.play(s,id,first===null?n:first,{to:n}));
+  play(id,first===null?n:first,{to:n});
  }
 });
 A.addEventListener('change',e=>{if(e.target.id==='core'&&!s.actions&&s.turn===1){core=e.target.value;s.core=core;snap();render()}});
-POOL.innerHTML=CARDS.map(q=>'<div><b>'+q.name+'</b> · '+q.cost+' AP <small>'+Engine.STAGES[q.stage].name+(q.common?' · 通用':'')+'</small><br>'+q.desc+'</div>').join('');
+POOL.innerHTML=CARDS.map(q=>'<div><b>'+q.name+'</b> · '+q.cost+' AP <small>'+(q.experimental?'联动试验':Engine.STAGES[q.stage].name)+(q.common?' · 通用':'')+'</small><br>'+q.desc+'</div>').join('');
 render();
 
 </script></body></html>
