@@ -1,5 +1,6 @@
 const CARDS = [
  {
+  "id": "A01",
   "role": "archer",
   "tier": "普通",
   "name": "近身攻击",
@@ -11,6 +12,7 @@ const CARDS = [
   "copies": 1
  },
  {
+  "id": "A02",
   "role": "archer",
   "tier": "普通",
   "name": "射击",
@@ -22,6 +24,7 @@ const CARDS = [
   "copies": 2
  },
  {
+  "id": "A03",
   "role": "archer",
   "tier": "普通",
   "name": "格挡",
@@ -33,6 +36,7 @@ const CARDS = [
   "copies": 2
  },
  {
+  "id": "A04",
   "role": "archer",
   "tier": "普通",
   "name": "二连射",
@@ -44,6 +48,7 @@ const CARDS = [
   "copies": 1
  },
  {
+  "id": "A05",
   "role": "archer",
   "tier": "普通",
   "name": "探路箭",
@@ -55,6 +60,7 @@ const CARDS = [
   "copies": 1
  },
  {
+  "id": "A06",
   "role": "archer",
   "tier": "普通",
   "name": "趁隙一箭",
@@ -66,6 +72,7 @@ const CARDS = [
   "copies": 1
  },
  {
+  "id": "A07",
   "role": "archer",
   "tier": "普通",
   "name": "哨箭",
@@ -77,6 +84,7 @@ const CARDS = [
   "copies": 1
  },
  {
+  "id": "A08",
   "role": "archer",
   "tier": "普通",
   "name": "凝神",
@@ -88,6 +96,7 @@ const CARDS = [
   "copies": 1
  },
  {
+  "id": "A09",
   "role": "archer",
   "tier": "进阶",
   "name": "备用箭匣",
@@ -99,6 +108,7 @@ const CARDS = [
   "copies": 1
  },
  {
+  "id": "A10",
   "role": "archer",
   "tier": "进阶",
   "name": "压制射击",
@@ -110,6 +120,7 @@ const CARDS = [
   "copies": 1
  },
  {
+  "id": "A11",
   "role": "archer",
   "tier": "进阶",
   "name": "轻装上阵",
@@ -121,6 +132,7 @@ const CARDS = [
   "copies": 1
  },
  {
+  "id": "A12",
   "role": "archer",
   "tier": "进阶",
   "name": "奇怪医疗箱",
@@ -132,6 +144,7 @@ const CARDS = [
   "copies": 1
  },
  {
+  "id": "A13",
   "role": "archer",
   "tier": "进阶",
   "name": "破甲射击",
@@ -143,6 +156,7 @@ const CARDS = [
   "copies": 1
  },
  {
+  "id": "A14",
   "role": "archer",
   "tier": "进阶",
   "name": "气息调整",
@@ -154,6 +168,7 @@ const CARDS = [
   "copies": 1
  },
  {
+  "id": "A15",
   "role": "archer",
   "tier": "进阶",
   "name": "照明弹",
@@ -165,6 +180,7 @@ const CARDS = [
   "copies": 1
  },
  {
+  "id": "A16",
   "role": "archer",
   "tier": "进阶",
   "name": "箭手的臂甲",
@@ -176,6 +192,7 @@ const CARDS = [
   "copies": 1
  },
  {
+  "id": "A17",
   "role": "archer",
   "tier": "进阶",
   "name": "靶箭射击",
@@ -187,6 +204,7 @@ const CARDS = [
   "copies": 1
  },
  {
+  "id": "A18",
   "role": "archer",
   "tier": "进阶",
   "name": "多刃箭矢",
@@ -198,6 +216,7 @@ const CARDS = [
   "copies": 1
  },
  {
+  "id": "A19",
   "role": "archer",
   "tier": "进阶",
   "name": "荆棘陷阱",
@@ -209,6 +228,7 @@ const CARDS = [
   "copies": 1
  },
  {
+  "id": "A20",
   "role": "archer",
   "tier": "进阶",
   "name": "拖尾箭矢",
@@ -220,6 +240,7 @@ const CARDS = [
   "copies": 1
  },
  {
+  "id": "A21",
   "role": "archer",
   "tier": "进阶",
   "name": "动物伙伴的协助",
@@ -231,6 +252,7 @@ const CARDS = [
   "copies": 1
  },
  {
+  "id": "A22",
   "role": "archer",
   "tier": "进阶",
   "name": "经验之谈",
@@ -242,6 +264,7 @@ const CARDS = [
   "copies": 1
  },
  {
+  "id": "A23",
   "role": "archer",
   "tier": "进阶",
   "name": "爆破射击",
@@ -253,6 +276,7 @@ const CARDS = [
   "copies": 1
  },
  {
+  "id": "A24",
   "role": "archer",
   "tier": "进阶",
   "name": "挥击",
@@ -264,6 +288,7 @@ const CARDS = [
   "copies": 1
  },
  {
+  "id": "A25",
   "role": "archer",
   "tier": "进阶",
   "name": "闪转腾挪",
@@ -275,6 +300,7 @@ const CARDS = [
   "copies": 1
  },
  {
+  "id": "A26",
   "role": "archer",
   "tier": "进阶",
   "name": "备战",
@@ -286,6 +312,7 @@ const CARDS = [
   "copies": 1
  },
  {
+  "id": "A27",
   "role": "archer",
   "tier": "史诗",
   "name": "战术翻滚",
@@ -297,6 +324,7 @@ const CARDS = [
   "copies": 1
  },
  {
+  "id": "A28",
   "role": "archer",
   "tier": "史诗",
   "name": "备用计划",
@@ -308,6 +336,7 @@ const CARDS = [
   "copies": 1
  },
  {
+  "id": "A29",
   "role": "archer",
   "tier": "史诗",
   "name": "负担射击",
@@ -319,6 +348,7 @@ const CARDS = [
   "copies": 1
  },
  {
+  "id": "A30",
   "role": "archer",
   "tier": "史诗",
   "name": "刀片射击",
@@ -330,6 +360,7 @@ const CARDS = [
   "copies": 1
  },
  {
+  "id": "A31",
   "role": "archer",
   "tier": "史诗",
   "name": "弩炮射击",
@@ -341,6 +372,7 @@ const CARDS = [
   "copies": 1
  },
  {
+  "id": "A32",
   "role": "archer",
   "tier": "史诗",
   "name": "麻醉射击",
@@ -352,6 +384,7 @@ const CARDS = [
   "copies": 1
  },
  {
+  "id": "A33",
   "role": "archer",
   "tier": "史诗",
   "name": "蓄能射击",
@@ -363,6 +396,7 @@ const CARDS = [
   "copies": 1
  },
  {
+  "id": "A34",
   "role": "archer",
   "tier": "传奇",
   "name": "星界风暴",
@@ -374,6 +408,7 @@ const CARDS = [
   "copies": 1
  },
  {
+  "id": "A35",
   "role": "archer",
   "tier": "传奇",
   "name": "传奇作战书",
@@ -385,6 +420,7 @@ const CARDS = [
   "copies": 1
  },
  {
+  "id": "A36",
   "role": "archer",
   "tier": "传奇",
   "name": "超载作战",
@@ -396,6 +432,7 @@ const CARDS = [
   "copies": 1
  },
  {
+  "id": "kick",
   "role": "sword",
   "tier": "普通",
   "name": "踢退",
@@ -407,6 +444,7 @@ const CARDS = [
   "copies": null
  },
  {
+  "id": "S02",
   "role": "sword",
   "tier": "普通",
   "name": "横扫",
@@ -418,6 +456,7 @@ const CARDS = [
   "copies": null
  },
  {
+  "id": "counter",
   "role": "sword",
   "tier": "普通",
   "name": "反击架势",
@@ -429,6 +468,7 @@ const CARDS = [
   "copies": null
  },
  {
+  "id": "finish",
   "role": "sword",
   "tier": "普通",
   "name": "终结斩",
@@ -440,6 +480,7 @@ const CARDS = [
   "copies": null
  },
  {
+  "id": "sword_ghostfire",
   "role": "sword",
   "tier": "普通",
   "name": "鬼火",
@@ -451,6 +492,7 @@ const CARDS = [
   "copies": null
  },
  {
+  "id": "sword_ember_guard",
   "role": "sword",
   "tier": "普通",
   "name": "余烬架势",
@@ -462,6 +504,7 @@ const CARDS = [
   "copies": null
  },
  {
+  "id": "sword_ember_slash",
   "role": "sword",
   "tier": "普通",
   "name": "余烬斩",
@@ -473,6 +516,7 @@ const CARDS = [
   "copies": null
  },
  {
+  "id": "S01",
   "role": "sword",
   "tier": "进阶",
   "name": "贯穿斩",
@@ -484,6 +528,7 @@ const CARDS = [
   "copies": null
  },
  {
+  "id": "combo",
   "role": "sword",
   "tier": "进阶",
   "name": "连斩",
@@ -495,6 +540,7 @@ const CARDS = [
   "copies": null
  },
  {
+  "id": "charge",
   "role": "sword",
   "tier": "进阶",
   "name": "蓄力",
@@ -506,6 +552,7 @@ const CARDS = [
   "copies": null
  },
  {
+  "id": "sword_ignite",
   "role": "sword",
   "tier": "进阶",
   "name": "引燃",
@@ -517,6 +564,7 @@ const CARDS = [
   "copies": null
  },
  {
+  "id": "aeon_pilot_signal",
   "role": "sword",
   "tier": "进阶",
   "name": "烽火护斩",
@@ -528,6 +576,7 @@ const CARDS = [
   "copies": null
  },
  {
+  "id": "S03",
   "role": "sword",
   "tier": "待定",
   "name": "破甲斩",
