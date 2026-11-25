@@ -1,0 +1,10 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><meta name="theme-color" content="#16232a"><title>星渊逃逸 · 卡牌核对册</title><link rel="stylesheet" href="style.css"><script defer src="cards.js"></script><script defer src="review.js"></script></head>
+<body><header><div class="top"><b>星渊逃逸</b><span lang="en">STARBYSS ESCAPE</span><button id="share">复制本页链接</button></div></header>
+<main><div class="mast"><div><p class="kicker">VERSE 0.1</p><h1>卡牌核对册</h1></div><nav id="roles" aria-label="切换角色"><button data-role="sword">剑士</button><button data-role="archer">弓箭手</button></nav></div>
+<div class="spread"><aside><div class="hero"><img id="art" src="archer.webp" alt=""><div class="herohead"><small id="en"></small><h2 id="role"></h2></div></div>
+<section class="builds"><h3>组牌思路 <small>BD</small></h3><div id="builds"></div></section></aside>
+<section class="catalog" aria-label="卡牌清单"><div class="sectionhead"><h2>卡牌清单</h2><small>出牌 AP 待议</small></div><nav id="tiers" aria-label="品阶"></nav>
+<div id="cards"></div><div class="page"><span id="count" aria-live="polite"></span><div><button id="prev" aria-label="上一页">←</button><b id="num"></b><button id="next" aria-label="下一页">→</button></div></div>
+<details class="terms"><summary>状态与关键词</summary><dl id="terms"></dl></details></section></div></main>
+<dialog id="detail" aria-labelledby="dname"><form method="dialog"><button aria-label="关闭">×</button></form><small id="dgrade"></small><h2 id="dname"></h2><p id="alias"></p><h3>卡牌功效</h3><p id="deffect"></p><h3>搭配与核对点</h3><p id="dnote"></p><div id="source"></div></dialog><div id="toast" role="status"></div></body></html>
