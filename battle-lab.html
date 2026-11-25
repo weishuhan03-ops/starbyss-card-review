@@ -10,11 +10,23 @@ h1,h2,p{margin:0}h1{font-size:clamp(2rem,6.5vw,3.45rem);line-height:1.12;margin:
 .arena{display:flex;justify-content:space-between;gap:13px;align-items:start;padding:16px;background:var(--panel);border:1px solid var(--edge);border-radius:8px}.team,.enemies{display:flex;gap:8px;flex-wrap:wrap}.unit{background:#171b1f;border:1px solid var(--edge);border-radius:7px;min-height:138px;min-width:118px;padding:9px;display:flex;flex-direction:column;align-items:flex-start;text-align:left;gap:4px;line-height:1.35}.unit b{font-size:.94rem}.unit.foe{min-width:134px}.unit.select{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent)}.unit.empty{border-style:dashed}.unit.empty .shape{opacity:.28}.shape{height:28px;width:28px;display:block;margin:1px 0;background:#8fbbb6;border-radius:3px}.shadow .shape{background:#a2a1e6}.lantern .shape{background:var(--accent);width:22px;height:31px}.lantern.ice .shape{background:var(--ice)}.lantern.spark .shape{background:var(--spark)}.lantern.fire .shape{background:var(--fire)}.foe .shape{background:#c28677;width:35px;height:25px}.foe .shape.boss{width:56px;height:31px}.foe:disabled:not(.select){opacity:.62}.hp{font-size:.94rem;font-weight:730;font-variant-numeric:tabular-nums}.bar{height:4px;background:#394248;width:100%;border-radius:2px;overflow:hidden}.bar i{height:100%;display:block;background:#8fbbb6}.shadow .bar i{background:#a2a1e6}.foe .bar i{background:#e19a87}.intent{font-size:.8rem;color:#ffb9a4;padding:.1rem 0}.badges{display:flex;gap:3px;flex-wrap:wrap;max-width:180px}.badge{font-size:.69rem;padding:1px 4px;border-radius:3px;background:#2c343c;color:var(--ink)}.badge.ice{color:var(--ice)}.badge.fire{color:var(--fire)}.badge.spark{color:var(--spark)}.badge.poison{color:var(--poison)}.badge.ghost{color:#c6b2ff}.badge.tether{color:#e4c3a1}.mini{margin-top:3px}.echo{margin-top:9px;font-size:.79rem;color:var(--mut)}
 .actionline{display:flex;justify-content:space-between;align-items:center;gap:6px;padding:10px 0;border-bottom:1px solid var(--edge)}.actionline span{font-size:.82rem;color:var(--mut)}.actionline>div{gap:9px}.ap{font-variant-numeric:tabular-nums;color:var(--accent);white-space:nowrap}.primary{background:var(--accent);color:#212124;font-weight:760;border-color:var(--accent)}.hand,.log,details{margin:17px 0}.hand h2,.log h2{margin-bottom:3px}.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(152px,1fr));gap:8px;margin-top:10px}.card{display:flex;flex-direction:column;align-items:stretch;text-align:left;gap:5px;min-height:98px;border-top:3px solid #8fbbb6}.card span{display:flex;align-items:baseline;justify-content:space-between;gap:3px}.card b{font-size:.9rem}.card strong,.card small,.card em{font-size:.73rem}.card strong{white-space:nowrap;color:var(--accent)}.card em{font-style:normal;color:var(--mut)}.card.ice{border-top-color:var(--ice)}.card.spark{border-top-color:var(--spark)}.card.fire{border-top-color:var(--fire)}.card.poison{border-top-color:var(--poison)}.card[disabled]{opacity:.67}.log ol{padding-left:1.4rem;font-size:.84rem;max-height:175px;overflow:auto;color:var(--mut)}details{border-top:1px solid var(--edge);padding:12px 0 28px;font-size:.83rem;color:var(--mut)}summary{cursor:pointer;color:var(--ink)}details li{margin:5px 0}
 @media(max-width:730px){main,header>div{padding-left:14px;padding-right:14px}.roomline{align-items:start;flex-direction:column;gap:10px}.arena{flex-wrap:wrap;padding:10px}.arena>.side:last-child{flex-basis:100%;border-top:1px solid var(--edge);padding-top:8px}.unit,.unit.foe{min-width:99px;min-height:111px;padding:6px}.unit b{font-size:.84rem}.hp{font-size:.86rem}.shape{height:21px;width:21px}.foe .shape,.lantern .shape{height:20px}.team,.enemies{gap:5px}.arena{gap:7px}.echo{max-width:224px}.actionline{align-items:start}.cards{grid-template-columns:repeat(2,minmax(0,1fr))}.workbar{gap:6px}.roomchoices button{padding:.3rem .4rem}.actionline>div:last-child{justify-content:end}.card{min-height:90px}}
+
+/* Playtest 02: fixed perspective, readable targets, and an actual hand. */
+:root{--accent:#f2ce7e;--target:#f9da8d;--panel:#232526}
+header span,.eyebrow{letter-spacing:.13em}.roomline{margin:16px 0 10px;align-items:center}.roomline h1{font-size:clamp(1.6rem,4vw,2.45rem)}.roomline p{display:none}
+.workbar{gap:9px;padding:8px 0}.view-switch{margin-right:auto}.view-switch a{font-size:.75rem;margin-left:3px}.retry button{font-size:.78rem}.guide{min-height:45px;display:flex;align-items:center;gap:11px;flex-wrap:wrap;padding:7px 12px;margin:0 0 2px;border:1px solid #5a543f;background:#2a2820;border-radius:7px}.guide b{font-size:.95rem;color:#ffdf9e}.guide span{font-size:.8rem;color:#ddd2ba}.guide button{margin-left:auto;font-size:.73rem}.guide.planning{border-color:var(--target);box-shadow:0 0 12px #e6b85d21}
+.arena{position:relative;isolation:isolate;min-height:186px;align-items:center;gap:12px}.arena>div:not(.board-ground){position:relative;z-index:1}.arena h2{padding-left:3px;margin-bottom:5px}.arena.board3d{overflow:hidden;padding:12px 5%;min-height:231px;background:radial-gradient(ellipse at 50% 12%,#444038 0%,#222222 52%,#151618 100%);border:1px solid #514c3e;border-radius:10px}.board-ground{position:absolute;z-index:-1;inset:0;overflow:hidden;pointer-events:none;perspective:610px;perspective-origin:50% 44%}.grid{position:absolute;left:50%;top:50%;width:88%;height:194px;transform:translate(-50%,-42%) rotateX(53deg) rotateZ(-4deg);transform-origin:50% 82%;display:grid;grid-template-columns:repeat(7,1fr);grid-template-rows:repeat(4,1fr);gap:3px;padding:5px;background:#29251f;border:1px solid #87806a;border-radius:3px;box-shadow:0 8px #373228,0 13px #201e1b,0 19px 27px #000b}.grid i{background:#4a4539;border:1px solid #615846;border-radius:2px;box-shadow:inset 0 1px #776c53}.grid i:nth-child(2n){background:#4e473a}.grid i:nth-child(3n){background:#514b3e}
+.arena.board3d .unit{min-height:112px;min-width:112px;background:linear-gradient(#1f2327f5,#171b1ef2);border-color:#636056;box-shadow:0 4px #171715,0 8px 12px #0008;padding:7px;overflow:visible}.arena.board3d .team,.arena.board3d .enemies{gap:10px}.arena.board3d .shape{position:relative;display:block;overflow:visible;margin:1px 10px 9px 2px;box-shadow:3px 5px 4px #0008,inset 0 0 0 1px #fff6;border-radius:0}.arena.board3d .shape:before{content:"";position:absolute;left:0;right:0;top:-5px;height:5px;transform:skewX(-45deg);transform-origin:left bottom;background:inherit;filter:brightness(1.26)}.arena.board3d .shape:after{content:"";position:absolute;top:0;bottom:0;left:100%;width:5px;transform:skewY(-45deg);transform-origin:left top;background:inherit;filter:brightness(.7)}.arena.board3d .shadow .shape{height:22px;width:21px}.arena.board3d .lantern .shape{height:25px;width:18px}.arena.board3d .foe .shape{height:24px;width:28px}.arena.board3d .foe .shape.boss{height:33px;width:42px}.unit{position:relative}.unit[aria-disabled="true"]{cursor:default}.arena .unit.valid:not(:disabled){border:2px solid var(--target);box-shadow:0 0 14px #f9da8d8d,0 0 0 3px #b48f3a61;background:#303127;cursor:crosshair}.arena .unit.valid:hover,.arena .unit.valid:focus-visible{background:#47402b;outline:2px solid #ffe7a8;outline-offset:3px}.arena .unit.dim{opacity:.63}.arena .hit{animation:hit .5s ease-out}.float{position:absolute;z-index:3;right:4px;top:-14px;background:#171513;color:#ffe0aa;padding:2px 7px;font-size:.78rem;font-weight:800;border:1px solid #a78652;border-radius:4px;pointer-events:none;white-space:nowrap;animation:rise .38s ease-out}@keyframes hit{35%{filter:brightness(1.6)}}@keyframes rise{from{opacity:.1;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.boardtip{min-height:27px;color:#d7cbad;font-size:.8rem;padding:4px 6px 1px}.actionline{padding:6px 1px 9px;align-items:center}.actionline .ap{font-size:1.18rem}.actionline .lastmove{color:#e7be82}.turnpop{animation:rise .32s ease-out;color:#ffdf9c}
+.hand{margin-top:9px}.handhead{display:flex;justify-content:space-between;align-items:center;gap:7px;color:var(--mut);font-size:.76rem}.handhead h2{font-size:.88rem;color:var(--ink);font-weight:760;margin:0}.cards{margin-top:7px;grid-template-columns:repeat(auto-fill,minmax(134px,1fr));gap:9px}.card{position:relative;min-height:143px;border-radius:8px;border:1px solid #686053;border-top:3px solid #89acb0;box-shadow:0 3px 0 #101112;background:linear-gradient(#313132,#242527);gap:3px;padding:6px 8px 5px;transition:transform .12s ease,border-color .12s ease,box-shadow .12s ease}.card.ice{background:linear-gradient(#263742,#22292e)}.card.spark{background:linear-gradient(#3b3423,#2b2a24)}.card.fire{background:linear-gradient(#432f29,#2d2625)}.card.poison{background:linear-gradient(#31402d,#252a24)}.card:hover:not(:disabled),.card.chosen{transform:translateY(-4px);border-color:var(--target);background-color:#3a372e;box-shadow:0 0 0 2px #f2ce7e53,0 5px 14px #0008}.card-top strong{font-size:1rem;font-weight:900}.card-top small{font-size:.66rem;color:#e9d8ac}.card-face{justify-content:center!important;gap:5px!important;min-height:34px;background:#16191a66;border-radius:3px}.card-face b{font-size:1.21rem}.card-face span{font-size:.65rem;color:#cfd1cc}.card-body{display:block!important}.card-body b,.card-body small{display:block}.card-body b{font-size:.91rem}.card-body small{font-size:.70rem;line-height:1.37}.card em{margin-top:auto;font-size:.66rem}.card.chosen em{color:var(--target)}.dealt .card{animation:deal .28s ease-out both}.dealt .card:nth-child(2){animation-delay:25ms}.dealt .card:nth-child(3){animation-delay:50ms}.dealt .card:nth-child(4){animation-delay:75ms}.dealt .card:nth-child(5){animation-delay:100ms}.dealt .card:nth-child(6){animation-delay:125ms}@keyframes deal{from{opacity:.28;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}.log{margin-top:12px}
+@media(max-width:730px){.arena.board3d{min-height:208px;padding:9px 10px;align-items:start}.arena.board3d .unit{min-width:89px;min-height:98px;padding:5px}.arena.board3d .team,.arena.board3d .enemies{gap:5px}.arena>div:not(.board-ground){z-index:1}.arena .mid{margin-left:auto}.grid{height:169px;width:100%;top:53%}.workbar{gap:6px}.retry{flex-basis:100%}.guide{gap:3px 8px;min-height:0}.guide span{font-size:.73rem}.boardtip{font-size:.73rem;padding-left:2px}.cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}.card{min-height:121px}.handhead span{font-size:.65rem}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+
 </style></head>
-<body><header><div><div><b>星渊逃逸</b> <span>PLAYTEST 01</span></div><nav aria-label="同站页面"><a href="index.html">卡牌核对册</a><a href="card-library.html">卡面工作台</a></nav></div></header>
+<body><header><div><div><b>星渊逃逸</b> <span>PLAYTEST 02</span></div><nav aria-label="同站页面"><a href="index.html">卡牌核对册</a><a href="card-library.html">卡面工作台</a></nav></div></header>
 <main><div id="lab" aria-label="方块试战台"></div><noscript>本试战台需要启用 JavaScript。</noscript>
 <details><summary>这是机制原型 · 数值和参考</summary><ul>
-<li>所有 HP、伤害和牌序都是试验值，不是正式 Godot 数据。三个房间可单独重开；按「下一关」才会带着剩余 HP 继续。</li>
+<li>所有 HP、伤害和牌序都是试验值，不是正式 Godot 数据。三个房间可单独重开；按「下一关」才会带着剩余 HP 继续。「重试本回合」还原这回合抽完牌后全部状态和牌序。</li>
 <li>冰、电、火共用一个敌方元素位；毒、绊索和剑士鬼火各自独立。已成的冻结等下一次攻击才移除。</li>
 <li><a href="https://store.steampowered.com/news/posts/?appids=646570&amp;enddate=1542327142&amp;feed=steam_community_announcements">《杀戮尖塔》开发更新</a>：借敌人出招前的意图提示，冻结或减伤时更新数字。</li>
 <li><a href="https://store.steampowered.com/app/1811990/Wildfrost/">《Wildfrost》官方页</a>：借独立单位和自动行动提示。这里不引入站位挡线。</li>
@@ -235,6 +247,58 @@ function endTurn(){
 }
 
 const $=q=>document.querySelector(q),root=$('#lab');
+
+let picked=null,split=false,fx={},lastMove='',turnPop='',view='3d',roundStart=null,openingSeed=null;
+function saveRound(){if(live())roundStart=JSON.stringify(s)}
+function shuffleStart(){
+ if(openingSeed===null||s.lab)return;
+ let r=openingSeed;
+ const deck=SET[s.role].slice();
+ for(let i=deck.length-1;i>0;i--){r=(r*48271)%2147483647;const j=r%(i+1);[deck[i],deck[j]]=[deck[j],deck[i]]}
+ s.deck=deck;s.roll=(r||1);s.discard=[];draw();
+}
+
+function clearPick(){picked=null;split=false}
+const targeted=id=>['arrow','sword'].includes(C[id][4]);
+function targetsFor(id){
+ const p=C[id];
+ const foes=alive().map(e=>e.id);
+ if(split)return foes;
+ const lamp=p[4]==='arrow'&&['冰','电','火'].includes(p[3])&&s.lamp;
+ return lamp?[...foes,'lamp']:foes;
+}
+function canAimAt(id){
+ if(!picked||!targetsFor(picked).includes(id))return false;
+ const t=s.target;s.target=split?'lamp':id;const ok=!details(picked).why;s.target=t;return ok;
+}
+function buttonCost(id){
+ if(!targeted(id))return details(id);
+ const t=s.target;
+ const opts=targetsFor(id).map(key=>{s.target=key;return details(id)});s.target=t;
+ const legal=opts.filter(o=>!o.why);const all=legal.length?legal:opts;
+ const min=Math.min(...all.map(o=>o.cost)),max=Math.max(...all.map(o=>o.cost));
+ return {why:legal.length?'':opts[0]?.why||'无可用目标',cost:min===max?min:min+'–'+max,mode:''}
+}
+const dmg={ice:'4',spark:'4',fire:'4',dual:'3×2',poison:'3',tether:'4',guard:'6',parry:'7',steel:'7',frostCut:'5',emberCut:'5',heavy:'13',feed:'5',zeal:'10+',brand:'5',reap:'8+',glow:'4',thorn:'5',tug:'3+',intercept:'4',shadow:'3',fortify:'+2',light:'×2'};
+function effectFragments(){
+ const a=new Map(s.enemies.map(e=>[e.id,{...e}]));
+ return {enemies:a,hp:s.hp,b:s.block,sh:s.shadow?.hp||0,la:s.lamp?JSON.stringify(s.lamp):''}
+}
+function changes(o,label){
+ fx={};lastMove=label;
+ const mark=(k,txt)=>{if(txt)fx[k]=txt};
+ for(const e of s.enemies){
+  const b=o.enemies.get(e.id);
+  if(!b)continue;
+  const delta=b.hp-e.hp,d=e.block-b.block,st=!b.frozen&&e.frozen?(e.boss?'霜裂':'冻结'):e.frost>b.frost?'寒霜 '+e.frost+'/3':!b.spark&&e.spark?'电标':e.burn>b.burn?'点燃':e.poison>b.poison?'毒 '+e.poison:'';
+  mark(e.id,[delta>0?'−'+delta+' HP':'',d>0?'+'+d+' 格挡':d<0&&delta===0?'耗盾 '+(-d):'',st].filter(Boolean).join(' · '));
+ }
+ const d=o.hp-s.hp,b=s.block-o.b,sh=(s.shadow?.hp||0)-o.sh;
+ mark('self',d>0?'−'+d+' HP':b>0?'+'+b+' 格挡':'');
+ mark('shadow',sh>0?'+'+sh+' HP':sh<0?'−'+(-sh)+' HP':'');
+ if(s.lamp&&o.la!==JSON.stringify(s.lamp))mark('lamp',s.lamp.mode==='air'?'灯已抛出':s.lamp.type+'域');
+}
+const pop=id=>fx[id]?'<span class="float">'+fx[id]+'</span>':'';
 const ra=(a,b)=>Math.round(a*100/b);
 const live=()=>s.phase==='fight';
 const bar=(cur,max)=>'<div class="bar" aria-hidden="true"><i style="width:'+ra(cur,max)+'%"></i></div>';
@@ -243,17 +307,28 @@ function badge(t,c=''){return '<span class="badge '+c+'">'+t+'</span>'}
 function enemyMarkup(e){
  const [k,n]=intent(e),acts=e.hp?(k==='攻' || k==='连')?(e.frozen&&!e.boss?'冻结 · 本次不攻击':k==='连'?(e.frozen?(n-4)+' + '+n:n+' × 2')+' 伤害':'攻击 '+Math.max(0,n-(e.frozen?4:0))+' 伤害'):k==='守'?'格挡 +'+n:'蓄势 · 本回合无伤害':'已倒下';
  const st=[e.block?badge('护甲 '+e.block):'',e.frozen?badge(e.boss?'霜裂':'冻结','ice'):e.frost?badge('寒霜 '+e.frost+'/3','ice'):'',e.spark?badge('电标 +2','spark'):'',e.burn?badge('燃烧 '+e.burn,'fire'):'',e.poison?badge('中毒 '+e.poison,'poison'):'',e.tether?badge('绊索','tether'):'',e.ghost?badge('鬼火 '+e.ghost,'ghost'):''].join('');
- return '<button type="button" data-act="target:'+e.id+'" class="unit foe '+(s.target===e.id?'select':'')+'" '+(!e.hp||!live()?'disabled':'')+'><span class="shape '+(e.boss?'boss':'')+'"></span><b>'+e.name+'</b><span class="hp">'+e.hp+' / '+e.max+' HP</span>'+bar(e.hp,e.max)+'<span class="intent" title="敌方意图">'+acts+'</span><span class="badges">'+st+'</span></button>';
+ return '<button type="button" data-act="target:'+e.id+'" class="unit foe '+(canAimAt(e.id)?'valid':picked?'dim':'')+(fx[e.id]?' hit':'')+'" '+(!e.hp||!live()?'disabled':!canAimAt(e.id)?'aria-disabled="true"':'')+'>'+pop(e.id)+'<span class="shape '+(e.boss?'boss':'')+'"></span><b>'+e.name+'</b><span class="hp">'+e.hp+' / '+e.max+' HP</span>'+bar(e.hp,e.max)+'<span class="intent" title="敌方意图">'+acts+'</span><span class="badges">'+st+'</span></button>';
 }
 function aimButton(unit, obj){
   return mk(obj.aim?'已挂瞄准 · 下次 +2':'瞄准 +2 · 1 AP','aim:'+unit,!live()||!s.ap||!!obj.aim,'mini');
 }
 function cardMarkup(id){
- const p=C[id],d=details(id);
+ const p=C[id],d=buttonCost(id);
  const col=({'冰':'ice','电':'spark','火':'fire','毒':'poison'})[p[3]]||'';
- return '<button type="button" class="card '+col+'" data-act="play:'+id+'" '+(d.why?'disabled':'')+'><span><b>'+p[0]+'</b><strong>'+d.cost+' AP</strong></span><small>'+p[2]+'</small>'+(d.why?'<em>'+d.why+'</em>':d.mode!=='off'?'<em>'+(d.mode==='light'&&s.light>0?'轻射随行':'多打一发 · +1 AP')+'</em>':'')+'</button>';
+ const cat=p[4]==='arrow'?'攻击 / 箭':p[4]==='sword'?'攻击 / 剑术':'技能';
+ const banner=id==='dual'?'双段冰箭':p[3]||cat;
+ const isPicked=picked===id;
+ return '<button type="button" aria-pressed="'+isPicked+'" class="card '+col+(isPicked?' chosen':'')+'" data-act="play:'+id+'" '+(d.why?'disabled':'')+'><span class="card-top"><strong>'+d.cost+'<small> AP</small></strong><small>'+banner+'</small></span><span class="card-face"><b>'+ (dmg[id]||'◆') +'</b><span>'+ (p[4]==='arrow'||p[4]==='sword'?'伤害':(['guard','parry','feed','glow','thorn','tug','intercept'].includes(id)?'格挡':id==='shadow'||id==='fortify'?'影子 HP':''))+'</span></span><span class="card-body"><b>'+p[0]+'</b><small>'+p[2]+'</small></span><em>'+(d.why|| (isPicked?'已选 · 点高亮目标':targeted(id)?'选目标':'立即使用'))+'</em></button>';
+}
+function guide(){
+ if(!live())return '<b>'+phaseMsg()+'</b><span>'+(s.phase==='clear'?'可以带着现在的血量打下一间。':'点下方按钮重开试打。')+'</span>';
+ if(split)return '<b>二连射 · 再选第二箭</b><span>第一箭给灯，第二箭打你点的怪。两发合计 1 AP（影子复射另计）。</span>'+mk('取消 Esc','cancel');
+ if(picked)return '<b>'+C[picked][0]+' · 选一个亮起来的目标</b><span>点亮框才出牌、扣 AP。'+(canAimAt('lamp')?'这张也可以射灯。':'')+'</span>'+mk('取消 Esc','cancel');
+ return '<b>先从下方挑一张手牌</b><span>攻击牌再点目标；防守、抛灯等技能点了就用。</span>';
 }
 function render(){
+ const ground='<div class="board-ground" aria-hidden="true"><div class="grid">'+Array.from({length:28},()=>'<i></i>').join('')+'</div></div>';
+ const viewUI='<div class="seg view-switch" aria-label="棋盘视角">'+mk('固定 3D','view:3d',false,view==='3d'?'active':'')+mk('平面','view:flat',false,view==='flat'?'active':'')+'<a href="battle-lab.html" target="_blank" rel="noopener">另开窗口 ↗</a></div>';
  const r=ROOMS[s.room];
  const focus=s.target==='lamp'&&s.lamp?'引路灯':target()?.name||'无';
  const l=s.lamp;
@@ -262,32 +337,95 @@ function render(){
  if(!cards)cards='<p class="mute">手牌已用完，结束回合即可抽牌。</p>';
  root.innerHTML=
  '<section class="roomline"><div><span class="eyebrow">ROOM '+num(s.room+1)+' ／ '+r.kind+'</span><h1>'+r.name+'</h1><p>'+r.hint+'</p></div><div class="roomchoices"><span class="eyebrow">换关练习 · 满血重开</span><div>'+ROOMS.map((q,i)=>mk(num(i+1)+' '+q.name,'room:'+i,false,i===s.room?'active':'')).join('')+'</div></div></section>'+
- '<section class="workbar"><div class="seg">'+mk('弓手','role:archer',false,s.role==='archer'?'active':'')+mk('剑士','role:sword',false,s.role==='sword'?'active':'')+'</div><div class="seg">'+mk('实战手牌','mode:0',false,!s.lab?'active':'')+mk('全牌试验','mode:1',false,s.lab?'active':'')+'</div>'+mk('重开本关','reset',false,'reset')+'</section>'+
- '<section class="arena" aria-label="战斗区"><div class="side"><h2>我方单位</h2><div class="team"><div class="unit self">'+ '<span class="shape"></span><b>'+(s.role==='archer'?'弓手本体':'剑士本体')+'</b><span class="hp">'+s.hp+' / '+s.max+' HP</span>'+bar(s.hp,s.max)+'<span class="badges">'+badge('格挡 '+s.block)+(s.ownGhost?badge('鬼火 '+s.ownGhost,'ghost'):'')+'</span>'+aimButton('self',s)+'</div>'+
- (s.role==='archer'?'<div class="unit shadow '+(!s.shadow?'empty':'')+'"><span class="shape"></span><b>影子</b>'+(s.shadow?'<span class="hp">'+s.shadow.hp+' / '+s.shadow.max+' HP</span>'+bar(s.shadow.hp,s.shadow.max)+'<span class="badges">'+badge('剩 '+(s.shadow.until-s.round+1)+' 轮')+(s.intercept?badge('待分伤'):'')+'</span>'+aimButton('shadow',s.shadow):'<small>未召唤</small>')+'</div>':'')+'</div>'+
+ '<section class="workbar"><div class="seg">'+mk('弓手','role:archer',false,s.role==='archer'?'active':'')+mk('剑士','role:sword',false,s.role==='sword'?'active':'')+'</div><div class="seg">'+mk('实战手牌','mode:0',false,!s.lab?'active':'')+mk('全牌试验','mode:1',false,s.lab?'active':'')+'</div>'+viewUI+'<div class="seg retry">'+mk('重试本回合','retry',false)+mk('重开本关','reset')+(!s.lab?mk('换牌序开局','shuffle'):'')+'</div></section>'+
+ '<section class="guide '+(picked?'planning':'')+'" aria-live="polite">'+guide()+'</section>'+
+ '<section class="arena '+(view==='3d'?'board3d':'flat')+'" aria-label="战斗区">'+(view==='3d'?ground:'')+'<div class="side"><h2>我方单位</h2><div class="team"><div class="unit self">'+pop('self')+'<span class="shape"></span><b>'+(s.role==='archer'?'弓手本体':'剑士本体')+'</b><span class="hp">'+s.hp+' / '+s.max+' HP</span>'+bar(s.hp,s.max)+'<span class="badges">'+badge('格挡 '+s.block)+(s.ownGhost?badge('鬼火 '+s.ownGhost,'ghost'):'')+'</span>'+aimButton('self',s)+'</div>'+
+ (s.role==='archer'?'<div class="unit shadow '+(!s.shadow?'empty':'')+'">'+pop('shadow')+'<span class="shape"></span><b>影子</b>'+(s.shadow?'<span class="hp">'+s.shadow.hp+' / '+s.shadow.max+' HP</span>'+bar(s.shadow.hp,s.shadow.max)+'<span class="badges">'+badge('剩 '+(s.shadow.until-s.round+1)+' 轮')+(s.intercept?badge('待分伤'):'')+'</span>'+aimButton('shadow',s.shadow):'<small>未召唤</small>')+'</div>':'')+'</div>'+
  (s.role==='archer'&&s.shadow?'<div class="echo"><span>复射</span>'+mk('不跟','echo:off',!live(),s.echo==='off'?'active':'')+mk('全力 +1 AP','echo:full',!live(),s.echo==='full'?'active':'')+mk('轻影 ×'+s.light,'echo:light',!live()||!s.light,s.echo==='light'?'active':'')+'<small>本轮 '+s.uses+'/2</small></div>':'')+'</div>'+
- (s.role==='archer'?'<div class="mid"><h2>场上道具</h2><button type="button" data-act="target:lamp" class="unit lantern '+(s.target==='lamp'?'select ':'')+(!l?'empty':l.mode==='lit'?({'冰':'ice','电':'spark','火':'fire'})[l.type]:'')+'" '+(!l||!live()?'disabled':'')+'><span class="shape"></span><b>引路灯</b><small>'+(l?(l.mode==='air'?'悬空 · 待点亮':l.type+'域 · 剩 '+l.left+' 次'+(l.wide?' · 全体':'')):'未抛灯')+'</small></button></div>':'')+
+ (s.role==='archer'?'<div class="mid"><h2>场上道具</h2><button type="button" data-act="target:lamp" class="unit lantern '+(canAimAt('lamp')?'valid ':picked?'dim ':'')+(!l?'empty':l.mode==='lit'?({'冰':'ice','电':'spark','火':'fire'})[l.type]:'')+'" '+(!live()?'disabled':!canAimAt('lamp')?'aria-disabled="true"':'')+'>'+pop('lamp')+'<span class="shape"></span><b>引路灯</b><small>'+(l?(l.mode==='air'?'悬空 · 待点亮':l.type+'域 · 剩 '+l.left+' 次'+(l.wide?' · 全体':'')):'未抛灯')+'</small></button></div>':'')+
  '<div class="side"><h2>敌方意图</h2><div class="enemies">'+s.enemies.map(enemyMarkup).join('')+'</div></div></section>'+
- '<section class="actionline"><div><b>'+phaseMsg()+'</b><span>第 '+s.round+' 回合</span><span>目标：'+focus+'</span></div><div><b class="ap">'+s.ap+' / 3 AP</b>'+(s.phase==='clear'?mk('下一关 · 回 8 HP','next',false,'primary'):!live()?mk('再试一次','reset',false,'primary'):mk('结束回合','end',false,'primary'))+'</div></section>'+
- '<section class="hand"><h2>'+(s.lab?'全牌试验 · 无抽弃限制':'本回合手牌 · '+s.hand.length+' 张')+'</h2><p class="mute">'+(s.lab?'所有试验卡常驻，同一张可重复出，但照常花 AP。':'固定测试牌序，每回合抽 6 张，结算后余牌弃置；牌库不足时循环弃牌。')+' 点单位换目标，瞄准直接在本体或影子上开启。</p><div class="cards">'+cards+'</div></section>'+
+ '<div class="boardtip" id="boardtip" role="status">'+guideDefault()+'</div><section class="actionline"><div><b class="'+(turnPop?'turnpop':'')+'">'+(turnPop||phaseMsg())+' · 第 '+s.round+' 回合</b>'+(lastMove?'<span class="lastmove">'+lastMove+'</span>':'')+'</div><div><b class="ap">'+s.ap+' / 3 AP</b>'+(s.phase==='clear'?mk('下一关 · 回 8 HP','next',false,'primary'):!live()?mk('再试一次','reset',false,'primary'):mk('结束回合','end',false,'primary'))+'</div></section>'+
+ '<section class="hand"><div class="handhead"><h2>'+(s.lab?'全牌试验 · 可重复打':'你的手牌 · '+s.hand.length+' 张')+'</h2><span>'+ (s.lab?'照常扣 AP':'本回合抽 6 张　·　牌库 '+s.deck.length+'　弃牌 '+s.discard.length+(openingSeed===null?'　·　固定试打牌序':'　·　洗牌开局')) +'</span></div><div class="cards '+(turnPop?'dealt':'')+'">'+cards+'</div></section>'+
  '<section class="log" aria-live="polite"><h2>结算记录</h2><p>本关已打 '+s.dealt+' 伤害'+(s.role==='archer'?' · 影子最高 '+s.peakShadow+' HP':'')+'</p><ol>'+s.log.map(x=>'<li>'+x+'</li>').join('')+'</ol></section>';
 }
+
 function dispatch(act){
  const [kind,value]=act.split(':');
- if(kind==='role')reset(value,s.room,s.lab);
- else if(kind==='mode')reset(s.role,s.room,value==='1');
- else if(kind==='room')reset(s.role,Number(value),s.lab);
- else if(kind==='reset')reset(s.role,s.room,s.lab);
- else if(kind==='target'&&live()){s.target=value;if(value!=='lamp')s.lastEnemy=value}
- else if(kind==='echo'&&live())s.echo=value;
- else if(kind==='aim')aim(value);
- else if(kind==='play')play(value);
- else if(kind==='next')advance();
- else if(kind==='end')endTurn();
+ fx={};turnPop='';
+ if(kind==='view'){view=value}
+ else if(kind==='retry'&&roundStart){clearPick();s=JSON.parse(roundStart);lastMove='已还原本回合起手、血量和 AP';turnPop='重试本回合'}
+ else if(kind==='role'||kind==='mode'||kind==='room'||kind==='reset'||kind==='shuffle'||kind==='next'){
+  clearPick();lastMove='';
+  if(kind==='role')reset(value,s.room,s.lab);
+  else if(kind==='mode')reset(s.role,s.room,value==='1');
+  else if(kind==='room')reset(s.role,Number(value),s.lab);
+  else if(kind==='reset')reset(s.role,s.room,s.lab);
+  else if(kind==='shuffle'){openingSeed=1+Math.floor(Math.random()*2000000000);reset(s.role,s.room,false)}
+  else advance();
+  shuffleStart();saveRound();
+ }else if(kind==='cancel')clearPick();
+ else if(kind==='target'&&live()&&canAimAt(value)){
+   if(!split && picked==='dual' && value==='lamp'){
+      split=true;
+   }else{
+      const id=picked, pre=effectFragments();
+      if(split){s.lastEnemy=value;s.target='lamp'}else{s.target=value;if(value!=='lamp')s.lastEnemy=value}
+      const name=C[id][0],who=value==='lamp'?'引路灯':alive().find(e=>e.id===value)?.name;
+      if(play(id))changes(pre,name+(split?' → 灯 + ':' → ')+(who||''));
+      clearPick();
+   }
+ }else if(kind==='echo'&&live())s.echo=value;
+ else if(kind==='aim'){
+  clearPick();if(aim(value)){fx[value]='瞄准 +2';lastMove=(value==='shadow'?'影子':'本体')+'挂上瞄准'}
+ }else if(kind==='play'){
+  if(targeted(value)){
+   if(picked===value)clearPick();else {picked=value;split=false}
+  } else {
+    clearPick();const pre=effectFragments();
+    if(value==='tug')s.target=alive().find(e=>e.tether)?.id||alive()[0]?.id;
+    if(play(value))changes(pre,C[value][0]);
+  }
+ }else if(kind==='end'){
+  clearPick();const pre=effectFragments();if(endTurn()){changes(pre,'敌方行动已结算');turnPop=live()?'你的回合 · 已抽手牌':'';saveRound()}
+ }
  render();
- if(kind==='aim'||kind==='echo'||kind==='target'){let b=root.querySelector('[data-act="'+act+'"]:not(:disabled)');if(b)b.focus({preventScroll:true})}
+ if(kind==='play'&&picked){
+   const b=root.querySelector('.unit.valid:not(:disabled)');
+   if(b)b.focus({preventScroll:true});
+ }else if(kind==='aim'||kind==='echo'||kind==='target'){
+   const b=root.querySelector('[data-act="'+act+'"]:not(:disabled)');if(b)b.focus({preventScroll:true});
+ }
 }
-root.addEventListener('click',e=>{const b=e.target.closest('button[data-act]');if(b&&!b.disabled)dispatch(b.dataset.act)});
-reset();render();
+
+function guideDefault(){
+ if(split)return '步骤 2 / 2：点一个发光的敌方格，确定第二箭。';
+ if(picked)return '移动到发光的格子预览；点击才确认，不会误扣 AP。';
+ return '移动到单位上可查看状态。选一张手牌后，发光的格子就是可用目标。';
+}
+function preview(node){
+ const tt=root.querySelector('#boardtip');if(!tt)return;
+ const unit=node?.closest?.('.unit');if(!unit){tt.textContent=guideDefault();return}
+ const key=unit.dataset.act?.split(':')[1];
+ if(key&&picked&&canAimAt(key)){
+   const prev=s.target;s.target=split?'lamp':key;const d=details(picked);s.target=prev;
+   const where=key==='lamp'?'引路灯':s.enemies.find(e=>e.id===key).name;
+   const which=key==='lamp'&&picked==='dual'?'第一箭点灯，接着再选第二箭':key==='lamp'?'点灯或改剩余灯域':split?'第二箭命中此单位':'点击确定出牌';
+   tt.textContent=C[picked][0]+' → '+where+'　·　'+d.cost+' AP　·　'+which;
+ }else if(key&&key.startsWith('e')){
+   const en=s.enemies.find(e=>e.id===key);
+   const hint=unit.querySelector('.intent')?.textContent || '';
+   tt.textContent=en.name+'　·　'+en.hp+' / '+en.max+' HP　·　'+hint;
+ }else if(key==='lamp'){
+   tt.textContent=s.lamp?.mode==='lit'?'引路灯　·　'+s.lamp.type+'域　·　剩 '+s.lamp.left+' 次':'引路灯　·　用冰、电、火箭点亮';
+ } else if(unit.classList.contains('shadow')){
+   tt.textContent=s.shadow?'影子　·　'+s.shadow.hp+' / '+s.shadow.max+' HP　·　独立瞄准，能按剩余 HP 扛伤':'影子　·　用「唤影」召出来';
+ }else tt.textContent='本体　·　'+s.hp+' / '+s.max+' HP　·　直接点单位上的「瞄准」，不用再选目标。';
+}
+root.addEventListener('pointerover',e=>preview(e.target));
+root.addEventListener('focusin',e=>preview(e.target));
+root.addEventListener('pointerleave',()=>preview(null));
+root.addEventListener('click',e=>{const b=e.target.closest('button[data-act]');if(b&&!b.disabled&&b.getAttribute('aria-disabled')!=='true')dispatch(b.dataset.act)});
+root.addEventListener('keydown',e=>{if(e.key==='Escape'&&picked){e.preventDefault();dispatch('cancel')}});
+reset();saveRound();render();
 
 </script></body></html>
