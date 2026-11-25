@@ -1,13 +1,14 @@
-<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>弓手试战｜星渊逃逸</title>
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>双职业试战｜星渊逃逸</title>
 <style>
 :root{color-scheme:dark;--bg:#17151d;--ink:#f0e8d9;--mut:#bcb3be;--edge:#504655;--gold:#e7c38d;--cyan:#a9d6d5;--red:#efaba0;--paper:#e9ddc0;--print:#291f27}
 *{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 50% 3%,#292330 0,var(--bg) 64%);color:var(--ink);font:15px/1.44 system-ui,sans-serif;min-height:100vh}main{max-width:1120px;margin:auto;padding:17px 24px 36px}header,.row,.tools,.actions,.steps{display:flex;gap:9px;align-items:center;flex-wrap:wrap}header{justify-content:space-between}a{color:var(--mut)}h1{font:700 clamp(24px,4vw,36px)/1.1 Georgia,serif;letter-spacing:.03em;margin:7px 0}.kicker{color:var(--gold);font:600 11px system-ui,sans-serif;letter-spacing:.18em}.hint,small,summary{color:var(--mut)}button,select{font:inherit;color:var(--ink);background:#2c2631;border:1px solid var(--edge);border-radius:5px;padding:7px 11px;cursor:pointer}button:hover:not(:disabled),select:hover{border-color:var(--gold)}button:focus-visible,select:focus-visible{outline:3px solid #bde8da;outline-offset:3px}button:disabled{opacity:.56;cursor:default}.stages [aria-pressed=true],.primary{border-color:var(--gold);color:var(--gold)}.stages{padding:10px 0}.stages .tail{margin-left:auto}.action-slim{font-size:12px}.status{min-height:29px;margin:0 0 7px}.status b{color:var(--gold)}.status select{padding:3px 6px}.badge{color:var(--cyan)}
 .arena{position:relative;isolation:isolate;display:grid;grid-template-columns:1fr .36fr 1.35fr;width:100%;height:clamp(292px,32vw,365px);padding:51px 27px 49px;overflow:hidden;border:1px solid #776673;background:#211d2a;box-shadow:inset 0 0 0 4px #16131b,0 9px 30px #09080d4f}.terrain{position:absolute;z-index:-2;inset:0;width:100%;height:100%;object-fit:cover}.field-glow{position:absolute;z-index:-1;inset:18% 1% 3%;background:radial-gradient(ellipse at 52% 67%,#aecfba62,transparent 66%);opacity:0;transition:opacity .25s}.lit .field-glow{opacity:1}.zone-zone{display:flex;align-items:end;justify-content:center;min-width:0;gap:1px}.foe-zone{align-items:end}.hero-zone{padding-left:10%}.unit{position:relative;display:flex;align-items:center;justify-content:center;flex-direction:column;width:min(100%,176px);min-width:0;height:100%;background:transparent;border:0;border-radius:0;color:var(--ink);padding:0;margin:0;transition:opacity .2s}.unit.foe{border:0}.unit.foe:disabled{opacity:1}.unit.foe.dead{opacity:.30;pointer-events:none}.unit .figure{width:100%;height:100%;max-height:205px;overflow:visible;filter:drop-shadow(2px 5px 2px #100d16);pointer-events:none}.lamp-unit .figure{width:84px}.shadow-unit .figure{filter:brightness(.65) saturate(.55) hue-rotate(38deg) drop-shadow(0 0 5px #c7a9e5);opacity:.74}.hero-zone:has(.shadow-unit) .unit{width:52%}.foe-zone .unit.boss{width:min(100%,224px)}.unit .name{font-weight:680;display:block;color:#f2e8dc;letter-spacing:.04em;white-space:nowrap;text-shadow:0 2px 4px #140f17}.unit .under{position:absolute;bottom:-31px;width:90%;min-width:58px;max-width:132px;text-align:center;line-height:1.15}.meter{display:block;width:100%;height:4px;border-radius:999px;background:#131018a0;margin:6px 0 4px;overflow:hidden}.meter i{display:block;height:100%;background:#f0b9a5;box-shadow:0 0 8px #e49d915c}.hero .meter i{background:#c9dbb7}.unit .numbers{font:11px system-ui,sans-serif;color:#eee4df;white-space:nowrap;text-shadow:0 1px 3px #120e16}.unit .intent{position:absolute;top:-29px;font-size:11px;font-weight:600;padding:4px 7px;border:1px solid #795f68;border-radius:4px;background:#291f2a;color:#f4d8cd;white-space:nowrap}.unit.target .figure{filter:drop-shadow(0 0 4px #e0b67c) drop-shadow(0 0 10px #c99d63a0)}.unit.target:hover .figure{transform:translateY(-3px)}.unit.target .under .name{color:#ffd89c}.target:after{content:"可攻击";position:absolute;bottom:-47px;padding:2px 5px;font-size:10px;color:#2a1c20;background:#e9c993;border-radius:2px;white-space:nowrap}.unit.first:after{content:"已选第一发";background:#a8d5d3}.arena.picking .unit.foe:not(.target){opacity:.45}.unit .float{position:absolute;top:40%;z-index:3;color:#ffead8;font:bold 25px Georgia,serif;text-shadow:0 2px 2px #190c13, 0 0 12px #c04436;animation:up .65s ease-out both;pointer-events:none}.arena .unit.dead .float{color:#fff}.unit .neutral{color:#d5e1d9}.steps{margin-top:10px;gap:6px;color:#e5ccac;min-height:32px}.step{font-size:12px}.steps .arrowhint{color:#b29b94}.steps .signal{color:#e9e6d8;font-size:13px}.actions{margin:9px 0 7px}.actions .stretch{flex:1;font-size:16px}.actions .end-action{background:#dfbf8b;color:#2d2228;font-weight:750}.ap-dots{color:var(--gold);letter-spacing:2px;margin-right:7px}.hand-title{margin-top:12px;justify-content:space-between}.hand{display:grid;grid-template-columns:repeat(auto-fit,minmax(125px,1fr));gap:8px;margin-top:8px}.card{position:relative;min-width:0;min-height:150px;text-align:left;display:flex;flex-direction:column;padding:0;border-radius:4px;background:var(--paper);color:var(--print);border:1px solid #9b806c;overflow:hidden;box-shadow:0 3px 0 #09080d}.card:disabled{opacity:.55}.card[aria-pressed=true]{transform:translateY(-5px);outline:2px solid var(--gold);border-color:#eed7a2;box-shadow:0 7px 12px #0c0814}.card .card-art{width:100%;display:flex;align-items:center;justify-content:center;height:50px;position:relative;color:#f4ddd1;background:repeating-linear-gradient(145deg,#f7ddd21d 0 1px,transparent 1px 6px),linear-gradient(115deg,#593940,#7b5054);border-bottom:1px solid #3a2934}.card.def .card-art{color:#e5f2da;background:repeating-linear-gradient(145deg,#e9ffdf1a 0 1px,transparent 1px 6px),linear-gradient(115deg,#324c4d,#557571)}.card.util .card-art{color:#f1e2be;background:repeating-linear-gradient(145deg,#fff9d21c 0 1px,transparent 1px 6px),linear-gradient(115deg,#514063,#6e587a)}.card .mark{width:39px;height:39px;filter:drop-shadow(0 2px 1px #1c1623)}.card .fee{position:absolute;left:7px;top:7px;display:grid;place-items:center;width:25px;height:25px;border-radius:50%;background:#1f1b26;color:#f5dfae;border:1px solid #dbc2a2;font-size:13px;font-weight:800}.card .type{position:absolute;right:6px;top:7px;color:#fff5dc;background:#251f29b0;padding:1px 4px;font-size:10px}.card .card-copy{padding:6px 8px 8px}.card b{display:block;margin-bottom:3px;font-size:14px}.card .desc{color:#3c2c34;font-size:11px;line-height:1.35;display:block}.card .desc strong{font-size:13px;color:#332028}.choices{background:#2b2633;border:1px solid var(--edge);padding:8px 10px}.pool{display:grid;grid-template-columns:repeat(auto-fit,minmax(205px,1fr));gap:8px;margin-top:9px}.pool div{border:1px solid var(--edge);padding:8px}details{margin-top:14px}summary{cursor:pointer}li{margin:3px 0}.seed{font-size:12px}.caption{font-size:12px;margin-top:9px}@keyframes up{from{opacity:1;transform:translateY(9px)}85%{opacity:1}to{opacity:.74;transform:translateY(-19px)}}@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 @media(max-width:700px){main{padding:12px 10px 28px}.stages .tail{margin-left:0}.arena{height:253px;padding:40px 8px 53px;grid-template-columns:1fr .3fr 1.33fr}.hero-zone{padding-left:0}.unit .name{font-size:11px}.unit .numbers{font-size:9px}.unit .intent{font-size:9px;padding:3px 4px}.lamp-unit .figure{width:58px}.hand{grid-template-columns:repeat(3,minmax(0,1fr))}.card{min-height:134px}.card .card-copy{padding:5px}.card b{font-size:12px}.card .desc{font-size:10px}.card .card-art{height:41px}.card .mark{width:30px;height:30px}.card .fee{width:19px;height:19px;left:3px;top:4px}.card .type{right:3px;top:3px}.card .desc strong{font-size:11px}.actions .stretch{min-width:85px}.actions button{padding:7px 7px;font-size:12px}}
 .lamp-tint{display:block}.lamp-tint.cold{filter:drop-shadow(0 0 15px #95dbe4)}.lamp-tint.heat{filter:hue-rotate(292deg) saturate(2.2) drop-shadow(0 0 13px #e6b078)}.lamp-tint.spark{filter:hue-rotate(192deg) saturate(1.7) drop-shadow(0 0 12px #d1aaf9)}
-</style></head><body><main><header><span class="kicker">星渊逃逸 · PLAYTEST 06</span><a href="index.html">卡牌核对册</a></header><h1>弓手试战</h1><div id="app"></div><details><summary>查看 44 张测试牌</summary><div class="pool" id="pool"></div></details><details><summary>结算记录</summary><ol id="log"></ol></details></main>
+.rolebar{margin:10px 0 5px}.rolebar button{font-weight:760;font-size:15px}.rolebar .roll{background:#dcc099;color:#2f2328;font-weight:800}.phases{margin-bottom:10px}.phases button{padding:4px 11px;font-size:12px}.card b{font-size:clamp(17px,2.1vw,22px);line-height:1.15;letter-spacing:-.025em}.card .desc,.card .desc strong{font-size:11px;font-weight:500}.card .desc strong{font-weight:800}.card{min-height:118px}.card .card-art{height:35px}.card .mark{width:27px;height:27px}.card .type{font-size:9px;top:4px}.card .fee{top:4px;width:22px;height:22px}.card .card-copy{padding:6px 7px 8px}.unit .float.multi{left:calc(30% + var(--i)*10%);top:calc(33% + var(--i)*7%);animation-delay:calc(var(--i)*115ms);font-size:20px;animation-fill-mode:both}.unit .float.echo-dmg{color:#dfc5ff;text-shadow:0 2px 3px #160f22,0 0 10px #703abd}.sword-arena{grid-template-columns:1fr .14fr 1.35fr}.sword-arena .hero-zone{padding-left:5%}@media(max-width:700px){.rolebar button{font-size:12px;padding:6px 7px}.card b{font-size:17px}.card .desc,.card .desc strong{font-size:10px}.card .fee{width:18px;height:18px}.card{min-height:108px}.unit .float.multi{font-size:15px}}
+</style></head><body><main><header><span class="kicker">星渊逃逸 · PLAYTEST 07</span><a href="index.html">卡牌核对册</a></header><h1>双职业试战</h1><div id="app"></div><details><summary>本局机选牌组 · 18 张</summary><div class="pool" id="pool"></div></details><details><summary>结算记录</summary><ol id="log"></ol></details></main>
 <script>
-const CARDS = [{"id":1,"name":"直射","cost":1,"desc":"打 8。","kind":"攻","arrow":true,"el":"","once":false,"stage":0,"common":false},{"id":2,"name":"探路箭","cost":1,"desc":"打 6，抽 1。","kind":"攻","arrow":true,"el":"","once":false,"stage":0,"common":false},{"id":3,"name":"掩步","cost":1,"desc":"格挡 5，抽 1。","kind":"防","arrow":false,"el":"","once":false,"stage":0,"common":true},{"id":4,"name":"霜钉箭","cost":1,"desc":"打 7，叠 1 霜。","kind":"攻","arrow":true,"el":"冰","once":false,"stage":0,"common":false},{"id":5,"name":"穿壳击","cost":1,"desc":"先削最多 2 格挡，再打 7，附加电标。","kind":"攻","arrow":false,"el":"电","once":false,"stage":0,"common":true},{"id":6,"name":"火星箭","cost":1,"desc":"打 6，点燃目标：接下来两次行动前依次掉 2、1 血。","kind":"攻","arrow":true,"el":"火","once":false,"stage":0,"common":false},{"id":7,"name":"冷光术","cost":1,"desc":"打 8；打完手里没其他攻击牌，抽 1。","kind":"攻","arrow":false,"el":"","once":false,"stage":0,"common":true},{"id":8,"name":"整备","cost":1,"desc":"抽 2 张，再弃掉 1 张手牌。","kind":"功能","arrow":false,"el":"","once":false,"stage":0,"common":true},{"id":9,"name":"绊脚箭","cost":1,"desc":"打 7，目标下一次攻击少打 3。","kind":"攻","arrow":true,"el":"","once":false,"stage":0,"common":false},{"id":10,"name":"猎首箭","cost":1,"desc":"打 8；目标出牌前半血或以下，改打 12。","kind":"攻","arrow":true,"el":"","once":false,"stage":0,"common":false},{"id":11,"name":"碎霜箭","cost":1,"desc":"打 8；若目标至少 2 霜，消耗 2 霜再打 6。不叠霜、不染波。","kind":"攻","arrow":true,"el":"","once":false,"stage":1,"common":false},{"id":12,"name":"破壳符","cost":1,"desc":"先削最多 6 格挡，再打 6；削光原有格挡就抽 1，并附加电标。","kind":"攻","arrow":false,"el":"电","once":false,"stage":1,"common":true},{"id":13,"name":"取烬术","cost":1,"desc":"打 7，再立刻结算目标已有灼伤；灼伤击杀，抽 1。不自己挂灼伤。","kind":"攻","arrow":false,"el":"火","once":false,"stage":1,"common":true},{"id":14,"name":"追裂箭","cost":1,"desc":"打 8，击杀抽 1。","kind":"攻","arrow":true,"el":"","once":false,"stage":1,"common":false},{"id":16,"name":"幻影","cost":1,"desc":"召唤影子。","kind":"功能","arrow":false,"el":"","once":false,"stage":0,"common":false},{"id":18,"name":"穿群射","cost":2,"desc":"两发各 9，可分别点怪，也可同打一个。算一张牌。","kind":"攻","arrow":true,"el":"","once":false,"stage":1,"common":false},{"id":19,"name":"蓄势箭","cost":1,"desc":"打 8；若用完本回合最后一费，抽 1 并把那张牌留到下回合。","kind":"攻","arrow":true,"el":"","once":false,"stage":1,"common":false},{"id":20,"name":"溢箭","cost":1,"desc":"打 8；击杀后把超出的伤害转给剩余血最低的敌人，只转一次。","kind":"攻","arrow":true,"el":"","once":false,"stage":1,"common":false},{"id":22,"name":"白昼断层","cost":2,"desc":"打 14；目标已冻结或带 Boss 霜裂，再全体打 6。每场一次。","kind":"攻","arrow":false,"el":"","once":true,"stage":2,"common":true},{"id":24,"name":"终猎","cost":2,"desc":"打 16，击杀返 1 费。每场一次。","kind":"攻","arrow":false,"el":"","once":true,"stage":2,"common":true},{"id":28,"name":"借光箭","cost":1,"desc":"打 6，抽 1；目标有霜或灼伤，改成顶两张选一张，另一张放底。","kind":"攻","arrow":true,"el":"","once":false,"stage":0,"common":false},{"id":30,"name":"退步射","cost":1,"desc":"打 6，格挡 3。","kind":"攻","arrow":true,"el":"","once":false,"stage":0,"common":false},{"id":31,"name":"夹缝箭","cost":1,"desc":"打 8；目标已有至少 2 霜，或本回合被打光过格挡，加 4。条件不叠加，不消耗霜。","kind":"攻","arrow":true,"el":"","once":false,"stage":1,"common":false},{"id":32,"name":"追响","cost":1,"desc":"打 7；若目标在这张牌以前已于本回合吃过至少两段伤害，抽 1。","kind":"攻","arrow":true,"el":"","once":false,"stage":1,"common":false},{"id":33,"name":"断尾","cost":1,"desc":"打 8；目标已冻结，或这一击击杀，得 4 格挡。只奖励一次。","kind":"攻","arrow":false,"el":"","once":false,"stage":1,"common":true},{"id":34,"name":"余温符","cost":1,"desc":"格挡 6；场上有带霜或灼伤的怪，再抽 1。","kind":"防","arrow":false,"el":"","once":false,"stage":1,"common":true},{"id":35,"name":"交叉火力","cost":2,"desc":"打 16；若主目标此前已在本回合受伤，再对另一只血最多的怪打 6。每场一次。","kind":"攻","arrow":true,"el":"","once":true,"stage":2,"common":false},{"id":36,"name":"收场","cost":1,"desc":"打 8；若出牌前已有两只怪在本回合倒下，返 1 费。每场一次。","kind":"攻","arrow":false,"el":"","once":true,"stage":2,"common":true},{"id":37,"name":"分裂箭","cost":1,"desc":"主箭打 5，副箭打另一只血最低的活怪 3；单怪时都打它。","kind":"攻","arrow":true,"el":"","once":false,"stage":0,"common":false},{"id":38,"name":"基础格挡","cost":1,"desc":"格挡 6。没有条件。","kind":"防","arrow":false,"el":"","once":false,"stage":0,"common":true},{"id":39,"name":"架弓","cost":1,"desc":"格挡 5。本轮第一次被攻击后再获得 3 格挡。额外格挡来不及挡第一下，专接后续攻击。","kind":"防","arrow":false,"el":"","once":false,"stage":0,"common":false},{"id":40,"name":"压阵","cost":1,"desc":"格挡 4；每个意图是攻击的敌人再给 2，最多共 8。","kind":"防","arrow":false,"el":"","once":false,"stage":0,"common":true},{"id":41,"name":"霜幕","cost":1,"desc":"格挡 5，给一只本轮准备攻击的敌人叠 1 霜；没攻击意图的目标也可单独打出拿格挡。","kind":"防","arrow":false,"el":"冰","once":false,"stage":1,"common":true},{"id":42,"name":"续守","cost":1,"desc":"格挡 6；下个玩家回合开始，再得 3 格挡。","kind":"防","arrow":false,"el":"","once":false,"stage":1,"common":true},{"id":43,"name":"反手箭","cost":1,"desc":"格挡 6；本轮第一次用格挡吸收伤害时，对攻击者还一箭 4。反击不算主动出牌，不触发跟射。","kind":"防","arrow":false,"el":"","once":false,"stage":1,"common":false},{"id":44,"name":"重防","cost":2,"desc":"格挡 14。专门挡重击，不要求手里还有别的防牌。","kind":"防","arrow":false,"el":"","once":false,"stage":1,"common":true},{"id":45,"name":"避锋","cost":1,"desc":"格挡 6；本轮第一次透过格挡的单段攻击伤害最多扣 5 血。每场一次，只限制那一段。","kind":"防","arrow":false,"el":"","once":true,"stage":2,"common":true},{"id":46,"name":"月神","cost":3,"desc":"把 30 点伤害分 3 波随机打向活怪。每有 1 专注，总伤再加 2，并消耗专注。本场一次。","kind":"攻","arrow":false,"stage":2,"once":true,"el":"","common":false},{"id":47,"name":"返猎箭","cost":1,"desc":"打 11；本箭或它的影箭击杀，返 1 AP。每张牌只返一次。","kind":"攻","arrow":true,"stage":1,"once":false,"el":"","common":false},{"id":48,"name":"专注","cost":1,"desc":"格挡 6，获得 2 专注。下一张箭每点专注多打 2，随后消耗。","kind":"防","arrow":false,"stage":1,"once":false,"el":"","common":false},{"id":49,"name":"轻弦","cost":0,"desc":"本回合下一张箭少花 1 AP，最低 0。本场一次。","kind":"功能","arrow":false,"stage":0,"once":true,"el":"","common":false},{"id":50,"name":"回势","cost":1,"desc":"格挡 5；若本回合击倒过敌人，返 1 AP。","kind":"防","arrow":false,"stage":1,"once":false,"el":"","common":false},{"id":51,"name":"整弦","cost":1,"desc":"格挡 6；本回合下一张箭少花 1 AP，最低 0。","kind":"功能","arrow":false,"stage":1,"once":false,"el":"","common":false},{"id":52,"name":"飞掠","cost":0,"desc":"打 3。本场一次。","kind":"攻","arrow":true,"stage":0,"once":true,"el":"","common":false}];
+const CARDS = [{"id":1,"name":"直射","cost":1,"desc":"打 8。","kind":"攻","arrow":true,"el":"","once":false,"stage":0,"common":false,"short":"打 8。"},{"id":2,"name":"探路箭","cost":1,"desc":"打 6，抽 1。","kind":"攻","arrow":true,"el":"","once":false,"stage":0,"common":false,"short":"打 6。抽 1。"},{"id":3,"name":"掩步","cost":1,"desc":"格挡 5，抽 1。","kind":"防","arrow":false,"el":"","once":false,"stage":0,"common":true,"short":"挡 5。抽 1。"},{"id":4,"name":"霜钉箭","cost":1,"desc":"打 7，叠 1 霜。","kind":"攻","arrow":true,"el":"冰","once":false,"stage":0,"common":false,"short":"打 7。上 1 霜。"},{"id":5,"name":"穿壳击","cost":1,"desc":"先削最多 2 格挡，再打 7，附加电标。","kind":"攻","arrow":false,"el":"电","once":false,"stage":0,"common":true,"short":"削 2 挡，打 7。挂电标。"},{"id":6,"name":"火星箭","cost":1,"desc":"打 6，点燃目标：接下来两次行动前依次掉 2、1 血。","kind":"攻","arrow":true,"el":"火","once":false,"stage":0,"common":false,"short":"打 6。灼伤 2、1。"},{"id":8,"name":"整备","cost":1,"desc":"抽 2 张，再弃掉 1 张手牌。","kind":"功能","arrow":false,"el":"","once":false,"stage":0,"common":true,"short":"抽 2，弃 1。"},{"id":16,"name":"幻影","cost":1,"desc":"召唤影子。","kind":"功能","arrow":false,"el":"","once":false,"stage":0,"common":false,"short":"本轮之后每张箭，影子跟射一次。"},{"id":18,"name":"穿群射","cost":2,"desc":"两发各 9，可分别点怪，也可同打一个。算一张牌。","kind":"攻","arrow":true,"el":"","once":false,"stage":1,"common":false,"short":"两发各 9，可分打。"},{"id":37,"name":"分裂箭","cost":1,"desc":"主箭打 5，副箭打另一只血最低的活怪 3；单怪时都打它。","kind":"攻","arrow":true,"el":"","once":false,"stage":0,"common":false,"short":"主箭 5，副箭 3。单怪吃两箭。"},{"id":38,"name":"基础格挡","cost":1,"desc":"格挡 6。没有条件。","kind":"防","arrow":false,"el":"","once":false,"stage":0,"common":true,"short":"挡 6。"},{"id":46,"name":"月神","cost":3,"desc":"把 30 点伤害分 3 波随机打向活怪。每有 1 专注，总伤再加 2，并消耗专注。本场一次。","kind":"攻","arrow":false,"stage":2,"once":true,"el":"","common":false,"short":"随机三击，共 30。每点专注＋2。每场一次。"},{"id":47,"name":"返猎箭","cost":1,"desc":"打 11；本箭或它的影箭击杀，返 1 AP。每张牌只返一次。","kind":"攻","arrow":true,"stage":1,"once":false,"el":"","common":false,"short":"打 11。原箭或影箭击杀，返 1 费。"},{"id":48,"name":"专注","cost":1,"desc":"格挡 6，获得 2 专注。下一张箭每点专注多打 2，随后消耗。","kind":"防","arrow":false,"stage":1,"once":false,"el":"","common":false,"short":"挡 6。存 2 专注；下张箭每点＋2。"},{"id":49,"name":"轻弦","cost":0,"desc":"本回合下一张箭少花 1 AP，最低 0。本场一次。","kind":"功能","arrow":false,"stage":0,"once":true,"el":"","common":false,"short":"本轮下一箭少 1 费。每场一次。"},{"id":50,"name":"回势","cost":1,"desc":"格挡 5；若本回合击倒过敌人，返 1 AP。","kind":"防","arrow":false,"stage":1,"once":false,"el":"","common":false,"short":"挡 5。本轮杀过怪，返 1 费。"},{"id":51,"name":"整弦","cost":1,"desc":"格挡 6；本回合下一张箭少花 1 AP，最低 0。","kind":"功能","arrow":false,"stage":1,"once":false,"el":"","common":false,"short":"挡 6。本轮下一箭少 1 费。"},{"id":52,"name":"飞掠","cost":0,"desc":"打 3。本场一次。","kind":"攻","arrow":true,"stage":0,"once":true,"el":"","common":false,"short":"打 3。每场一次。"},{"id":60,"name":"格挡","cost":1,"kind":"防","stage":0,"desc":"挡 6。","short":"挡 6。","target":false,"once":false,"role":"sword","arrow":false,"el":""},{"id":61,"name":"猛击","cost":1,"kind":"攻","stage":0,"desc":"打 7。有格挡时打 11，不耗格挡。","short":"打 7。有格挡时打 11，不耗格挡。","target":true,"once":false,"role":"sword","arrow":false,"el":""},{"id":62,"name":"招架","cost":1,"kind":"防","stage":0,"desc":"挡 5。完整挡住所选敌人的攻击，反砍 6。","short":"挡 5。完整挡住所选敌人的攻击，反砍 6。","target":true,"once":false,"role":"sword","arrow":false,"el":""},{"id":63,"name":"起势斩","cost":1,"kind":"攻","stage":0,"desc":"打 6，获得 3 剑势。每场一次。","short":"打 6，获得 3 剑势。每场一次。","target":true,"once":true,"role":"sword","arrow":false,"el":""},{"id":64,"name":"蓄势","cost":1,"kind":"防","stage":0,"desc":"挡 5，获得 3 剑势。每场一次。","short":"挡 5，获得 3 剑势。每场一次。","target":false,"once":true,"role":"sword","arrow":false,"el":""},{"id":65,"name":"三连斩","cost":2,"kind":"攻","stage":0,"desc":"每刀 8，连砍 3 刀。","short":"每刀 8，连砍 3 刀。","target":true,"once":false,"role":"sword","arrow":false,"el":""},{"id":66,"name":"挑斩","cost":1,"kind":"攻","stage":0,"desc":"打 5。本轮对它的下一段剑击＋5。","short":"打 5。本轮对它的下一段剑击＋5。","target":true,"once":false,"role":"sword","arrow":false,"el":""},{"id":67,"name":"落刃","cost":2,"kind":"攻","stage":0,"desc":"重斩 18。","short":"重斩 18。","target":true,"once":false,"role":"sword","arrow":false,"el":""},{"id":68,"name":"横扫","cost":2,"kind":"攻","stage":1,"desc":"主目标 12，相邻活怪各 5。","short":"主目标 12，相邻活怪各 5。","target":true,"once":false,"role":"sword","arrow":false,"el":""},{"id":69,"name":"烙痕斩","cost":1,"kind":"攻","stage":0,"desc":"打 7，挂鬼火。鬼火灼伤 2、1。","short":"打 7，挂鬼火。鬼火灼伤 2、1。","target":true,"once":false,"role":"sword","arrow":false,"el":""},{"id":70,"name":"破火斩","cost":1,"kind":"攻","stage":0,"desc":"打 6。先吃鬼火，得 3 剑势。","short":"打 6。先吃鬼火，得 3 剑势。","target":true,"once":false,"role":"sword","arrow":false,"el":""},{"id":71,"name":"吞火斩","cost":1,"kind":"攻","stage":0,"desc":"打 7。吃鬼火，回 3 血。","short":"打 7。吃鬼火，回 3 血。","target":true,"once":false,"role":"sword","arrow":false,"el":""},{"id":72,"name":"收烬斩","cost":1,"kind":"攻","stage":1,"desc":"打 9。砍死带鬼火的怪，回 5 血。","short":"打 9。砍死带鬼火的怪，回 5 血。","target":true,"once":false,"role":"sword","arrow":false,"el":""},{"id":73,"name":"活甲","cost":1,"kind":"防","stage":2,"desc":"付 3 血，挡 8；本轮每刀＋4。每场一次。","short":"付 3 血，挡 8；本轮每刀＋4。每场一次。","target":false,"once":true,"role":"sword","arrow":false,"el":""}];
 
  const Engine=(()=>{
 const byId=Object.fromEntries(CARDS.map(c=>[c.id,c]));
@@ -16,7 +17,7 @@ const STAGES=[
  {name:'中期',subtitle:'裂隙 · 增援与元素芯',spawns:[['裂脊精英',52,[8,-6,12,7]]]},
  {name:'后期',subtitle:'合脊 · 猎月终击',spawns:[['合脊巨岩',78,[10,-7,17,0,[7,7]],true]]}
 ];
-const enemy=(r,i)=>({id:i,name:r[0],hp:r[1],max:r[1],moves:r[2],boss:!!r[3],guard:0,frost:0,locked:false,burn:0,spark:false,element:'',hits:0,broke:false,weaken:0});
+const enemy=(r,i)=>({id:i,name:r[0],hp:r[1],max:r[1],moves:r[2],boss:!!r[3],guard:0,frost:0,locked:false,burn:0,spark:false,element:'',hits:0,broke:false,weaken:0,ghost:0,opening:0});
 const clone=s=>JSON.parse(JSON.stringify(s));
 function rnd(s){s.rng=(Math.imul(s.rng,1664525)+1013904223)>>>0;return s.rng/4294967296}
 function shuffle(s,a){for(let i=a.length-1;i>0;i--){let j=Math.floor(rnd(s)*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
@@ -29,7 +30,7 @@ function log(s,t){s.lines.unshift('R'+s.turn+' · '+t);if(s.lines.length>42)s.li
 function done(s){if(s.hp<=0){if(!s.result)log(s,'战斗结束');s.result='输'}else if(!live(s).length){if(!s.result)log(s,'房间已清理');s.result='赢'}return !!s.result}
 function dealt(s,e,n,label){if(!e||e.hp<=0||n<=0)return {kill:false,overflow:0};const g=Math.min(e.guard,n),net=n-g,loss=Math.min(net,e.hp);e.guard-=g;
  if(g&&e.guard===0)e.broke=true;
- e.hp-=loss;if(loss)e.hits++;if(e.hp<=0)s.kills++;
+ e.hp-=loss;if(loss){e.hits++;if(s.events)s.events.push({id:e.id,loss,shadow:label.startsWith('影子')})}if(e.hp<=0)s.kills++;
  log(s,label+' → '+e.name+' '+(loss?'−'+loss+' HP':'0 HP')+(g?'（护甲 −'+g+'）':'')+(!e.hp?' · 击倒':''));
  return {kill:!e.hp,overflow:Math.max(0,net-loss)}
 }
@@ -47,42 +48,50 @@ function peak(s){if(!s.deck.length&&s.bin.length)s.deck=shuffle(s,s.bin.splice(0
 function draw(s,n){while(n--){const c=peak(s);if(c!==undefined)s.hand.push(c)}}
 function pickTwo(s,want){const a=peak(s),b=peak(s);if(a===undefined)return;if(b===undefined){s.hand.push(a);return}if(want===1){s.hand.push(b);s.deck.push(a)}else{s.hand.push(a);s.deck.push(b)}log(s,'选入 '+byId[want===1?b:a].name)}
 function offer(s){const m=clone(s);return [peak(m),peak(m)].filter(x=>x!==undefined)}
+const eligible=(role,stage)=>CARDS.filter(c=>(role==='sword'?(c.role==='sword'||c.id===8):!c.role)&&c.stage<=stage);
 function makeDeck(s){
- let out=[];
- for(const [kind,n] of [['攻',10],['防',6],['功能',2]]){
-  const available=CARDS.filter(c=>!c.experimental&&c.kind===kind&&c.stage<=s.stage);
-  const higher=available.filter(c=>c.stage===s.stage);
-  const base=available.filter(c=>c.stage<s.stage);
-  shuffle(s,higher);shuffle(s,base);
-  if(s.stage===0){let a=shuffle(s,available.slice());while(a.length<n)a.push(...shuffle(s,available.slice()));out.push(...a.slice(0,n).map(c=>c.id));continue}
-  let quota=Math.min(higher.length,kind==='攻'?3:kind==='防'?2:1);
-  const hit=higher.slice(0,quota);const rest=shuffle(s,base.concat(higher.slice(quota)));
-  while(hit.length<n)hit.push(...rest.slice(0,n-hit.length));
-  out.push(...hit.map(c=>c.id))
- }
+ const sword=s.role==='sword',pool=eligible(s.role,s.stage),out=[];
+ const theme=sword?(rnd(s)<.5?63:64):16;
+ const picks=sword?[theme,60,65,69,70,71]:[16,38,4];
+ if(s.stage===2)picks.push(sword?73:46);
+ out.push(...picks);
+ const activePool=pool.filter(c=>!sword||c.id!==(theme===63?64:63));
+ const add=(kind,n)=>{
+  const cards=activePool.filter(c=>c.kind===kind);
+  while(out.filter(id=>byId[id].kind===kind).length<n){
+   const options=cards.filter(c=>!c.once||!out.includes(c.id));
+   if(!options.length)throw Error('Empty random deck category');
+   const fresh=options.filter(c=>!out.includes(c.id));
+   const pick=options[Math.floor(rnd(s)*options.length)];
+   const c=fresh.length&&rnd(s)<.52?fresh[Math.floor(rnd(s)*fresh.length)]:pick;
+   out.push(c.id);
+  }
+ };
+ add('攻',10);add('防',6);add('功能',2);
  return shuffle(s,out)
 }
-function room(stage,seed){
- let s={stage,seed,rng:seed>>>0,burstRng:(seed^0x9e3779b9)>>>0,hp:56,max:56,turn:1,ap:3,guard:0,deck:[],bin:[],hand:[],gone:[],used:[],enemies:STAGES[stage].spawns.map(enemy),lines:[],lamp:{el:'',target:-1,lastRound:0},shadow:false,focus:0,discount:0,discardDue:false,last:-1,kills:0,retain:[],afterGuard:0,counter:0,cap:false,carry:0,result:'',actions:0};
- s.deck=makeDeck(s);
- const keep=c=>s.hand.includes(c);
- function include(id,kind,protectedIds=[]){
-  if(keep(id))return;
-  let j=s.deck.indexOf(id);
-  const k=s.hand.findIndex(x=>byId[x].kind===kind&&!protectedIds.includes(x));
-  if(j<0&&k>=0){s.hand[k]=id;return}
-  if(j<0){j=s.deck.findIndex(x=>byId[x].kind===kind&&!protectedIds.includes(x));if(j>=0)s.deck[j]=id}
-  if(j<0)return;
-  if(k>=0)[s.hand[k],s.deck[j]]=[s.deck[j],s.hand[k]];
-  else{const t=s.hand.findIndex(x=>!protectedIds.includes(x));if(t>=0)[s.hand[t],s.deck[j]]=[s.deck[j],s.hand[t]]}
- }
- draw(s,6);include(16,'功能',[4,46]);
- if(stage===2)include(46,'攻',[16,...s.hand.filter(x=>byId[x].el&&byId[x].arrow)]);
- if(!s.hand.some(x=>byId[x].el&&byId[x].arrow))include(4,'攻',[16,46]);
+function room(stage,seed,role='archer'){
+ const max=role==='sword'?62:56;
+ let s={stage,seed,role,rng:seed>>>0,burstRng:(seed^0x9e3779b9)>>>0,hp:max,max,edge:0,armorPower:0,parry:-1,turn:1,ap:3,guard:0,deck:[],bin:[],hand:[],gone:[],used:[],enemies:STAGES[stage].spawns.map(enemy),lines:[],lamp:{el:'',target:-1,lastRound:0},shadow:false,focus:0,discount:0,discardDue:false,last:-1,kills:0,retain:[],afterGuard:0,counter:0,cap:false,carry:0,result:'',actions:0};
+ s.deck=makeDeck(s);s.loadout=s.deck.slice();draw(s,6);
  log(s,'新开局：'+STAGES[stage].name);return s
 }
+function eatGhost(s,e){
+ if(!e?.ghost)return false;
+ e.ghost=0;log(s,'收走 '+e.name+' 的鬼火');return true
+}
+function heal(s,n){const h=Math.min(n,s.max-s.hp);s.hp+=h;if(h)log(s,'回复 '+h+' HP')}
+function swordHit(s,e,n,label){
+ const opening=e?.opening||0;if(e)e.opening=0;
+ return dealt(s,e,n+s.edge+s.armorPower+opening,label)
+}
+function ghostTick(s,e){
+ if(!e.ghost||!e.hp)return false;
+ const h=Math.min(e.hp,e.ghost--);e.hp-=h;e.hits++;if(!e.hp)s.kills++;
+ log(s,'鬼火 → '+e.name+' −'+h+' HP');return !e.hp
+}
 function pulse(s){
- const l=s.lamp;if(!l.el||l.lastRound===s.turn)return false;
+ const l=s.lamp;if(s.role!=='archer'||!l.el||l.lastRound===s.turn)return false;
  const e=get(s,l.target)||high(live(s));if(!e)return false;
  l.lastRound=s.turn;l.target=e.id;
  if(l.el==='冰')frost(s,e);
@@ -92,16 +101,16 @@ function pulse(s){
  return true
 }
 const cost=(s,c)=>Math.max(0,c.cost-(c.arrow?s.discount:0));
-function valid(s,c){return c&&!s.result&&!s.discardDue&&s.hand.includes(c.id)&&s.ap>=cost(s,c)&&(!c.once||!s.used.includes(c.id))&&!(c.id===16&&s.shadow)}
+function valid(s,c){return c&&!s.result&&!s.discardDue&&s.hand.includes(c.id)&&s.ap>=cost(s,c)&&(!c.once||!s.used.includes(c.id))&&!(c.id===16&&s.shadow)&&!(c.id===73&&s.hp<=3)}
 function discard(s,i){if(!s.discardDue||s.hand[i]===undefined)return false;const id=s.hand.splice(i,1)[0];s.bin.push(id);s.discardDue=false;log(s,'弃掉 '+byId[id].name);return true}
-const needs=c=>(c.kind==='攻'&&c.id!==46)||c.id===41;
-const weapon=c=>c.arrow||[5,24,33,36].includes(c.id);
+const needs=c=>!!c&&(c.role==='sword'?c.target:(c.kind==='攻'&&c.id!==46)||c.id===41);
+const weapon=c=>c.role==='sword'||c.arrow||[5,24,33,36].includes(c.id);
 function play(s,id,who=-1,arg={}){
  const c=byId[id];if(!valid(s,c))return false;
  let e=get(s,who);
  if(needs(c)&&!e&&id!==41)return false;
  s.ap-=cost(s,c);if(c.arrow)s.discount=0;s.actions++;s.hand.splice(s.hand.indexOf(id),1);if(c.once)s.used.push(id);
- const echo=c.arrow&&s.shadow;if(echo)s.shadow=false;
+ const echo=c.arrow&&s.shadow;
  if(needs(c)&&id!==41&&e)s.last=e.id;
  if(c.el&&e){setElement(s,e,c.el);s.lamp.el=c.el;s.lamp.target=e.id;}
  const packets=[];let focus=c.arrow?s.focus*2:0;if(c.arrow)s.focus=0;
@@ -109,6 +118,7 @@ function play(s,id,who=-1,arg={}){
    if(echo&&target)packets.push([target.id,n,t]);return dealt(s,target,n,t)};
  const H=(n,t=c.name)=>D(e,n,t);const killsBefore=s.kills;
  const B=n=>{s.guard+=n;log(s,c.name+' · 格挡 +'+n)};
+ const S=(n,t=c.name,target=e)=>swordHit(s,target,n,t);
  let r, a, t;
  switch(id){
  case 1:H(8);break;
@@ -125,7 +135,7 @@ function play(s,id,who=-1,arg={}){
  case 12:a=e.guard;strip(s,e,6);if(a&&!e.guard)draw(s,1);H(6);electrify(s,e);break;
  case 13:H(7);if(takeBurn(s,e))draw(s,1);break;
  case 14:H(8);break;
- case 16:s.shadow=true;log(s,'影子已召唤 · 下一张箭打两遍');break;
+ case 16:s.shadow=true;log(s,'幻影开启 · 本轮每张箭都跟射');break;
  case 18:t=get(s,arg.to) || e;H(9);if(t.hp>0)D(t,9,'穿群第二发');break;
  case 19:H(8);if(s.ap===0){a=peak(s);if(a!==undefined){s.retain.push(a);log(s,'留牌：'+byId[a].name)}}break;
  case 20:r=H(8);if(r.kill)D(low(live(s)),r.overflow,'溢伤');break;
@@ -159,6 +169,20 @@ function play(s,id,who=-1,arg={}){
  case 50:B(5);if(s.kills>0){s.ap++;log(s,'回势 · 返 1 AP')}break;
  case 51:B(6);s.discount=1;log(s,'整弦 · 下一张箭少花 1 AP');break;
  case 52:H(3);break;
+ case 60:B(6);break;
+ case 61:S(s.guard?11:7);break;
+ case 62:B(5);s.parry=e.id;log(s,'招架 · 等待 '+e.name+' 出手');break;
+ case 63:S(6);s.edge+=3;log(s,'剑势 +3');break;
+ case 64:B(5);s.edge+=3;log(s,'剑势 +3');break;
+ case 65:for(let i=1;i<=3&&e.hp;i++)S(8,'三连斩 · 第 '+i+' 刀');break;
+ case 66:S(5);if(e.hp)e.opening=5;break;
+ case 67:S(18);break;
+ case 68:{const ls=live(s),i=ls.indexOf(e),around=[ls[i-1],ls[i+1]].filter(Boolean);S(12);for(const other of around)S(5,'横扫 · 侧击',other);break}
+ case 69:S(7);if(e.hp){e.ghost=2;log(s,e.name+' · 附着鬼火')}break;
+ case 70:if(eatGhost(s,e)){s.edge+=3;log(s,'剑势 +3')}S(6);break;
+ case 71:a=eatGhost(s,e);S(7);if(a)heal(s,3);break;
+ case 72:a=e.ghost;if(S(9).kill&&a)heal(s,5);break;
+ case 73:s.hp-=3;B(8);s.armorPower=4;log(s,'活甲 · 付 3 HP，本轮每刀 +4');break;
  default:throw Error('Unimplemented card '+id)
  }
  if(echo){
@@ -175,29 +199,30 @@ function play(s,id,who=-1,arg={}){
 function end(s){
  if(s.result||s.discardDue)return false;
  for(const e of live(s)){
-  if(takeBurn(s,e,true))continue;
+  if(takeBurn(s,e,true)||ghostTick(s,e))continue;
   const m=move(s,e);
   if(!Array.isArray(m)&&m<=0){if(m<0){e.guard=-m;log(s,e.name+' 架盾 '+(-m))}else log(s,e.name+' 蓄势');continue}
   if(e.locked&&!e.boss){e.locked=false;e.weaken=0;log(s,e.name+' 冻结 · 跳过攻击');continue}
-  const parts=Array.isArray(m)?m.slice():[m];let reduce=(e.locked?4:0)+e.weaken;e.locked=false;e.weaken=0;
+  const parts=Array.isArray(m)?m.slice():[m];let reduce=(e.locked?4:0)+e.weaken;e.locked=false;e.weaken=0;let took=0,hits=0;
   for(let n of parts){
-   if(s.hp<=0||!e.hp)break;const red=Math.min(reduce,n);reduce-=red;n-=red;if(n<=0)continue;
+   if(s.hp<=0||!e.hp)break;const red=Math.min(reduce,n);reduce-=red;n-=red;if(n<=0)continue;hits++;
    const g=Math.min(s.guard,n);s.guard-=g;n-=g;
    if(n&&s.cap){n=Math.min(n,5);s.cap=false}
-   s.hp=Math.max(0,s.hp-n);log(s,e.name+' → 弓手 '+(n?'−'+n+' HP':'未掉血')+(g?'（挡 '+g+'）':''));
+   s.hp=Math.max(0,s.hp-n);took+=n;log(s,e.name+' → '+(s.role==='sword'?'大剑':'弓手')+' '+(n?'−'+n+' HP':'未掉血')+(g?'（挡 '+g+'）':''));
    if(s.afterGuard){s.guard+=s.afterGuard;log(s,'架弓 · 追加格挡 '+s.afterGuard);s.afterGuard=0}
    if(g&&s.counter&&s.hp>0){dealt(s,e,s.counter,'反手箭');s.counter=0}
   }
+  if(s.parry===e.id&&hits&&!took&&s.hp>0&&e.hp){swordHit(s,e,6,'招架 · 反斩');s.parry=-1}
   if(s.hp<=0)break
  }
  if(done(s))return true;
- s.turn++;s.shadow=false;s.discount=0;s.ap=3;s.guard=s.carry;s.carry=0;s.cap=false;s.afterGuard=0;s.counter=0;s.kills=0;s.waveKill=false;
- for(const e of live(s)){e.hits=0;e.broke=false}
+ s.turn++;s.shadow=false;s.armorPower=0;s.parry=-1;s.discount=0;s.ap=3;s.guard=s.carry;s.carry=0;s.cap=false;s.afterGuard=0;s.counter=0;s.kills=0;s.waveKill=false;
+ for(const e of live(s)){e.hits=0;e.broke=false;e.opening=0}
  if(s.stage===1&&s.turn===2){s.enemies.push(enemy(['碎壳哨兵',16,[0,7,8,-4]],1),enemy(['岩缝猎虫',16,[0,6,7,-4]],2));log(s,'两只增援进场')}
  s.bin.push(...s.hand.splice(0));s.hand=s.retain.splice(0);draw(s,6);
  pulse(s);done(s);return true
 }
-return {STAGES,byId,room,clone,live,move,play,end,offer,valid,needs,weapon,log,cost,discard}
+return {STAGES,eligible,byId,room,clone,live,move,play,end,offer,valid,needs,weapon,log,cost,discard}
 })();
 
  const ART=(()=>{
@@ -207,7 +232,8 @@ return {STAGES,byId,room,clone,live,move,play,end,offer,valid,needs,weapon,log,c
  const guard=frame('<path d="M53 94L66 88 87 91 96 113 87 142 69 159 45 158 42 150 50 140Z" fill="#534d5a"/><path d="M102 95L124 93 139 112 136 141 150 152 144 158 118 158 101 140 95 115Z" fill="#655c68"/><path d="M64 53L76 45 112 43 130 58 125 90 113 113 84 119 61 99Z" fill="#897d86"/><path d="M79 53L108 50 123 61 119 75 90 78 66 69Z" fill="#b0a08f"/><path d="M62 72L91 83 95 112 84 117 64 100Z" fill="#6e6472"/><path d="M92 82L120 75 124 89 109 111 98 112Z" fill="#483e50"/><path d="M67 51L36 55 25 71 30 99 50 111 67 99 65 78Z" fill="#6f6674"/><path d="M35 56L53 54 64 67 52 83 30 80 26 70Z" fill="#a29484"/><path d="M33 94L46 99 57 114 50 137 30 136 22 121Z" fill="#857481"/><path d="M129 53L148 57 158 77 149 101 132 105 121 79Z" fill="#766a75"/><path d="M139 94L157 95 164 122 152 138 136 136 129 117Z" fill="#9c8a83"/><path d="M78 26L90 15 112 19 125 34 114 53 92 56 72 45Z" fill="#aea091"/><path d="M78 36L94 28 118 33 115 43 94 47 77 43Z" fill="#4e4456"/><path d="M86 39L95 36 109 38" fill="none" stroke="#b2d3c3" stroke-width="2.5"/><path d="M88 78L99 84 96 95 104 99 101 110M48 61L43 72 49 79M108 131L118 138 122 151M36 109L29 119" fill="none" stroke="#b0bcac" stroke-width="1.7"/><path d="M57 117L68 112M55 125L67 120M111 92L119 87M109 100L117 94" fill="none" stroke="#403848" stroke-width="1.5"/>');
  const boss=frame('<path d="M50 108L75 95 91 113 84 144 65 160 38 158 29 150 44 131ZM105 110L129 95 147 114 137 141 157 149 149 160 116 159 101 139Z" fill="#6c5d73"/><path d="M54 48L81 30 122 38 141 59 139 104 119 125 73 126 44 99Z" fill="#807286"/><path d="M54 49L81 35 118 40 131 58 110 79 61 73Z" fill="#ae9d99"/><path d="M49 75L66 79 82 96 77 122 57 111 47 96ZM117 80L139 63 137 103 119 125 102 120 104 98Z" fill="#4e435e"/><path d="M72 74L106 74 121 93 110 117 85 122 66 102Z" fill="#292434"/><path d="M79 92L95 81 110 91 104 106 86 110Z" fill="#bed3c3"/><path d="M81 93L94 89 103 94 97 104 89 103Z" fill="#6c9b94"/><path d="M23 63L51 51 61 71 52 104 38 119 13 113 7 95ZM131 54L156 57 170 86 168 104 147 118 128 102 135 83Z" fill="#9c8989"/><path d="M18 72L30 65 35 82 19 102 12 94ZM151 69L159 82 155 103 146 108 143 89Z" fill="#c2998a"/><path d="M41 51L42 30 53 35 64 13 75 29 81 5 96 23 114 13 119 39 129 29 140 55 119 45 79 41 57 56Z" fill="#59516b"/><path d="M44 43L53 40 64 23 71 37 82 17 92 29 111 22 115 39 128 39 132 46" fill="none" stroke="#a4a5a9" stroke-width="2"/><path d="M28 85L41 77 49 79M22 102L35 95 42 98M138 76L153 84M143 94L161 99M73 112L61 101M114 114L127 103" fill="none" stroke="#473c52" stroke-width="1.7"/>');
  const lantern=frame('<path d="M75 53Q75 37 90 34 107 37 107 53" fill="none" stroke="#cbbd93" stroke-width="5"/><path d="M63 65L76 52H105L118 65 111 126 92 145 70 124Z" fill="#566a67"/><path d="M74 69L85 62 100 62 109 69 103 120 92 132 80 119Z" fill="#c5dbbf"/><path d="M85 65L83 118M101 65L100 118M65 68H117M67 126H113" stroke="#454139" fill="none" stroke-width="4"/><path d="M91 71L99 92 92 110 86 91Z" fill="#edf2d2" stroke="#9dbbac" stroke-width="1"/>');
- return {archer,shadow:archer,beetle,guard,boss,lantern};
+ const sword=frame('<path d="M67 54Q52 65 44 97l-8 45 26-5 10-17 28 6 20 28 25-8-17-49-22-36z" fill="#4c4354"/><path d="M70 54l-7 36 18 35 23-9 8-36-19-26z" fill="#dbd4c3"/><path d="M76 65l6 28 12-32 6 47-18 16-13-30z" fill="#807580"/><path d="M68 54l-12 8-9 30 20-1 8-16zM94 55l20 5 17 27-20 7-10-11z" fill="#a9a1a8"/><path d="M73 48q-6-24 10-30 13-4 24 9l-3 25-20 10z" fill="#332d39"/><path d="M73 43l31-10-5 20-14 5z" fill="#a69eaa"/><path d="M83 43l17-5" stroke="#d1b1ec" stroke-width="2"/><path d="M62 119l-9 24-9 12 25 1 13-32m22 0 10 25 25 4-16-19-4-17" fill="#403643"/><path d="M92 126L144 39l16-19-4 26-51 91z" fill="#c3bbc5"/><path d="M100 129l50-91m-64 82 26 15m-16-7-14 22" stroke="#6b527e" stroke-width="4"/><path d="M56 104l11 22 15-2-1-10-17-16m47-6-14 24 4 12 14-5 12-29" fill="#9f96a2"/>');
+ return {sword,archer,shadow:archer,beetle,guard,boss,lantern};
 })();
 const ICONS={
  arrow:'<path d="M10 42 41 11M30 11h11v11M10 34v8h8"/><path d="m18 40-8-8M23 35l-8-8"/>',
@@ -226,43 +252,44 @@ const pictogram=q=>[16,23,25,27,29].includes(q.id)?'shadow':[15,21,26].includes(
 
  const A=document.querySelector('#app'),POOL=document.querySelector('#pool'),LOG=document.querySelector('#log');
 const newSeed=()=>crypto.getRandomValues(new Uint32Array(1))[0]||1;
-let seed=newSeed(),stage=0,s=Engine.room(stage,seed),snapshot=Engine.clone(s),sel=null,first=null,dialog=null,notice='',fx={};
+let role='archer',seed=newSeed(),stage=0,s=Engine.room(stage,seed,role),snapshot=Engine.clone(s),sel=null,first=null,dialog=null,notice='',fx={};
 const card=x=>Engine.byId[x];
-function init(st=stage,n=seed){stage=st;seed=n;s=Engine.room(stage,seed);snap();clear();notice='';fx={};render()}
+function init(st=stage,n=seed){stage=st;seed=n;s=Engine.room(stage,seed,role);snap();clear();notice='';fx={};render()}
 function snap(){snapshot=Engine.clone(s)}
 function clear(){sel=null;first=null;dialog=null}
 const elName=x=>x&&x!=='无'?x+'波':'余光';
 function btn(t,a,opts=''){return '<button type="button" data-a="'+a+'" '+opts+'>'+t+'</button>'}
 function selectAttr(x){return 'aria-pressed="'+x+'"'}
 function active(){return sel!==null?s.hand[sel]:undefined}
-function delta(fn){const h=s.hp, prior=Object.fromEntries(s.enemies.map(e=>[e.id,e.hp]));const ok=fn();if(ok){fx={hero:h-s.hp};for(const e of s.enemies)fx[e.id]=(prior[e.id]??e.max)-e.hp}return ok}
+function delta(fn){const h=s.hp, prior=Object.fromEntries(s.enemies.map(e=>[e.id,e.hp]));s.events=[];const ok=fn();if(ok){fx={hero:h-s.hp,events:s.events};for(const e of s.enemies)fx[e.id]=(prior[e.id]??e.max)-e.hp}return ok}
 const pop=n=>n>0?'<span class="float" aria-hidden="true">−'+n+'</span>':'';
 const meter=(hp,max)=>'<span class="meter" aria-hidden="true"><i style="width:'+Math.round(100*hp/max)+'%"></i></span>';
 const unitUnder=(name,hp,max,extra='')=>'<span class="under"><span class="name">'+name+'</span>'+meter(hp,max)+'<span class="numbers">'+hp+'/'+max+' HP'+extra+'</span></span>';
 const terrain='<svg class="terrain" viewBox="0 0 1100 345" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><path fill="#272131" d="M0 0h1100v345H0z"/><path fill="#493949" d="m0 165 106-72 61 18 67-41 108 63 48 8 99-66 105 78L721 87l60 20 83-63 98 45 138-11v171H0z"/><path fill="#342939" d="m0 169 98-25 35 13 87-51 95 61 59-14 119 31 118-52 126 40 82-39 70-47 54 51 157 19v153H0z"/><path fill="#4a3d4e" d="m0 226 174-13 99-17 204 6 95-10 256 10 272 19v124H0z"/><path fill="#594b5a" d="m0 238 258-31 219-5 234 2 191 11 198 20v48l-209-30-228-14-222 4-266 21L0 284z"/><path fill="#302635" d="M0 307l299-53 87 5 144-18 86 17 132 6 181 24 171 13v44H0z"/><path d="M27 207l92-30m20 13 60-42m95 30 43 12m91-32 64-34m123 77 62-24m64-13 104-40m39 8 70 14M25 254l141-19m75 26 91-9m482 3 111 14m32-49 51 7M229 312l128-28m407-4 155 28" fill="none" stroke="#8d747e" stroke-opacity=".53" stroke-width="2"/><path d="M45 229q115-14 221-23m542 29q102 1 187 19M100 299q230-50 399-51m66 35q207-4 451 37" fill="none" stroke="#b79a87" stroke-opacity=".3" stroke-width="3"/></svg>';
+function damage(e){const events=(fx.events||[]).filter(x=>x.id===e.id);return events.length>1?events.map((v,i)=>'<span class="float multi '+(v.shadow?'echo-dmg':'')+'" style="--i:'+i+'">−'+v.loss+'</span>').join(''):pop(fx[e.id])}
 function render(){
- const room=Engine.STAGES[stage],ready=sel!==null&&Engine.needs(card(active()))&&!dialog;
- const allies='<div class="unit hero" aria-label="弓手">'+ART.archer+unitUnder('弓手',s.hp,s.max,s.guard?' · 挡 '+s.guard:'')+pop(fx.hero)+'</div>'+
- (s.shadow?'<div class="unit shadow-unit">'+ART.shadow+'<span class="under"><span class="name">影子</span><span class="numbers">下一张箭再打一次</span></span>'+'</div>':'');
- const lamp='<div class="unit lamp-unit"><span aria-hidden="true" class="lamp-tint '+({'冰':'cold','火':'heat','电':'spark'}[s.lamp.el]||'')+'">'+ART.lantern+'</span><span class="under"><span class="name">引路灯</span><span class="numbers">'+(s.lamp.el?s.lamp.el+'灯':'常驻 · 等待元素')+'</span></span></div>';
+ const room=Engine.STAGES[stage],sword=role==='sword',hero=sword?'大剑士':'弓箭手',ready=sel!==null&&Engine.needs(card(active()))&&!dialog;
+ const allies='<div class="unit hero" aria-label="'+hero+'">'+ART[role]+unitUnder(hero,s.hp,s.max,(s.guard?' · 挡 '+s.guard:'')+(s.armorPower?' · 活甲':''))+pop(fx.hero)+'</div>'+
+ (s.shadow?'<div class="unit shadow-unit">'+ART.shadow+'<span class="under"><span class="name">影子</span><span class="numbers">本轮每张箭跟射</span></span>'+'</div>':'');
+ const lamp=sword?'':'<div class="unit lamp-unit"><span aria-hidden="true" class="lamp-tint '+({'冰':'cold','火':'heat','电':'spark'}[s.lamp.el]||'')+'">'+ART.lantern+'</span><span class="under"><span class="name">引路灯</span><span class="numbers">'+(s.lamp.el?s.lamp.el+'灯':'常驻 · 等待元素')+'</span></span></div>';
  const foes=s.enemies.filter(e=>e.hp||fx[e.id]).map(e=>{
   const m=Engine.move(s,e),intent=Array.isArray(m)?m.join('＋')+' 连击':m>0?'攻击 '+m:m<0?'架盾 '+(-m):'蓄势';
-  const info=(e.guard?' · 挡'+e.guard:'')+(e.locked?(e.boss?' · 霜裂':' · 冻结'):(e.frost?' · 霜 '+e.frost+'/5':''))+(e.burn?' · 灼'+e.burn:'')+(e.spark?' · 电标':'');
+  const info=(e.guard?' · 挡'+e.guard:'')+(e.locked?(e.boss?' · 霜裂':' · 冻结'):(e.frost?' · 霜 '+e.frost+'/5':''))+(e.burn?' · 灼'+e.burn:'')+(e.spark?' · 电标':'')+(e.ghost?' · 鬼火':'');
   const art=e.boss?ART.boss:/甲虫|猎虫/.test(e.name)?ART.beetle:/精英/.test(e.name)?ART.boss:ART.guard;
-  return '<button class="unit foe '+(ready&&e.hp?'target ':'')+(first===e.id?'first ':'')+(e.boss?'boss ':'')+(!e.hp?'dead':'')+'" data-a="foe:'+e.id+'" '+(!e.hp||s.result?'disabled':'')+'>'+art+unitUnder(e.name,e.hp,e.max,info)+'<span class="intent">'+(e.hp?intent:'已击倒')+'</span>'+pop(fx[e.id])+'</button>'
+  return '<button class="unit foe '+(ready&&e.hp?'target ':'')+(first===e.id?'first ':'')+(e.boss?'boss ':'')+(!e.hp?'dead':'')+'" data-a="foe:'+e.id+'" '+(!e.hp||s.result?'disabled':'')+'>'+art+unitUnder(e.name,e.hp,e.max,info)+'<span class="intent">'+(e.hp?intent:'已击倒')+'</span>'+damage(e)+'</button>'
  }).join('');
- let hint=notice||'攻击牌 → 点怪；格挡直接用。';
+ let hint=notice||'点牌出手。有多个目标时再点怪。';
  if(s.discardDue)hint='整备：已抽两张，点一张手牌弃掉。';
  else if(dialog?.type==='pick')hint='选一张入手，另一张放牌库底。';
  else if(dialog?.type==='hold')hint='选一张牌留到下回合。';
  else if(active()===18&&first!==null)hint='再点第二发目标，可以是同一只。';
  else if(ready)hint='已选「'+card(active()).name+'」，点击发亮的怪。';
- else if(s.shadow)hint='影子在场，这回合下一张弓箭会原样打两次。';
+ else if(s.shadow)hint='幻影：本回合每张箭都跟射。';
  else if(stage===1&&s.turn===1&&!s.result)hint+=(notice?' · ':' ')+'下一回合有两只增援。';
  const choices=dialog?'<div class="row choices">'+dialog.items.map((q,i)=>btn(card(q).name,'choice:'+i)).join('')+btn('取消','cancel')+'</div>':'';
- A.innerHTML='<div class="row stages">'+Engine.STAGES.map((q,i)=>btn(q.name,'stage:'+i,selectAttr(stage===i))).join('')+'<span class="tail seed hint">牌序 '+seed+'</span>'+btn('换随机手牌','reroll','class="action-slim"')+'</div>'+
- '<div class="row status"><b>'+room.subtitle.replace(' · 猎月终击',' · 首领战')+'</b><span class="hint">第 '+s.turn+' 回合</span>'+(s.focus?'<span class="badge">专注 '+s.focus+'</span>':'')+(s.discount?'<span class="badge">下一箭 −1 AP</span>':'')+'</div>'+
- '<div class="arena '+(s.lamp.el?'lit ':'')+(ready?'picking':'')+'" aria-label="战斗场景">'+terrain+'<div class="field-glow"></div><div class="hero-zone zone-zone">'+allies+'</div><div class="zone-zone">'+lamp+'</div><div class="foe-zone zone-zone">'+foes+'</div></div>'+
+ A.innerHTML='<div class="row stages rolebar">'+btn('弓箭手','role:archer',selectAttr(!sword))+btn('大剑士','role:sword',selectAttr(sword))+'<span class="tail"></span>'+btn('重 Roll 牌组','reroll','class="roll"')+'</div><div class="row stages phases">'+Engine.STAGES.map((q,i)=>btn(q.name,'stage:'+i,selectAttr(stage===i))).join('')+'</div>'+
+ '<div class="row status"><b>'+room.subtitle.replace(' · 猎月终击',' · 首领战')+'</b><span class="hint">第 '+s.turn+' 回合</span>'+(s.focus?'<span class="badge">专注 '+s.focus+'</span>':'')+(s.discount?'<span class="badge">下一箭 −1 AP</span>':'')+(s.edge?'<span class="badge">剑势 ＋'+s.edge+'/刀</span>':'')+'</div>'+
+ '<div class="arena '+(s.lamp.el?'lit ':'')+(ready?'picking ':'')+(sword?'sword-arena':'')+'" aria-label="战斗场景">'+terrain+'<div class="field-glow"></div><div class="hero-zone zone-zone">'+allies+'</div><div class="zone-zone">'+lamp+'</div><div class="foe-zone zone-zone">'+foes+'</div></div>'+
  '<div class="steps" aria-live="polite"><b class="step">出牌提示</b><span class="arrowhint">›</span><span class="signal">'+hint+'</span></div>'+choices+
  '<div class="actions"><b class="stretch">'+(s.result?(s.result==='赢'?'本关通过':'本关失败'):'<span class="ap-dots" aria-hidden="true">'+('●'.repeat(Math.max(0,s.ap)))+('○'.repeat(Math.max(0,3-s.ap)))+'</span>'+s.ap+' / 3 AP')+'</b>'+
  (s.result?(s.result==='赢'&&stage<2?btn('下一阶段','next','class="end-action"'):btn('再开一把','reroll','class="end-action"')):btn('重试本回合','retry','class="action-slim"')+btn('结束回合','end','class="end-action" '+(s.discardDue?'disabled':'')))+'</div>'+
@@ -270,10 +297,12 @@ function render(){
  '<div class="hand">'+s.hand.map((id,i)=>{
   const q=card(id),type=q.kind==='防'?'格挡':q.kind==='功能'?'技巧':q.id===46?'终结':Engine.weapon(q)?'武器':'法术';
   const cls=q.kind==='防'?'def':q.kind==='功能'||q.id===46?'util':'atk';
-  const description=q.desc.replace(/(\d+(?:\s*AP)?)/g,'<strong>$1</strong>');
+  const description=q.short.replace(/(\d+(?:\s*AP)?)/g,'<strong>$1</strong>');
   return btn('<span class="card-art">'+mark(q.id===46?'magic':pictogram(q))+'<span class="fee" title="AP 费用">'+Engine.cost(s,q)+'</span><span class="type">'+type+'</span></span><span class="card-copy"><b>'+q.name+'</b><span class="desc">'+description+'</span></span>','card:'+i,'class="card '+cls+'" '+selectAttr(sel===i)+(Engine.valid(s,q)||s.discardDue?'':' disabled'))
  }).join('')+'</div>'+
- '<p class="caption hint">灯常驻。打冰、电、火牌会切换灯色；幻影只复制下一张弓箭。</p>'+btn('用同样的牌重开','restart','class="action-slim"');
+ '<p class="caption hint">'+(sword?'剑势：每刀加伤。鬼火：破火加剑势，吞火回血。':'灯自动补元素。幻影：本轮每张箭都多打一遍。')+'</p>';
+ const picks=[...new Set(s.loadout)].sort((a,b)=>card(a).cost-card(b).cost||a-b);
+ POOL.innerHTML=picks.map(id=>{const q=card(id);return '<div><b>'+q.name+'</b> ×'+s.loadout.filter(x=>x===id).length+' · '+q.cost+' 费<br>'+q.short+'</div>'}).join('');
  LOG.innerHTML=s.lines.map(x=>'<li>'+x+'</li>').join('');
 }
 function checkResult(ok){if(ok){notice=s.lines[0]||'';clear()}render()}
@@ -284,18 +313,17 @@ function chooseCard(i){
  if(!Engine.valid(s,q))return;
  if(sel===i){clear();render();return}
  clear();sel=i;fx={};
- if(id===17){
-  const items=id===8?Engine.offer(s):s.hand.filter((_,k)=>k!==i);
-  if(items.length>1){dialog={type:id===8?'pick':'hold',items,id};render();return}
-  play(id,-1,{choice:0,hold:items.length?0:undefined});return
+ const foes=Engine.live(s);
+ if(Engine.needs(q)){
+  if(foes.length===1){play(id,foes[0].id,{to:foes[0].id});return}
+  render();return
  }
- if(id===41){const options=Engine.live(s).filter(e=>{const v=Engine.move(s,e);return v>0||Array.isArray(v)});if(!options.length){play(id);return}if(options.length===1){play(id,options[0].id);return}}
- if(Engine.needs(q)){render();return}
  play(id)
 }
 A.addEventListener('click',ev=>{
  const button=ev.target.closest('button[data-a]');if(!button||button.disabled)return;
  const [act,val]=button.dataset.a.split(':'),n=Number(val);
+ if(act==='role'){if(role!==val){role=val;init(stage,newSeed())}return}
  if(act==='stage'){init(n,newSeed());return}
  if(act==='reroll'){init(stage,newSeed());return}
  if(act==='restart'){init();return}
@@ -311,12 +339,12 @@ A.addEventListener('click',ev=>{
  }
  if(act==='foe'){
   const id=active();if(id===undefined||dialog)return;
-  if(id===18&&first===null){first=n;render();return}
+  if(id===18&&first===null&&Engine.live(s).length>1){first=n;render();return}
   if(id===28){const e=Engine.live(s).find(x=>x.id===n),items=Engine.offer(s);if(e&&(e.frost||e.locked||e.burn)&&items.length>1){dialog={type:'pick',items,id,who:n};render();return}}
   play(id,first===null?n:first,{to:n});
  }
 });
-POOL.innerHTML=CARDS.map(q=>'<div><b>'+q.name+'</b> · '+q.cost+' AP <small>'+(q.experimental?'联动试验':Engine.STAGES[q.stage].name)+(q.common?' · 通用':'')+'</small><br>'+q.desc+'</div>').join('');
+
 render();
 
 </script></body></html>
