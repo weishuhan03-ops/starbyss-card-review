@@ -27,7 +27,7 @@ const refs=[
  {title:'箭与防护面',card:'格挡',url:'https://game-icons.net/1x1/lorc/arrows-shield.html',source:'Game-icons · Lorc · Arrows shield（CC BY 3.0）',note:'参考图用来箭和盾面的位置交代防御。木盾候选沿用了这个关系，并简化为一支箭。'}];
 const selectOptions=(select,values)=>select.replaceChildren(...values.map(x=>new Option(x,x)));
 const el=(tag,cls,txt)=>{const e=document.createElement(tag);if(cls)e.className=cls;if(txt!==undefined)e.textContent=txt;return e};
-const artName={approvedDouble:'已确认珐琅原画',sword_ghostfire:'鬼火原画',kick:'踢退旧卡插画',guard:'木盾与单箭',guardArm:'护臂候选',double:'珐琅候选',sketch:'铅笔草稿'};
+const artName={approvedDouble:'双响 · 已确认珐琅原画',sword_ghostfire:'鬼火原画',kick:'踢退旧卡插画',guard:'木盾与单箭',guardArm:'护臂候选',double:'珐琅候选',sketch:'铅笔草稿'};
 const defaults=new Map(catalog.map((c,i)=>{const pics=c.candidates||[];return [c.id,{...c,choices:pics,selected:pics[0]||'',state:pics.length?'待筛选':'待填图',idea:ideas[i]||'',note:''}]}));
 for(const id of ['sword_ghostfire','kick','A03'])defaults.get(id).state='已选定';
 Object.assign(defaults.get('A04'),{choices:['approvedDouble','sketch','double'],selected:'approvedDouble',state:'已选定'});
@@ -43,7 +43,15 @@ const builds=[
  {name:'蓄力与贯穿',role:'剑士',ids:['charge','S01','combo'],body:'先蓄力，再选择贯穿斩或连斩。后位暴击是讨论方案，加伤与暴击的顺序、加伤覆盖几段都待定。'},
  {name:'守转攻',role:'剑士',ids:['counter','sword_ember_guard'],body:'反击架势加护甲并强化下一张攻击；余烬架势在完全挡住攻击时给敌人挂火。看敌人这次会打多重，再选防守牌。'}
 ];
-function bdCard(id){return overrides.get(id)||defaults.get(id)}
+function bdCard(id){
+ const base=defaults.get(id),saved=overrides.get(id);
+ if(!saved||!base)return saved||base;
+ const missing=base.choices.filter(key=>!saved.choices.includes(key));
+ if(!missing.length)return saved;
+ const choices=[...missing,...saved.choices];
+ const wasOldSketch=id==='A04' && missing.includes('approvedDouble') && saved.selected==='sketch' && saved.state==='待筛选';
+ return {...saved,choices,...(wasOldSketch?{selected:'approvedDouble',state:'已选定'}:{})};
+}
 function openLinked(id){
  const c=bdCard(id);if(!c||busy)return;
  if($('editor').open&&dirty&&!confirm('放弃未保存的修改，查看搭配牌？'))return;
@@ -57,11 +65,11 @@ $('showBuilds').onclick=openBuilds;
 function renderBD(id){const box=$('bdInfo');box.replaceChildren();const c=defaults.get(id);if(!c)return;
  box.append(el('small','',(c.alias?'原名「'+c.alias+'」 · ':'')+c.source),el('h3','',c.bdTag),el('p','',c.bdNote));
  for(const b of builds.filter(x=>x.ids.includes(id))){const d=el('details');d.append(el('summary','',b.name),el('p','',b.body),makeChips(b.ids.filter(x=>x!==id)));box.append(d)}
- const list=catalog.filter(x=>x.role===c.role&&x.tier===c.tier);const a=el('a','muted','在核对册查看这一组 ↗');
- const grade=c.tier==='基础'?'普通':c.tier==='调整案'?'待定':c.tier;a.href=$('reviewHome').href+'#'+new URLSearchParams({role:c.role==='剑士'?'sword':'archer',grade,page:1+Math.floor(list.findIndex(x=>x.id===id)/6)});a.target='_blank';a.rel='noopener';box.append(a);
+ const a=el('a','','核对这张牌的功效与搭配 ↗');
+ a.href=$('reviewHome').href+'#card='+encodeURIComponent(id);a.target='_blank';a.rel='noopener';box.prepend(a);
 }
 function requestedCard(){const id=new URLSearchParams(location.hash.slice(1)).get('card');if(id)openLinked(id)}
-const all=()=>Array.from(new Map([...defaults,...overrides]).values());
+const all=()=>Array.from(new Set([...defaults.keys(),...overrides.keys()]),bdCard);
 const imgSrc=key=>art[key]||key;
 function photo(key,alt){const im=el('img');im.src=imgSrc(key);im.alt=alt;return im}
 function status(text){$('toast').textContent=text;clearTimeout(status.timer);status.timer=setTimeout(()=>$('toast').textContent='',3200)}
@@ -125,7 +133,7 @@ async function save(next){
  const nextId=shown[shown.findIndex(c=>c.id===editing)+1]?.id;
  Object.assign(working,{name,effect,role:$('roleIn').value,tier:$('tierIn').value,ap:$('apIn').value.trim()||'待定',idea:$('ideaIn').value.trim(),note:$('noteIn').value.trim(),state:$('stateIn').value});
  busy=true;$('form').inert=true;
- try{if(db)await transaction('readwrite',s=>s.put(working));overrides.set(editing,structuredClone(working));dirty=false;render();$('editor').close();status(db?'已保存':'已暂存，请导出记录');if(next&&nextId)openCard(overrides.get(nextId)||defaults.get(nextId))}
+ try{if(db)await transaction('readwrite',s=>s.put(working));overrides.set(editing,structuredClone(working));dirty=false;render();$('editor').close();status(db?'已保存':'已暂存，请导出记录');if(next&&nextId)openCard(bdCard(nextId))}
  catch(e){$('alert').textContent='保存失败，请检查浏览器可用空间。修改仍在窗口中。'}finally{busy=false;$('form').inert=false}
 }
 $('form').onsubmit=e=>{e.preventDefault();save(false)};$('next').onclick=()=>save(true);
